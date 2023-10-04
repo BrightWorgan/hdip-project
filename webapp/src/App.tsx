@@ -1,9 +1,10 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import Navbar from "./Navbar";
+import Navbar from "./common/Navbar";
 import "./App.css";
 import Home from "./home";
+import Footer from "./common/Footer";
 
 export enum Tabs {
   Home = 0,
@@ -20,7 +21,7 @@ const App = () => {
   return (
     <>
       <Navbar tab={tab} onClick={setTab} />
-      {tab === Tabs.Home ? <Home/> : null}
+      {tab === Tabs.Home ? <Home /> : null}
 
       {tab === Tabs.Project ? <h1>Project page is working</h1> : null}
 
@@ -33,7 +34,7 @@ const App = () => {
       {tab === Tabs.User_Profile ? <h1>User Profile page is working</h1> : null}
 
       {tab === Tabs.Settings ? <h1>Settings page is working</h1> : null}
-
+      <Footer />
       {/* <Navbar tab={tab} onClick={setTab}/>
     {
       tab === Tabs.Project ? (
