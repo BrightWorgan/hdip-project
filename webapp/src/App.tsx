@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import Navbar from "./Navbar";
 import "./App.css";
+import Home from "./home";
 
 export enum Tabs {
   Home = 0,
@@ -19,7 +20,7 @@ const App = () => {
   return (
     <>
       <Navbar tab={tab} onClick={setTab} />
-      {tab === Tabs.Home ? <h1>You are on the HOME page</h1> : null}
+      {tab === Tabs.Home ? <Home/> : null}
 
       {tab === Tabs.Project ? <h1>Project page is working</h1> : null}
 
