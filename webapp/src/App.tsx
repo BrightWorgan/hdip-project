@@ -18,7 +18,7 @@ export enum Tabs {
 }
 
 const App = () => {
-  const [tab, setTab] = useState(Tabs.Project);
+  const [tab, setTab] = useState(Tabs.Home);
   return (
     <>
       <Navbar tab={tab} onClick={setTab} />

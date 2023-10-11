@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TeamTable from "./table";
 import FAB from "./fab";
+import TeamModal from "./modalBackdrop";
 
 const userList = [
   {
@@ -43,11 +44,20 @@ const userList = [
 
 const Team = () => {
   const [users, setUsers] = useState(userList);
-  const addUser = (user) => {
+  const addUser = (user: any) => {
     console.log(user);
     const newUserList = users.concat([user]);
     setUsers(newUserList);
   };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  const onToggle = () => {
+    toggle();
+  };
+
   return (
     <div>
       <h2>Welcome to Sheet Scribe</h2>
@@ -55,7 +65,8 @@ const Team = () => {
       <br></br>
       <h4>Team Members:</h4>
       <TeamTable users={users} />
-      <FAB onAdd={addUser} />
+      <FAB onToggle={onToggle} />
+      <TeamModal toggle={onToggle} isOpen={isOpen} />
     </div>
   );
 };

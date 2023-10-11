@@ -1,29 +1,15 @@
 import {
   Container,
   Button,
-  Link,
   lightColors,
   darkColors,
+  // @ts-ignore
 } from "react-floating-action-button";
 
-import { Beverage } from "./icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckSquare } from "@fortawesome/free-solid-svg-icons/faCheckSquare";
-
-const user = {
-  name: "Sarah",
-  surname: "Halford",
-  number: "0000000002",
-  email: "X00192313@mytudublin.ie",
-  address: "place, street road, Rush, Co. Dublin",
-  experience: "Site Assiastant",
-  education: "Level 8",
-  certs: "Training Certs",
-  drive: "Yes",
-  position: "Supervisor",
+type FABProps = {
+  onToggle: () => void;
 };
-
-const FAB = (props) => {
+const FAB = (props: FABProps) => {
   return (
     <Container>
       <Button
@@ -43,6 +29,7 @@ const FAB = (props) => {
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
         }}
+        onClick={() => alert("CLick is working!")}
       />
       <Button
         href="#"
@@ -52,7 +39,8 @@ const FAB = (props) => {
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
         }}
-        onClick={() => props.onAdd(user)}
+        onClick={() => props.onToggle()}
+        //onClick={() => props.onAdd(user)}
       />
 
       <Button
