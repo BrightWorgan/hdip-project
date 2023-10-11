@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import Navbar from "./common/Navbar";
 import "./App.css";
 import Home from "./home";
+import Team from "./team";
 import Footer from "./common/Footer";
 
 export enum Tabs {
@@ -17,7 +18,7 @@ export enum Tabs {
 }
 
 const App = () => {
-  const [tab, setTab] = useState(Tabs.Project);
+  const [tab, setTab] = useState(Tabs.Home);
   return (
     <>
       <Navbar tab={tab} onClick={setTab} />
@@ -27,7 +28,7 @@ const App = () => {
 
       {tab === Tabs.Location ? <h1>Location page is working</h1> : null}
 
-      {tab === Tabs.Team ? <h1>Team page is working</h1> : null}
+      {tab === Tabs.Team ? <Team /> : null}
 
       {tab === Tabs.Reports ? <h1>Reports page is working</h1> : null}
 
