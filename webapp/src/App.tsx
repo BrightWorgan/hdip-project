@@ -5,6 +5,7 @@ import Navbar from "./common/Navbar";
 import "./App.css";
 import Home from "./home";
 import Team from "./team";
+import Project from "./projects";
 import Footer from "./common/Footer";
 
 export enum Tabs {
@@ -24,7 +25,7 @@ const App = () => {
       <Navbar tab={tab} onClick={setTab} />
       {tab === Tabs.Home ? <Home /> : null}
 
-      {tab === Tabs.Project ? <h1>Project page is working</h1> : null}
+      {tab === Tabs.Project ? <Project /> : null}
 
       {tab === Tabs.Location ? <h1>Location page is working</h1> : null}
 
