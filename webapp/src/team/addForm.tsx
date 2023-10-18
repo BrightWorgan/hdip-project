@@ -8,6 +8,7 @@ import {
   Button,
   FormProps,
 } from "reactstrap";
+import { lightColors, darkColors } from "react-floating-action-button";
 
 const AddForm = (props) => {
   const onSubmit = (e: Event): void => {
@@ -71,14 +72,6 @@ const AddForm = (props) => {
           placeholder="Apt 23, The Farmhouse"
         />
       </FormGroup>
-      {/* <FormGroup>
-                <Label for="addressL2">Primary Address Line 2</Label>
-                <Input
-                  id="addressL2"
-                  name="addressL2"
-                  placeholder="St. Stephen's Green, Dublin"
-                />
-              </FormGroup> */}
       <Row>
         <Col md={6}>
           <FormGroup>
@@ -131,11 +124,29 @@ const AddForm = (props) => {
         <Col md={6}>
           <FormGroup>
             <Label for="drive">Driving</Label>
-            <Input id="drive" name="drive" placeholder="Can Drive ?" />
+            <Input id="drive" name="drive" placeholder="Can Drive ? Yes/No" />
           </FormGroup>
         </Col>
       </Row>
-      <Button type="submit">Submit</Button>
+      <Button
+        type="submit"
+        style={{
+          backgroundColor: darkColors.cyan,
+          color: lightColors.teal,
+        }}
+      >
+        Submit{" "}
+      </Button>
+
+      <Button
+        style={{
+          backgroundColor: darkColors.cyan,
+          color: lightColors.teal,
+        }}
+        onClick={props.toggle}
+      >
+        Cancel
+      </Button>
     </Form>
   );
 };
