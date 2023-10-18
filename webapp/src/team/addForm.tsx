@@ -72,14 +72,7 @@ const AddForm = (props) => {
           placeholder="Apt 23, The Farmhouse"
         />
       </FormGroup>
-      {/* <FormGroup>
-      <Label for="addressL2">Primary Address Line 2</Label>
-      <Input
-        id="addressL2"
-        name="addressL2"
-        placeholder="St. Stephen's Green, Dublin"
-      />
-    </FormGroup> */}
+
       <Row>
         <Col md={6}>
           <FormGroup>
@@ -155,24 +148,6 @@ const AddForm = (props) => {
       >
         Cancel
       </Button>
-      <Row>
-        <Col md={6}>
-          <FormGroup>
-            <Label for="Training">Training </Label>
-            <Input
-              id="Training"
-              name="Training"
-              placeholder="Safe Pass, Manual Handling, Etc."
-            />
-          </FormGroup>
-        </Col>
-        <Col md={6}>
-          <FormGroup>
-            <Label for="drive">Driving</Label>
-            <Input id="drive" name="drive" placeholder="Can Drive ?" />
-          </FormGroup>
-        </Col>
-      </Row>
     </Form>
   );
 };
