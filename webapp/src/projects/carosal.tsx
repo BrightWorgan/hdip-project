@@ -21,20 +21,8 @@ const cardData = [
   },
   {
     title: "something",
-    imgSrc: "src/assets/IMAG0463.jpg",
-    location: "Location: Trim Castle, Trim, Co. Meath",
-    description: "DESCRIPTON",
-  },
-  {
-    title: "something",
-    imgSrc: "src/assets/IMAG0463.jpg",
-    location: "Location: Trim Castle, Trim, Co. Meath",
-    description: "DESCRIPTON",
-  },
-  {
-    title: "something",
-    imgSrc: "src/assets/IMAG0463.jpg",
-    location: "Location: Trim Castle, Trim, Co. Meath",
+    imgSrc: "src/assets/IMAG1100-EFFECTS.jpg",
+    location: "Location: Kylemore Abbey, Co. Galway",
     description: "DESCRIPTON",
   },
   {
