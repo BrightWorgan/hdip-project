@@ -15,6 +15,16 @@ const AddForm = (props) => {
     const user = {
       name: e?.target?.name?.value,
       surname: e?.target?.surname?.value,
+      number: e?.target?.number?.value,
+      email: e?.target?.email?.value,
+      address: e?.target?.address?.value,
+      townCity: e?.target?.townCity?.value,
+      county: e?.target?.county?.value,
+      eircode: e?.target?.eircode?.value,
+      experience: e?.target?.experience?.value,
+      education: e?.target?.education?.value,
+      training: e?.target?.training?.value,
+      drive: e?.target?.drive?.value,
     };
     props.onSubmit(user);
   };
@@ -92,16 +102,16 @@ const AddForm = (props) => {
       <Row>
         <Col md={6}>
           <FormGroup>
-            <Label for="Education">Education</Label>
-            <Input id="Education" name="Education" placeholder="Level 8" />
+            <Label for="education">Education</Label>
+            <Input id="education" name="education" placeholder="Level 8" />
           </FormGroup>
         </Col>
         <Col md={6}>
           <FormGroup>
-            <Label for="Experience">Experience</Label>
+            <Label for="experience">Experience</Label>
             <Input
-              id="Experience"
-              name="Experience"
+              id="experience"
+              name="experience"
               placeholder="Site Assistant"
             />
           </FormGroup>
@@ -110,9 +120,9 @@ const AddForm = (props) => {
       <Row>
         <Col md={6}>
           <FormGroup>
-            <Label for="Training">Training </Label>
+            <Label for="training">Training </Label>
             <Input
-              id="Training"
+              id="training"
               name="Training"
               placeholder="Safe Pass, Manual Handling, Etc."
             />
