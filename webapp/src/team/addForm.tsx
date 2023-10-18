@@ -1,73 +1,133 @@
-import { Button, Form, Col, Row, FormGroup, Label, Input } from "reactstrap";
+import {
+  Form,
+  Col,
+  Row,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+  FormProps,
+} from "reactstrap";
 
-const addForm = () => {
+const AddForm = (props) => {
+  const onSubmit = (e: Event): void => {
+    e.preventDefault();
+    const user = {
+      name: e?.target?.name?.value,
+      surname: e?.target?.surname?.value,
+    };
+    props.onSubmit(user);
+  };
   return (
-    <Form>
+    <Form onSubmit={onSubmit}>
       <Row>
         <Col md={6}>
           <FormGroup>
-            <Label for="exampleEmail">Email</Label>
+            <Label for="name">Forename</Label>
+            <Input id="name" name="name" placeholder="Forename" />
+          </FormGroup>
+        </Col>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="surname">Surname</Label>
+            <Input id="surname" name="surname" placeholder="Surname" />
+          </FormGroup>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="number">Contact Number</Label>
+            <Input id="number" name="number" placeholder="+353 80 000 00 00" />
+          </FormGroup>
+        </Col>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="email">Email Addresss</Label>
             <Input
-              id="exampleEmail"
+              id="email"
               name="email"
-              placeholder="with a placeholder"
+              placeholder="Email Addresss"
               type="email"
             />
           </FormGroup>
         </Col>
+      </Row>
+      <FormGroup>
+        <Label for="address">Primary Address Line 1</Label>
+        <Input
+          id="address"
+          name="address"
+          placeholder="Apt 23, The Farmhouse"
+        />
+      </FormGroup>
+      {/* <FormGroup>
+                <Label for="addressL2">Primary Address Line 2</Label>
+                <Input
+                  id="addressL2"
+                  name="addressL2"
+                  placeholder="St. Stephen's Green, Dublin"
+                />
+              </FormGroup> */}
+      <Row>
         <Col md={6}>
           <FormGroup>
-            <Label for="examplePassword">Password</Label>
+            <Label for="townCity">Town/City</Label>
+            <Input id="townCity" name="towncity" placeholder="Clontarf" />
+          </FormGroup>
+        </Col>
+        <Col md={3}>
+          <FormGroup>
+            <Label for="county">County</Label>
+            <Input id="county" name="county" placeholder="Dublin" />
+          </FormGroup>
+        </Col>
+        <Col md={3}>
+          <FormGroup>
+            <Label for="eircode">Eircode</Label>
+            <Input id="eircode" name="eircode" placeholder="W91VA07" />
+          </FormGroup>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="Education">Education</Label>
+            <Input id="Education" name="Education" placeholder="Level 8" />
+          </FormGroup>
+        </Col>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="Experience">Experience</Label>
             <Input
-              id="examplePassword"
-              name="password"
-              placeholder="password placeholder"
-              type="password"
+              id="Experience"
+              name="Experience"
+              placeholder="Site Assistant"
             />
           </FormGroup>
         </Col>
       </Row>
-      <FormGroup>
-        <Label for="exampleAddress">Address</Label>
-        <Input id="exampleAddress" name="address" placeholder="1234 Main St" />
-      </FormGroup>
-      <FormGroup>
-        <Label for="exampleAddress2">Address 2</Label>
-        <Input
-          id="exampleAddress2"
-          name="address2"
-          placeholder="Apartment, studio, or floor"
-        />
-      </FormGroup>
       <Row>
         <Col md={6}>
           <FormGroup>
-            <Label for="exampleCity">City</Label>
-            <Input id="exampleCity" name="city" />
+            <Label for="Training">Training </Label>
+            <Input
+              id="Training"
+              name="Training"
+              placeholder="Safe Pass, Manual Handling, Etc."
+            />
           </FormGroup>
         </Col>
-        <Col md={4}>
+        <Col md={6}>
           <FormGroup>
-            <Label for="exampleState">State</Label>
-            <Input id="exampleState" name="state" />
-          </FormGroup>
-        </Col>
-        <Col md={2}>
-          <FormGroup>
-            <Label for="exampleZip">Zip</Label>
-            <Input id="exampleZip" name="zip" />
+            <Label for="drive">Driving</Label>
+            <Input id="drive" name="drive" placeholder="Can Drive ?" />
           </FormGroup>
         </Col>
       </Row>
-      <FormGroup check>
-        <Input id="exampleCheck" name="check" type="checkbox" />
-        <Label check for="exampleCheck">
-          Check me out
-        </Label>
-      </FormGroup>
-      <Button>Sign in</Button>
+      <Button type="submit">Submit</Button>
     </Form>
   );
 };
 
-export default addForm;
+export default AddForm;
