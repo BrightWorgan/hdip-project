@@ -72,6 +72,7 @@ const AddForm = (props) => {
           placeholder="Apt 23, The Farmhouse"
         />
       </FormGroup>
+
       <Row>
         <Col md={6}>
           <FormGroup>
