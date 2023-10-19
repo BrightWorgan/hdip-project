@@ -10,11 +10,16 @@ type TeamModalProps = {
 };
 
 const TeamModal = (props: TeamModalProps) => {
+  const addClose = (user) => {
+    props.onAdd(user);
+    props.toggle();
+  };
+
   return (
     <div>
       <Modal isOpen={props.isOpen} toggle={props.toggle}>
         <ModalHeader toggle={props.toggle}>Add a new Team Member</ModalHeader>
-        <ModalBody>{<AddForm onSubmit={props.onAdd} />}</ModalBody>
+        <ModalBody>{<AddForm onSubmit={addClose} />}</ModalBody>
         <ModalFooter>
           {/* <Button
             style={{
@@ -26,7 +31,7 @@ const TeamModal = (props: TeamModalProps) => {
           >
             Confirm
           </Button>{" "} */}
-          <Button
+          {/* <Button
             style={{
               backgroundColor: darkColors.cyan,
               color: lightColors.teal,
@@ -34,7 +39,7 @@ const TeamModal = (props: TeamModalProps) => {
             onClick={props.toggle}
           >
             Cancel
-          </Button>
+          </Button> */}
         </ModalFooter>
       </Modal>
     </div>
