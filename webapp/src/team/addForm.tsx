@@ -1,8 +1,36 @@
-import { Button, Form, Col, Row, FormGroup, Label, Input } from "reactstrap";
+import {
+  Form,
+  Col,
+  Row,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+  FormProps,
+} from "reactstrap";
+import { lightColors, darkColors } from "react-floating-action-button";
 
-const addForm = () => {
+const AddForm = (props) => {
+  const onSubmit = (e: Event): void => {
+    e.preventDefault();
+    const user = {
+      name: e?.target?.name?.value,
+      surname: e?.target?.surname?.value,
+      number: e?.target?.number?.value,
+      email: e?.target?.email?.value,
+      address: e?.target?.address?.value,
+      townCity: e?.target?.townCity?.value,
+      county: e?.target?.county?.value,
+      eircode: e?.target?.eircode?.value,
+      experience: e?.target?.experience?.value,
+      education: e?.target?.education?.value,
+      training: e?.target?.training?.value,
+      drive: e?.target?.drive?.value,
+    };
+    props.onSubmit(user);
+  };
   return (
-    <Form>
+    <Form onSubmit={onSubmit}>
       <Row>
         <Col md={6}>
           <FormGroup>
@@ -59,13 +87,13 @@ const addForm = () => {
             <Input id="townCity" name="towncity" placeholder="Clontarf" />
           </FormGroup>
         </Col>
-        <Col md={4}>
+        <Col md={3}>
           <FormGroup>
             <Label for="county">County</Label>
             <Input id="county" name="county" placeholder="Dublin" />
           </FormGroup>
         </Col>
-        <Col md={2}>
+        <Col md={3}>
           <FormGroup>
             <Label for="eircode">Eircode</Label>
             <Input id="eircode" name="eircode" placeholder="W91VA07" />
@@ -75,21 +103,58 @@ const addForm = () => {
       <Row>
         <Col md={6}>
           <FormGroup>
-            <Label for="Education">Education</Label>
-            <Input id="Education" name="Education" placeholder="Level 8" />
+            <Label for="education">Education</Label>
+            <Input id="education" name="education" placeholder="Level 8" />
           </FormGroup>
         </Col>
         <Col md={6}>
           <FormGroup>
-            <Label for="Experience">Experience</Label>
+            <Label for="experience">Experience</Label>
             <Input
-              id="Experience"
-              name="Experience"
+              id="experience"
+              name="experience"
               placeholder="Site Assistant"
             />
           </FormGroup>
         </Col>
       </Row>
+      <Row>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="training">Training </Label>
+            <Input
+              id="training"
+              name="Training"
+              placeholder="Safe Pass, Manual Handling, Etc."
+            />
+          </FormGroup>
+        </Col>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="drive">Driving</Label>
+            <Input id="drive" name="drive" placeholder="Can Drive ? Yes/No" />
+          </FormGroup>
+        </Col>
+      </Row>
+      <Button
+        type="submit"
+        style={{
+          backgroundColor: darkColors.cyan,
+          color: lightColors.teal,
+        }}
+      >
+        Submit{" "}
+      </Button>
+
+      <Button
+        style={{
+          backgroundColor: darkColors.cyan,
+          color: lightColors.teal,
+        }}
+        onClick={props.toggle}
+      >
+        Cancel
+      </Button>
       <Row>
         <Col md={6}>
           <FormGroup>
@@ -112,4 +177,4 @@ const addForm = () => {
   );
 };
 
-export default addForm;
+export default AddForm;

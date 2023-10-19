@@ -20,6 +20,7 @@ const FAB = (props: FABProps) => {
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
         }}
+        onClick={() => alert("Click is working!")}
       />
       <Button
         href="#"
@@ -29,7 +30,7 @@ const FAB = (props: FABProps) => {
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
         }}
-        onClick={() => alert("CLick is working!")}
+        onClick={() => alert("Click is working!")}
       />
       <Button
         href="#"
