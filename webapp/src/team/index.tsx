@@ -66,7 +66,7 @@ const Team = () => {
       <h4>Team Members:</h4>
       <TeamTable users={users} />
       <FAB onToggle={onToggle} />
-      <TeamModal toggle={onToggle} isOpen={isOpen} />
+      <TeamModal toggle={onToggle} isOpen={isOpen} onAdd={addUser} />
     </div>
   );
 };
