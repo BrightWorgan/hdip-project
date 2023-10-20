@@ -45,12 +45,7 @@ const userList = [
 
 const Team = () => {
   const [users, setUsers] = useState(userList);
-  const addUser = (user: any) => {
-    console.log(user);
-    const newUserList = users.concat([user]);
-    setUsers(newUserList);
-  };
-
+  const [selectedUsers, setSelectedUsers] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -59,14 +54,54 @@ const Team = () => {
     toggle();
   };
 
+  const addUser = (user: any) => {
+    const newUserList = users.concat([user]);
+    setUsers(newUserList);
+    toggle();
+  };
+
+  const removeUsers = () => {
+    if (selectedUsers.length !== 0) {
+      // for (const user of selectedUsers){
+
+      // }
+      const newUserList = users.filter((user) => {
+        const foundUser = selectedUsers.some((selectedUser) => {
+          return selectedUser.number === user.number;
+        });
+        if (foundUser === true) {
+          return false;
+        }
+        return true;
+      });
+
+      setUsers(newUserList);
+    }
+  };
+
+  const onChecked = (user: any) => {
+    const existingUserIndex = selectedUsers.findIndex(
+      (aSelectedUser) => aSelectedUser.number === user.number
+    );
+    if (existingUserIndex === -1) {
+      const newSelectedUsers = selectedUsers.concat([user]);
+      setSelectedUsers(newSelectedUsers);
+    } else {
+      const newSelectedUsers = selectedUsers.filter(
+        (_item, index) => index !== existingUserIndex
+      );
+      setSelectedUsers(newSelectedUsers);
+    }
+  };
+
   return (
     <div>
       <h2>Welcome to Sheet Scribe</h2>
       <h4>For all of your Traceable Heritage needs</h4>
       <br></br>
       <h4>Team Members:</h4>
-      <TeamTable users={users} />
-      <FAB name="Team" onAdd={onToggle} />
+      <TeamTable users={users} onChecked={onChecked} />
+      <FAB name="Team" onAdd={onToggle} onRemove={removeUsers} />
       <ModalBackdrop
         header="Add a new Team Member"
         toggle={onToggle}
