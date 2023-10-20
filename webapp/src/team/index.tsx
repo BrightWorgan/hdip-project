@@ -66,7 +66,7 @@ const Team = () => {
       <br></br>
       <h4>Team Members:</h4>
       <TeamTable users={users} />
-      <FAB name="Team" onToggle={onToggle} />
+      <FAB name="Team" onAdd={onToggle} />
       <ModalBackdrop
         header="Add a new Team Member"
         toggle={onToggle}

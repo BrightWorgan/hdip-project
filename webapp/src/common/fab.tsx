@@ -7,7 +7,7 @@ import {
 } from "react-floating-action-button";
 
 type FABProps = {
-  onToggle: () => void;
+  onAdd: () => void;
   name: string;
 };
 const FAB = (props: FABProps) => {
@@ -41,7 +41,7 @@ const FAB = (props: FABProps) => {
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
         }}
-        onClick={() => props.onToggle()}
+        onClick={() => props.onAdd()}
         // testting button workd \/
         //onClick={() => props.onAdd(user)}
       />
