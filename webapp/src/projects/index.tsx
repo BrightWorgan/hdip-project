@@ -49,7 +49,7 @@ const Project = () => {
       <br></br>
       <h2>Projects:</h2>
       <Cardbox cardData={cardData} />
-      <FAB name="Project" onToggle={onToggle} />
+      <FAB name="Project" onAdd={onToggle} />
       <ModalBackdrop
         header="Add a new Project"
         toggle={onToggle}
