@@ -1,7 +1,8 @@
 import { useState } from "react";
 import TeamTable from "./table";
-import FAB from "./fab";
-import TeamModal from "./modalBackdrop";
+import FAB from "../common/fab";
+import ModalBackdrop from "../common/modalBackdrop";
+import AddForm from "./addForm";
 
 const userList = [
   {
@@ -65,8 +66,15 @@ const Team = () => {
       <br></br>
       <h4>Team Members:</h4>
       <TeamTable users={users} />
-      <FAB onToggle={onToggle} />
-      <TeamModal toggle={onToggle} isOpen={isOpen} onAdd={addUser} />
+      <FAB name="Team" onToggle={onToggle} />
+      <ModalBackdrop
+        header="Add a new Team Member"
+        toggle={onToggle}
+        isOpen={isOpen}
+        onAdd={addUser}
+      >
+        <AddForm onSubmit={addUser} />
+      </ModalBackdrop>
     </div>
   );
 };

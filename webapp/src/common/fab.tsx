@@ -8,14 +8,15 @@ import {
 
 type FABProps = {
   onToggle: () => void;
+  name: string;
 };
 const FAB = (props: FABProps) => {
   return (
     <Container>
       <Button
         href="#"
-        tooltip="Delete User"
-        icon="fas fa-user-slash"
+        tooltip={`Delete ${props.name}`}
+        icon="fas fa-trash-alt"
         styles={{
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
@@ -24,8 +25,8 @@ const FAB = (props: FABProps) => {
       />
       <Button
         href="#"
-        tooltip="Edit User"
-        icon="fas fa-user-edit"
+        tooltip={`Edit ${props.name}`}
+        icon="fas fa-edit"
         styles={{
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
@@ -34,13 +35,14 @@ const FAB = (props: FABProps) => {
       />
       <Button
         href="#"
-        tooltip="Add User"
-        icon="fas fa-user-plus"
+        tooltip={`Add ${props.name}`}
+        icon="fas fa-plus-square"
         styles={{
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
         }}
         onClick={() => props.onToggle()}
+        // testting button workd \/
         //onClick={() => props.onAdd(user)}
       />
 

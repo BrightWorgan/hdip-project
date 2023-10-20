@@ -12,31 +12,10 @@ import {
 } from "reactstrap";
 import ToggleBtn from "./toggleBtn";
 
-const cardData = [
-  {
-    title: "Trim Castle Excavation",
-    imgSrc: "src/assets/IMAG0463.jpg",
-    location: "Location: Trim Castle, Trim, Co. Meath",
-    description: "DESCRIPTON",
-  },
-  {
-    title: "something",
-    imgSrc: "src/assets/IMAG1100-EFFECTS.jpg",
-    location: "Location: Kylemore Abbey, Co. Galway",
-    description: "DESCRIPTON",
-  },
-  {
-    title: "something",
-    imgSrc: "src/assets/IMAG0463.jpg",
-    location: "Location: Trim Castle, Trim, Co. Meath",
-    description: "DESCRIPTON",
-  },
-];
-
-const Cardbox = () => {
+const Cardbox = (props) => {
   return (
     <Row>
-      {cardData.map((card) => (
+      {props.cardData.map((card) => (
         <Col xs="4">
           <Card>
             <CardImg alt="Card image cap" src={card.imgSrc} top width="100%" />
@@ -45,7 +24,11 @@ const Cardbox = () => {
               <CardSubtitle className="mb-2 text-muted" tag="h6">
                 {card.location}
               </CardSubtitle>
-              <CardText>{card.description}</CardText>
+              <CardText>
+                {card.siteID}
+                <br />
+                {card.description}
+              </CardText>
               <ToggleBtn />
             </CardBody>
           </Card>
