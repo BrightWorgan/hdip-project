@@ -8,6 +8,7 @@ import {
 
 type FABProps = {
   onToggle: () => void;
+  name: string;
 };
 const FAB = (props: FABProps) => {
   return (
@@ -34,7 +35,7 @@ const FAB = (props: FABProps) => {
       />
       <Button
         href="#"
-        tooltip="Add User"
+        tooltip={`Add ${props.name}`}
         icon="fas fa-user-plus"
         styles={{
           backgroundColor: darkColors.cyan,
