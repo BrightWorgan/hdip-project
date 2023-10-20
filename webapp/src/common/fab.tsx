@@ -9,6 +9,7 @@ import {
 type FABProps = {
   onAdd: () => void;
   name: string;
+  onRemove?: () => void;
 };
 const FAB = (props: FABProps) => {
   return (
@@ -21,7 +22,8 @@ const FAB = (props: FABProps) => {
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
         }}
-        onClick={() => alert("Click is working!")}
+        //onClick={() => alert("Click is working!")}
+        onClick={() => props?.onRemove()}
       />
       <Button
         href="#"
