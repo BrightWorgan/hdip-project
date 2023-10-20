@@ -15,8 +15,8 @@ const FAB = (props: FABProps) => {
     <Container>
       <Button
         href="#"
-        tooltip="Delete User"
-        icon="fas fa-user-slash"
+        tooltip={`Delete ${props.name}`}
+        icon="fas fa-trash-alt"
         styles={{
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
@@ -25,8 +25,8 @@ const FAB = (props: FABProps) => {
       />
       <Button
         href="#"
-        tooltip="Edit User"
-        icon="fas fa-user-edit"
+        tooltip={`Edit ${props.name}`}
+        icon="fas fa-edit"
         styles={{
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
@@ -36,7 +36,7 @@ const FAB = (props: FABProps) => {
       <Button
         href="#"
         tooltip={`Add ${props.name}`}
-        icon="fas fa-user-plus"
+        icon="fas fa-plus-square"
         styles={{
           backgroundColor: darkColors.cyan,
           color: lightColors.teal,
