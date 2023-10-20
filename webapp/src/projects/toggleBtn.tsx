@@ -1,30 +1,4 @@
-// import React, { useState } from "react";
-// import { Collapse, Button, CardBody, Card } from "reactstrap";
-
-// function ToggleBtn(args) {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const toggle = () => setIsOpen(!isOpen);
-
-//   return (
-//     <React.StrictMode>
-//       <Button color="primary" onClick={toggle} style={{ marginBottom: "1rem" }}>
-//         More Information
-//       </Button>
-//       <Collapse isOpen={isOpen} {...args}>
-//         <Card>
-//           <CardBody>
-
-//           </CardBody>
-//         </Card>
-//       </Collapse>
-//     </React.StrictMode>
-//   );
-// }
-
-// export default ToggleBtn;
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { Collapse, Button, CardBody, Card } from "reactstrap";
 
 function ToggleBtn(props) {
@@ -52,10 +26,10 @@ function ToggleBtn(props) {
       >
         <Card>
           <CardBody>
-            *** TEMPORARY TEXT! *** Anim pariatur cliche reprehenderit, enim
-            eiusmod high life accusamus terry richardson ad squid. Nihil anim
-            keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-            sapiente ea proident.
+            *** TEMPORARY TEXT! *** <br />
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+            labore wes anderson cred nesciunt sapiente ea proident.
           </CardBody>
         </Card>
       </Collapse>

@@ -1,5 +1,4 @@
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import AddForm from "./addForm";
 
 type TeamModalProps = {
   isOpen: boolean;
@@ -9,7 +8,7 @@ type TeamModalProps = {
   children: React.ReactElement;
 };
 
-const TeamModal = (props: TeamModalProps) => {
+const ModalBackdrop = (props: TeamModalProps) => {
   const addClose = (user) => {
     props.onAdd(user);
     props.toggle();
@@ -26,4 +25,4 @@ const TeamModal = (props: TeamModalProps) => {
   );
 };
 
-export default TeamModal;
+export default ModalBackdrop;

@@ -10,10 +10,20 @@ import {
 } from "reactstrap";
 import { lightColors, darkColors } from "react-floating-action-button";
 
-const PjtAddForm = (props: any) => {
+const ProjectAddForm = (props: any) => {
   const onSubmit = (e: Event): void => {
     e.preventDefault();
-    props.onSubmit({});
+    const user = {
+      name: e?.target?.name?.value,
+      mainImg: e?.target?.mainImg?.value,
+      projectLocation: e?.target?.projectLocation?.value,
+      siteID: e?.target?.siteID?.value,
+      description: e?.target?.description?.value,
+      director: e?.target?.director?.value,
+      startDate: e?.target?.startDate?.value,
+      contract: e?.target?.contract?.value,
+    };
+    props.onSubmit(project);
   };
   return (
     <Form onSubmit={onSubmit}>
@@ -27,27 +37,27 @@ const PjtAddForm = (props: any) => {
         <Col md={6}>
           <FormGroup>
             <Label for="mainImg">Primary Image</Label>
-            <Input
-              id="mainImg"
-              name="mainImg"
-              placeholder="src/assets/IMAG0463.jpg"
-            />
+            <Input id="mainImg" name="mainImg" placeholder="Image" />
           </FormGroup>
         </Col>
       </Row>
       <Row>
         <Col md={6}>
           <FormGroup>
-            <Label for="location">Location</Label>
-            <Input id="pjtLocation" name="pjtLocation" placeholder="Location" />
+            <Label for="projectLocation">Location</Label>
+            <Input
+              id="projectLocation"
+              name="pjtLocation"
+              placeholder="Location"
+            />
           </FormGroup>
         </Col>
         <Col md={6}>
           <FormGroup>
-            <Label for="email">Site ID</Label>
+            <Label for="siteID">Site ID</Label>
             <Input
-              id="email"
-              name="email"
+              id="siteID"
+              name="siteID"
               placeholder="Site ID"
               type="number"
             />
@@ -76,8 +86,13 @@ const PjtAddForm = (props: any) => {
         </Col>
         <Col md={3}>
           <FormGroup>
-            <Label for="date">Start Date</Label>
-            <Input id="date" name="date" placeholder="20/10/2023" />
+            <Label for="startDate">Start Date</Label>
+            <Input
+              id="startDate"
+              name="startDate"
+              type="date"
+              placeholder="20/10/2023"
+            />
           </FormGroup>
         </Col>
         <Col md={3}>
@@ -115,4 +130,4 @@ const PjtAddForm = (props: any) => {
   );
 };
 
-export default PjtAddForm;
+export default ProjectAddForm;

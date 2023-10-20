@@ -1,8 +1,8 @@
 import { useState } from "react";
-import FAB from "../team/fab";
-import TeamModal from "../team/modalBackdrop";
-import Cardbox from "./carosal";
-import ProjectForm from "./projectForm";
+import FAB from "../common/fab";
+import ModalBackdrop from "../common/modalBackdrop";
+import Cardbox from "./projectCards";
+import ProjectAddForm from "./projectForm";
 
 const cardData = [
   {
@@ -50,14 +50,14 @@ const Project = () => {
       <h2>Projects:</h2>
       <Cardbox cardData={cardData} />
       <FAB name="Project" onToggle={onToggle} />
-      <TeamModal
-        header="Add a new Team Member"
+      <ModalBackdrop
+        header="Add a new Project"
         toggle={onToggle}
         isOpen={isOpen}
         onAdd={onAdd}
       >
-        <ProjectForm onSubmit={onAdd} />
-      </TeamModal>
+        <ProjectAddForm onSubmit={onAdd} />
+      </ModalBackdrop>
     </div>
   );
 };
