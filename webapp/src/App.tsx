@@ -1,12 +1,11 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import Navbar from "./common/Navbar";
 import "./App.css";
 import Home from "./home";
 import Team from "./team";
 import Project from "./projects";
 import Footer from "./common/Footer";
+import UserProfile from "./userProfile";
 
 export enum Tabs {
   Home = 0,
@@ -33,38 +32,10 @@ const App = () => {
 
       {tab === Tabs.Reports ? <h1>Reports page is working</h1> : null}
 
-      {tab === Tabs.User_Profile ? <h1>User Profile page is working</h1> : null}
+      {tab === Tabs.User_Profile ? <UserProfile /> : null}
 
       {tab === Tabs.Settings ? <h1>Settings page is working</h1> : null}
       <Footer />
-      {/* <Navbar tab={tab} onClick={setTab}/>
-    {
-      tab === Tabs.Project ? (
-        <h1>Project Page is working </h1>
-      ) : null  
-    } */}
-
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>SheetScribe</h1>
-      <h3>Traceable Heritage</h3> */}
-      {/* <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
     </>
   );
 };
