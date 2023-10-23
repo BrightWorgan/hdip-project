@@ -4,7 +4,6 @@ import {
   CardTitle,
   CardSubtitle,
   CardText,
-  CardLink,
   CardImg,
   Col,
   Row,
@@ -54,9 +53,9 @@ const ProfileCard = () => {
             </Row>
           </CardHeader>
           <CardBody>
-            <CardTitle tag="h5">Title </CardTitle>
+            <CardTitle tag="h5">Name: </CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
-              subtitle
+              Position:
             </CardSubtitle>
             <CardText>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
@@ -76,11 +75,11 @@ const ProfileCard = () => {
               LinkedIn
             </Button>
             <Button
+              //  icon="fab fa-twitter"
               styles={{
                 backgroundColor: darkColors.cyan,
                 color: lightColors.teal,
               }}
-              //  icon="fab fa-twitter"
               target="_blank"
               href="https://twitter.com/"
             >
