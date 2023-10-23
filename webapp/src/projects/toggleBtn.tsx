@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Collapse, Button, CardBody, Card } from "reactstrap";
+import { lightColors, darkColors } from "react-floating-action-button";
 
 function ToggleBtn(props) {
   const [collapse, setCollapse] = useState(false);
@@ -13,7 +14,14 @@ function ToggleBtn(props) {
 
   return (
     <div>
-      <Button color="primary" onClick={toggle} style={{ marginBottom: "1rem" }}>
+      <Button
+        style={{
+          backgroundColor: darkColors.cyan,
+          color: lightColors.teal,
+        }}
+        onClick={toggle}
+        style={{ marginBottom: "1rem" }}
+      >
         More Information
       </Button>
       {/* <h5>Current state: {status}</h5> */}

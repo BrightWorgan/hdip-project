@@ -13,31 +13,36 @@ import { lightColors, darkColors } from "react-floating-action-button";
 const ProjectAddForm = (props: any) => {
   const onSubmit = (e: Event): void => {
     e.preventDefault();
-    const user = {
+    const project = {
       name: e?.target?.name?.value,
-      mainImg: e?.target?.mainImg?.value,
-      projectLocation: e?.target?.projectLocation?.value,
       siteID: e?.target?.siteID?.value,
-      description: e?.target?.description?.value,
+      projectLocation: e?.target?.projectLocation?.value,
       director: e?.target?.director?.value,
       startDate: e?.target?.startDate?.value,
+      description: e?.target?.description?.value,
       contract: e?.target?.contract?.value,
+      mainImg: e?.target?.mainImg?.value,
     };
     props.onSubmit(project);
   };
   return (
     <Form onSubmit={onSubmit}>
       <Row>
-        <Col md={6}>
+        <Col md={12}>
           <FormGroup>
             <Label for="name">Project Name</Label>
-            <Input id="name" name="name" placeholder="Forename" />
+            <Input id="name" name="name" placeholder="Project Name" />
           </FormGroup>
         </Col>
-        <Col md={6}>
+        <Col md={12}>
           <FormGroup>
-            <Label for="mainImg">Primary Image</Label>
-            <Input id="mainImg" name="mainImg" placeholder="Image" />
+            <Label for="siteID">Site ID</Label>
+            <Input
+              id="siteID"
+              name="siteID"
+              placeholder="Site ID"
+              type="number"
+            />
           </FormGroup>
         </Col>
       </Row>
@@ -54,24 +59,16 @@ const ProjectAddForm = (props: any) => {
         </Col>
         <Col md={6}>
           <FormGroup>
-            <Label for="siteID">Site ID</Label>
+            <Label for="startDate">Start Date</Label>
             <Input
-              id="siteID"
-              name="siteID"
-              placeholder="Site ID"
-              type="number"
+              id="startDate"
+              name="startDate"
+              type="date"
+              placeholder="20/10/2023"
             />
           </FormGroup>
         </Col>
       </Row>
-      <FormGroup>
-        <Label for="description">Description</Label>
-        <Input
-          id="description"
-          name="description"
-          placeholder="Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pro"
-        />
-      </FormGroup>
 
       <Row>
         <Col md={6}>
@@ -84,18 +81,7 @@ const ProjectAddForm = (props: any) => {
             />
           </FormGroup>
         </Col>
-        <Col md={3}>
-          <FormGroup>
-            <Label for="startDate">Start Date</Label>
-            <Input
-              id="startDate"
-              name="startDate"
-              type="date"
-              placeholder="20/10/2023"
-            />
-          </FormGroup>
-        </Col>
-        <Col md={3}>
+        <Col md={6}>
           <FormGroup>
             <Label for="contract">Contract Type</Label>
             <Input
@@ -105,27 +91,46 @@ const ProjectAddForm = (props: any) => {
             />
           </FormGroup>
         </Col>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="mainImg">Primary Image</Label>
+            <Input id="mainImg" name="mainImg" placeholder="Image" />
+          </FormGroup>
+        </Col>
+        <FormGroup>
+          <Col md={12}>
+            <Label for="description">Description</Label>
+            <Input
+              id="description"
+              name="description"
+              placeholder="Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pro"
+            />
+          </Col>
+        </FormGroup>
       </Row>
+      <div class="btn-group">
+        <Button
+          type="submit"
+          class="btn btn-primary"
+          style={{
+            backgroundColor: darkColors.cyan,
+            color: lightColors.teal,
+          }}
+        >
+          Submit{" "}
+        </Button>
 
-      <Button
-        type="submit"
-        style={{
-          backgroundColor: darkColors.cyan,
-          color: lightColors.teal,
-        }}
-      >
-        Submit{" "}
-      </Button>
-
-      <Button
-        style={{
-          backgroundColor: darkColors.cyan,
-          color: lightColors.teal,
-        }}
-        onClick={props.toggle}
-      >
-        Cancel
-      </Button>
+        <Button
+          class="btn btn-primary"
+          style={{
+            backgroundColor: darkColors.cyan,
+            color: lightColors.teal,
+          }}
+          onClick={props.toggle}
+        >
+          Cancel
+        </Button>
+      </div>
     </Form>
   );
 };
