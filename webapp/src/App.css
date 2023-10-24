@@ -1,45 +1,11 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+/* green #717d52
+blue #73a2d1
+black ish #23232b
+sable ish #d6d2b9 */
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.body {
+  background-color: #d6d2b9 !important;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
 
 .footer {
   position: absolute;
@@ -48,11 +14,36 @@
   height: 60px;
   line-height: 60px;
   background-color: #f5f5f5;
+  color: #23232b;
 }
 
+.nav {
+  background: #717d52 !important;
+  color: #23232b;
+}
 
-/* 
-.btn {
-  background-color: cyan,
- 
-} */
+.nav-link.active {
+  background: #d6d2b9 !important;
+  color: #23232b !important;
+}
+
+.nav-link {
+  background: #717d52 !important;
+  color: #d6d2b9 !important;
+}
+
+.headerContainer {
+  background-color: #d6d2b9;
+  height: 15% !important;
+}
+
+.ss-fab-button {
+  background-color: #73a2d1 !important;
+}
+
+.ss-logo {
+  width: 10%;
+  height: 10%;
+  /* display: inline-flex; */
+  float: left;
+}

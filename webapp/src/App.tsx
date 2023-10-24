@@ -35,6 +35,7 @@ const App = () => {
       {tab === Tabs.User_Profile ? <UserProfile /> : null}
 
       {tab === Tabs.Settings ? <h1>Settings page is working</h1> : null}
+
       <Footer />
     </>
   );
