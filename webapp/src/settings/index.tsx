@@ -1,4 +1,4 @@
-import LoginForm from "./loginAlert";
+import LoginForm from "./loginForm";
 
 const LoginDemo = () => {
   return (
