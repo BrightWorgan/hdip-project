@@ -7,9 +7,13 @@ type NavbarProps = {
 };
 
 const Navbar = (props: NavbarProps) => (
-  <Nav justified pills>
+  <Nav justified pills id="navbar">
     <NavItem onClick={() => props.onClick(Tabs.Home)}>
-      <NavLink active={props.tab === Tabs.Home} href="#">
+      <NavLink
+        className="ss-nav-link"
+        active={props.tab === Tabs.Home}
+        href="#"
+      >
         Home
       </NavLink>
     </NavItem>

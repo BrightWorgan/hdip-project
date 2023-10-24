@@ -18,10 +18,7 @@ const FAB = (props: FABProps) => {
         href="#"
         tooltip={`Delete ${props.name}`}
         icon="fas fa-trash-alt"
-        styles={{
-          backgroundColor: darkColors.cyan,
-          color: lightColors.teal,
-        }}
+        className="ss-fab-button"
         //onClick={() => alert("Click is working!")}
         onClick={() => props?.onRemove()}
       />
@@ -29,20 +26,22 @@ const FAB = (props: FABProps) => {
         href="#"
         tooltip={`Edit ${props.name}`}
         icon="fas fa-edit"
-        styles={{
-          backgroundColor: darkColors.cyan,
-          color: lightColors.teal,
-        }}
+        className="ss-fab-button"
+        // styles={{
+        //   backgroundColor: darkColors.cyan,
+        //   color: lightColors.teal,
+        // }}
         onClick={() => alert("Click is working!")}
       />
       <Button
         href="#"
         tooltip={`Add ${props.name}`}
         icon="fas fa-plus-square"
-        styles={{
-          backgroundColor: darkColors.cyan,
-          color: lightColors.teal,
-        }}
+        className="ss-fab-button"
+        // styles={{
+        //   backgroundColor: darkColors.cyan,
+        //   color: lightColors.teal,
+        // }}
         onClick={() => props.onAdd()}
         // testting button workd \/
         //onClick={() => props.onAdd(user)}
@@ -51,10 +50,11 @@ const FAB = (props: FABProps) => {
       <Button
         tooltip="Menu"
         icon="fas fa-plus"
-        styles={{
-          backgroundColor: darkColors.cyan,
-          color: lightColors.teal,
-        }}
+        className="ss-fab-button"
+        // styles={{
+        //   backgroundColor: darkColors.cyan,
+        //   color: lightColors.teal,
+        // }}
         rotate={true}
         onClick={() => alert("FAB is working!")}
       />
