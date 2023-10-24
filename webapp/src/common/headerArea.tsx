@@ -1,17 +1,20 @@
-import { Container, Button } from "reactstrap";
+import { Container, Button, Row, Col } from "reactstrap";
 
 const HeaderArea = () => {
   return (
-    <div className="headerContainer">
-      <img
-        className="ss-logo"
-        src="src/assets/sheetScribeLogoNoBackgtound.png"
-        alt="logo"
-      />
-      <h2>Welcome to Sheet Scribe</h2>
-      <h4>For all of your Traceable Archaeology and Heritage needs</h4>
-      <br></br>
-    </div>
+    <Row className="header-container">
+      <Col xs={1}>
+        <img
+          className="ss-logo"
+          src="src/assets/sheetScribeLogoNoBackgtound.png"
+          alt="logo"
+        />
+      </Col>
+      <Col xs={11}>
+        <h2>Welcome to Sheet Scribe</h2>
+        <h4>For all of your Traceable Archaeology and Heritage needs</h4>
+      </Col>
+    </Row>
   );
 };
 

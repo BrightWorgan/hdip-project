@@ -3,7 +3,6 @@ import TeamTable from "./table";
 import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import AddForm from "./addForm";
-import HeaderArea from "../common/headerArea";
 
 const userList = [
   {
@@ -97,7 +96,6 @@ const Team = () => {
 
   return (
     <div>
-      <HeaderArea />
       <h4>Team Members:</h4>
       <TeamTable users={users} onChecked={onChecked} />
       <FAB name="Team" onAdd={onToggle} onRemove={removeUsers} />
