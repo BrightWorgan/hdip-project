@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "reactstrap";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   return (
     <div className="ss-login-div">
       <Card
@@ -40,7 +40,11 @@ const LoginForm = () => {
           </CardText>
         </CardBody>
         <CardFooter>
-          <Button className="ss-login-btn" type="submit">
+          <Button
+            className="ss-login-btn"
+            type="submit"
+            onClick={() => props.onLogin()}
+          >
             Login
           </Button>
         </CardFooter>

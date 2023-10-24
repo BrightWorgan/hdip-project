@@ -1,5 +1,5 @@
 import { Nav, NavItem, NavLink } from "reactstrap";
-import { Tabs } from "../App";
+import { Tabs } from "../body";
 
 type NavbarProps = {
   tab: Tabs;
