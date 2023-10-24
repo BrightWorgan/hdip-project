@@ -105,7 +105,7 @@ const Team = () => {
         isOpen={isOpen}
         onAdd={addUser}
       >
-        <AddForm onSubmit={addUser} />
+        <AddForm onSubmit={addUser} toggle={onToggle} />
       </ModalBackdrop>
     </div>
   );
