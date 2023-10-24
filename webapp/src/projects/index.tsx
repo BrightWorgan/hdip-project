@@ -3,7 +3,6 @@ import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import Cardbox from "./projectCards";
 import ProjectAddForm from "./projectForm";
-import HeaderArea from "../common/headerArea";
 
 const cardData = [
   {
@@ -44,9 +43,6 @@ const Project = () => {
 
   return (
     <div>
-      {/* <h1>Project page is working</h1> */}
-      <HeaderArea />
-
       <br></br>
       <h2>Projects:</h2>
       <Cardbox cardData={cardData} />

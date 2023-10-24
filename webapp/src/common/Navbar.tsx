@@ -7,7 +7,7 @@ type NavbarProps = {
 };
 
 const Navbar = (props: NavbarProps) => (
-  <Nav justified pills id="navbar">
+  <Nav justified id="navbar">
     <NavItem onClick={() => props.onClick(Tabs.Home)}>
       <NavLink
         className="ss-nav-link"

@@ -6,6 +6,8 @@ import Team from "./team";
 import Project from "./projects";
 import Footer from "./common/Footer";
 import UserProfile from "./userProfile";
+import LoginDemo from "./settings";
+import HeaderArea from "./common/headerArea";
 
 export enum Tabs {
   Home = 0,
@@ -21,6 +23,7 @@ const App = () => {
   const [tab, setTab] = useState(Tabs.Home);
   return (
     <>
+      <HeaderArea />
       <Navbar tab={tab} onClick={setTab} />
       {tab === Tabs.Home ? <Home /> : null}
 
@@ -34,7 +37,7 @@ const App = () => {
 
       {tab === Tabs.User_Profile ? <UserProfile /> : null}
 
-      {tab === Tabs.Settings ? <h1>Settings page is working</h1> : null}
+      {tab === Tabs.Settings ? <LoginDemo /> : null}
 
       <Footer />
     </>
