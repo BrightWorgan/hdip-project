@@ -29,11 +29,7 @@ const ProfileCard = () => {
                   alt="Card image cap"
                   src="src/assets/meZeusandSkadi.jpg"
                   height="100%"
-                  //   width="25px"
                   style={{
-                    // width: "5%",
-                    // width: "25px",
-                    //   height: "100%",
                     borderRadius: "50%",
                     overflow: "hidden",
                     borderWidth: 3,
@@ -64,10 +60,7 @@ const ProfileCard = () => {
               Donec qu
             </CardText>
             <Button
-              styles={{
-                backgroundColor: darkColors.cyan,
-                color: lightColors.teal,
-              }}
+              className="ss-profile-buton"
               //  icon="fab fa-twitter"
               target="_blank"
               href="https://www.linkedin.com/in/sarah-halford-369b1414b/"
@@ -75,11 +68,8 @@ const ProfileCard = () => {
               LinkedIn
             </Button>
             <Button
+              className="ss-profile-buton"
               //  icon="fab fa-twitter"
-              styles={{
-                backgroundColor: darkColors.cyan,
-                color: lightColors.teal,
-              }}
               target="_blank"
               href="https://twitter.com/"
             >
