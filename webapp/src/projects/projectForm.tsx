@@ -6,9 +6,9 @@ import {
   Label,
   Input,
   Button,
+  ButtonGroup,
   FormProps,
 } from "reactstrap";
-import { lightColors, darkColors } from "react-floating-action-button";
 
 const ProjectAddForm = (props: any) => {
   const onSubmit = (e: Event): void => {
@@ -108,29 +108,18 @@ const ProjectAddForm = (props: any) => {
           </Col>
         </FormGroup>
       </Row>
-      <div class="btn-group">
-        <Button
-          type="submit"
-          class="btn btn-primary"
-          style={{
-            backgroundColor: darkColors.cyan,
-            color: lightColors.teal,
-          }}
-        >
-          Submit{" "}
-        </Button>
-
-        <Button
-          class="btn btn-primary"
-          style={{
-            backgroundColor: darkColors.cyan,
-            color: lightColors.teal,
-          }}
-          onClick={props.toggle}
-        >
-          Cancel
-        </Button>
-      </div>
+      <Row>
+        <Col xs={{ size: 6, offset: 6 }}>
+          <ButtonGroup style={{ float: "right" }}>
+            <Button color="danger" type="reset" onClick={() => props.toggle()}>
+              Cancel
+            </Button>
+            <Button color="success" type="submit">
+              Submit
+            </Button>
+          </ButtonGroup>
+        </Col>
+      </Row>
     </Form>
   );
 };

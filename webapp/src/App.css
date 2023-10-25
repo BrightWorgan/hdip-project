@@ -55,6 +55,10 @@ sable ish #d6d2b9 */
   background-color: #73a2d1 !important;
 }
 
+.ss-info-btn {
+  background-color: #73a2d1 !important;
+}
+
 .carousel-item.active {
   width: 100% !important;
 }
