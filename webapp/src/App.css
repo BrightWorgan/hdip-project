@@ -3,18 +3,9 @@ blue #73a2d1
 black ish #23232b
 sable ish #d6d2b9 */
 
-.body {
-  background-color: #d6d2b9 !important;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  background-color: #f5f5f5;
-  color: #23232b;
+.header-container {
+  background-color: #d6d2b9;
+  height: 100px;
 }
 
 .nav {
@@ -32,9 +23,8 @@ sable ish #d6d2b9 */
   color: #d6d2b9 !important;
 }
 
-.header-container {
-  background-color: #d6d2b9;
-  height: 100px;
+.body {
+  background-color: #d6d2b9 !important;
 }
 
 .ss-fab-button {
@@ -62,18 +52,19 @@ sable ish #d6d2b9 */
 
 .ss-login-btn {
   float: right;
+  background-color: #73a2d1 !important;
 }
 
+.carousel-item.active {
+  width: 100% !important;
+}
 
-/* .ss-login-card {
-  display: block; */
-
-
-/* display: inline-block;
-  vertical-align: middle; */
-
-
-/* display: flex;
-  justify-content: center;
+.footer {
   position: absolute;
-} */
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f5f5f5;
+  color: #23232b;
+}
