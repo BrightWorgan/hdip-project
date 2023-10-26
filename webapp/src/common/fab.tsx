@@ -1,10 +1,4 @@
-import {
-  Container,
-  Button,
-  lightColors,
-  darkColors,
-  // @ts-ignore
-} from "react-floating-action-button";
+import { Container, Button } from "react-floating-action-button";
 
 type FABProps = {
   onAdd: () => void;
@@ -27,10 +21,6 @@ const FAB = (props: FABProps) => {
         tooltip={`Edit ${props.name}`}
         icon="fas fa-edit"
         className="ss-fab-button"
-        // styles={{
-        //   backgroundColor: darkColors.cyan,
-        //   color: lightColors.teal,
-        // }}
         onClick={() => alert("Click is working!")}
       />
       <Button
@@ -38,10 +28,6 @@ const FAB = (props: FABProps) => {
         tooltip={`Add ${props.name}`}
         icon="fas fa-plus-square"
         className="ss-fab-button"
-        // styles={{
-        //   backgroundColor: darkColors.cyan,
-        //   color: lightColors.teal,
-        // }}
         onClick={() => props.onAdd()}
         // testting button workd \/
         //onClick={() => props.onAdd(user)}
@@ -51,10 +37,6 @@ const FAB = (props: FABProps) => {
         tooltip="Menu"
         icon="fas fa-plus"
         className="ss-fab-button"
-        // styles={{
-        //   backgroundColor: darkColors.cyan,
-        //   color: lightColors.teal,
-        // }}
         rotate={true}
         onClick={() => alert("FAB is working!")}
       />

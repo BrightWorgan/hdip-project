@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navbar from "./common/Navbar";
 import Home from "./home";
 import Team from "./team";
+import Reports from "./reports";
 import Project from "./projects";
 import UserProfile from "./userProfile";
 import LoginDemo from "./settings";
@@ -30,7 +31,7 @@ const Body = () => {
 
       {tab === Tabs.Team ? <Team /> : null}
 
-      {tab === Tabs.Reports ? <h1>Reports page is working</h1> : null}
+      {tab === Tabs.Reports ? <Reports /> : null}
 
       {tab === Tabs.User_Profile ? <UserProfile /> : null}
 

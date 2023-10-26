@@ -9,7 +9,6 @@ import {
   FormProps,
   ButtonGroup,
 } from "reactstrap";
-import { lightColors, darkColors } from "react-floating-action-button";
 
 const AddForm = (props) => {
   const onSubmit = (e: Event): void => {
