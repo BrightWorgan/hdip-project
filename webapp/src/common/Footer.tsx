@@ -7,12 +7,12 @@ const Footer = () => {
         <span className="text-muted">
           <Row>
             <Col xs={1}>
-              <a target="_blank" href="www.facebook.com">
+              <a target="_blank" href="https://www.facebook.com">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </Col>
             <Col xs={1}>
-              <a target="_blank" href="www.twitter.com">
+              <a target="_blank" href="https://www.twitter.com">
                 <i class="fab fa-twitter"></i>
               </a>
             </Col>

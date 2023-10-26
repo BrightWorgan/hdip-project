@@ -64,22 +64,14 @@ const ProfileCard = () => {
               Donec qu
             </CardText>
             <Button
-              styles={{
-                backgroundColor: darkColors.cyan,
-                color: lightColors.teal,
-              }}
-              //  icon="fab fa-twitter"
+              className="ss-info-btn"
               target="_blank"
               href="https://www.linkedin.com/in/sarah-halford-369b1414b/"
             >
               LinkedIn
             </Button>
             <Button
-              //  icon="fab fa-twitter"
-              styles={{
-                backgroundColor: darkColors.cyan,
-                color: lightColors.teal,
-              }}
+              className="ss-info-btn"
               target="_blank"
               href="https://twitter.com/"
             >
