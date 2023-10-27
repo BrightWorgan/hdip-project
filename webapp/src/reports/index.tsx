@@ -1,4 +1,5 @@
 import FindsTable from "./findsTable";
+import ContextTable from "./cutFillTable";
 import FindReportCard from "./findsCard";
 import CutAndFillReportCard from "./findsCard";
 import {
@@ -18,7 +19,8 @@ const Reports = () => {
       {/* <h1>Reports page is working</h1> */}
       <div>
         <Container>
-          <FindReportCard />
+          <ContextTable />
+          {/* <FindReportCard /> */}
           {/* <CutAndFillReportCard /> */}
           {/* <FindsTable /> */}
         </Container>
