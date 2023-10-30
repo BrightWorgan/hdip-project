@@ -3,6 +3,7 @@ import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import Cardbox from "./projectCards";
 import ProjectAddForm from "./projectForm";
+// import Reports from "./reports";
 
 const cardData = [
   {
@@ -41,6 +42,12 @@ const Project = () => {
     toggle();
   };
 
+  // state variable
+  // get projectID from API/list of project ids
+
+  // const projectId = useState()
+
+  // if (projectId === null) {
   return (
     <div>
       <br></br>
@@ -57,5 +64,9 @@ const Project = () => {
       </ModalBackdrop>
     </div>
   );
+  // }
+  // return(
+  //   <Reports/>
+  // )
 };
 export default Project;

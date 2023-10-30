@@ -1,4 +1,5 @@
 import { Nav, NavItem, NavLink } from "reactstrap";
+import React, { useState } from "react";
 import { Tabs } from "../body";
 
 type NavbarProps = {
@@ -7,7 +8,7 @@ type NavbarProps = {
 };
 
 const Navbar = (props: NavbarProps) => (
-  <Nav justified id="navbar">
+  <Nav tabs justified id="navbar">
     <NavItem onClick={() => props.onClick(Tabs.Home)}>
       <NavLink
         className="ss-nav-link"

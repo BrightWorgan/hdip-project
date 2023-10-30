@@ -1,4 +1,4 @@
-import { Container, Input, Table } from "reactstrap";
+import { Container, Table } from "reactstrap";
 
 const ContextTable = (props) => {
   return (
