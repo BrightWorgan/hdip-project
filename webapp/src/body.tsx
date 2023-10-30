@@ -3,7 +3,7 @@ import { useState } from "react";
 import Navbar from "./common/Navbar";
 import Home from "./home";
 import Team from "./team";
-import Reports from "./reports";
+import Reports from "./projects/reports";
 import Project from "./projects";
 import UserProfile from "./userProfile";
 import LoginDemo from "./settings";

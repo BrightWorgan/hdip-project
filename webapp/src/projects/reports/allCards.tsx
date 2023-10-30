@@ -1,24 +1,16 @@
 import {
-  Form,
   Container,
   Col,
   Row,
-  FormGroup,
-  Label,
-  Input,
   Button,
-  FormProps,
-  ButtonGroup,
   Card,
   CardBody,
   CardTitle,
   CardSubtitle,
   CardText,
-  CardGroup,
-  CardImg,
 } from "reactstrap";
 
-const FindReportCard = () => {
+const AllReportCards = () => {
   return (
     <div>
       <div>
@@ -43,7 +35,14 @@ const FindReportCard = () => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card‘s content.
                   </CardText>
-                  <Button className="ss-info-btn">View Context Register</Button>
+                  <Button
+                    className="ss-info-btn"
+                    // onClick={() => alert("Click is working!")}
+                    // onClick={() }
+                    // href="/contextRegisterPage.tsx"
+                  >
+                    View Context Register
+                  </Button>
                 </CardBody>
               </Card>
             </Col>
@@ -161,4 +160,4 @@ const FindReportCard = () => {
     </div>
   );
 };
-export default FindReportCard;
+export default AllReportCards;
