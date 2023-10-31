@@ -1,8 +1,8 @@
-// import FindsTable from "./findsTable";
+import FindsTable from "./findsTable";
 // import ContextTable from "./cutFillTable";
 // import FindReportCard from "./findsCard";
 // import CutAndFillReportCard from "./findsCard";
-import AllReportCards from "./allCards";
+// import AllReportCards from "./allCards";
 
 import {
   Container,
@@ -24,8 +24,8 @@ const Reports = () => {
           {/* <ContextTable /> */}
           {/* <FindReportCard /> */}
           {/* <CutAndFillReportCard /> */}
-          {/* <FindsTable /> */}
-          <AllReportCards />
+          <FindsTable />
+          {/* <AllReportCards /> */}
         </Container>
       </div>
     </div>
