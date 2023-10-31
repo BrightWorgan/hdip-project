@@ -11,7 +11,7 @@ const FindsTable = (props) => {
       <Table>
         <thead>
           <tr>
-            <th>Finds Number #</th>
+            <th>Finds Number</th>
             <th>Context Number</th>
             <th>Fill Number</th>
             <th>Description</th>
@@ -26,10 +26,7 @@ const FindsTable = (props) => {
             <th scope="row">1</th>
             <td>#00032</td>
             <td>#00034</td>
-            <td>
-              Description: simple copper pendant, no decoration, some pitted
-              areas
-            </td>
+            <td>Simple copper pendant, no decoration, some pitted areas</td>
             <td>Copper</td>
             <td>Photograph</td>
             <td>Yes</td>
@@ -40,8 +37,8 @@ const FindsTable = (props) => {
             <td>#00052</td>
             <td>#00054</td>
             <td>
-              Description: decorated cream and sable flint macehead, carved with
-              symbolic patterns, possibly Neolithic
+              Decorated cream and sable flint macehead, carved with symbolic
+              patterns, possibly Neolithic
             </td>
             <td>Stone</td>
             <td>Photograph</td>
@@ -53,8 +50,7 @@ const FindsTable = (props) => {
             <td>#00062</td>
             <td>#00067</td>
             <td>
-              Description: Decorated bowl with Bronze age pattern, possibly
-              middle Bronze Age
+              Decorated bowl with Bronze age pattern, possibly middle Bronze Age
             </td>
             <td>Ceramic</td>
             <td>Photograph</td>

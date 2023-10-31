@@ -16,6 +16,7 @@ const ContextTable = (props) => {
             <th>Description</th>
             <th>Soil Type</th>
             <th>Samples</th>
+            <th>Location</th>
             <th>Date</th>
           </tr>
         </thead>
@@ -24,6 +25,7 @@ const ContextTable = (props) => {
             <th scope="row">1</th>
             <td>Cut</td>
             <td>Large posthole, with a diameter of 67cm </td>
+            <td>N/A</td>
             <td>N/A</td>
             <td>N/A</td>
             <td>26/10/2023</td>
@@ -37,6 +39,7 @@ const ContextTable = (props) => {
             </td>
             <td>Sandy soils</td>
             <td>Yes</td>
+            <td>N/A</td>
             <td>26/10/2023</td>
           </tr>
           <tr>
@@ -46,6 +49,7 @@ const ContextTable = (props) => {
               Li Europan lingues es membres del sam familie. Lor separat
               existentie es un myth. Por scientie, musica, sport etc, litot
             </td>
+            <td>N/A</td>
             <td>N/A</td>
             <td>N/A</td>
             <td>27/10/2023</td>
@@ -59,6 +63,7 @@ const ContextTable = (props) => {
             </td>
             <td>Loamy soil</td>
             <td>No</td>
+            <td>North-East of site</td>
             <td>27/10/2023</td>
           </tr>
           <tr>
