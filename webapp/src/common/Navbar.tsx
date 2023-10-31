@@ -2,17 +2,14 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Collapse,
   NavbarToggler,
-  NavbarBrand,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText,
 } from "reactstrap";
 import { Tabs } from "../body";
-import React, { useState } from "react";
+import { useState } from "react";
 
 type NavbarProps = {
   tab: Tabs;
@@ -27,6 +24,7 @@ const Navbar = (props: NavbarProps) => {
   return (
     <div>
       <Nav tabs justified id="navbar">
+        <NavbarToggler onClick={toggle} />
         <NavItem onClick={() => props.onClick(Tabs.Home)}>
           <NavLink
             className="ss-nav-link"
@@ -66,24 +64,23 @@ const Navbar = (props: NavbarProps) => {
             Settings
           </NavLink>
         </NavItem>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="me-auto" navbar>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Reports
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Context Register</DropdownItem>
-                <DropdownItem>Finds Register</DropdownItem>
-                <DropdownItem>Sample Register</DropdownItem>
-                <DropdownItem>Wood Register</DropdownItem>
-                <DropdownItem>Bone Register</DropdownItem>
-                <DropdownItem>Animal Bone Register</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-        </Collapse>
+        <NavItem>
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>
+              Reports
+            </DropdownToggle>
+            <DropdownMenu right>
+              <DropdownItem onClick={() => props.onClick(Tabs.Settings)}>
+                Context Register
+              </DropdownItem>
+              <DropdownItem>Finds Register</DropdownItem>
+              <DropdownItem>Sample Register</DropdownItem>
+              <DropdownItem>Wood Register</DropdownItem>
+              <DropdownItem>Bone Register</DropdownItem>
+              <DropdownItem>Animal Bone Register</DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        </NavItem>
       </Nav>
     </div>
   );
