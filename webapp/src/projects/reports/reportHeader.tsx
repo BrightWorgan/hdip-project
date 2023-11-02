@@ -6,7 +6,9 @@ const ReportHeader = (props: any) => {
       <div>
         <Container>
           {/* <h3>____ Register: </h3> */}
-          <h6>Project Name: {props.project.title} </h6>
+          <h3>Reports:</h3>
+          <h4>Project Name: {props.project.title}</h4>
+          {/* <h6>Project Name: {props.project.title} </h6> */}
           <h6>Project ID: {props.project.siteID}</h6>
           <h6>Site Name: {props.project.title} </h6>
           <h6>Licence Number:{props.project.licenceNumber}</h6>
