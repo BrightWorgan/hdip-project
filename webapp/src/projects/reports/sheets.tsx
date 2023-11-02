@@ -1,21 +1,20 @@
-import ContextTable from "./cutFillTable";
-
 import ReportHeader from "./reportHeader";
+import AllReportCards from "./allCards";
 
 import { Container } from "reactstrap";
 
-const ContextRegister = () => {
+const Sheets = (props: any) => {
   return (
     <div>
       <br></br>
       {/* <h1>Reports page is working</h1> */}
       <div>
         <Container>
-          <ReportHeader />
-          <ContextTable />
+          <ReportHeader project={props.project} />
+          <AllReportCards />
         </Container>
       </div>
     </div>
   );
 };
-export default ContextRegister;
+export default Sheets;

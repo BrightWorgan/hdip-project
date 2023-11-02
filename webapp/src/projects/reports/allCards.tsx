@@ -91,7 +91,7 @@ const AllReportCards = () => {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs="4">
+            {/* <Col xs="4">
               <Card
                 style={{
                   width: "18rem",
@@ -153,7 +153,7 @@ const AllReportCards = () => {
                   <Button color="disabled">Bone Samples</Button>
                 </CardBody>
               </Card>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </div>
