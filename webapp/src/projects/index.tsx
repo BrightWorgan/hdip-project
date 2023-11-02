@@ -77,7 +77,7 @@ const Project = () => {
     return (
       <div>
         <br></br>
-        <h2>Projects:</h2>
+        {/* <h2>Projects:</h2> */}
         <Cardbox cardData={cardData} onSelect={onSelect} />
         <FAB name="Project" onAdd={onToggle} />
         <ModalBackdrop
