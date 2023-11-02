@@ -28,7 +28,7 @@ export enum Tabs {
 const Body = () => {
   const [tab, setTab] = useState(Tabs.Home);
   return (
-    <>
+    <div className="ss-body">
       <Navbar tab={tab} onClick={setTab} />
       {tab === Tabs.Home ? <Home /> : null}
 
@@ -52,7 +52,7 @@ const Body = () => {
 
       {tab === Tabs.ComingSoon ? <ComingSoon /> : null}
       {tab === Tabs.ComingSoon ? <ComingSoon /> : null}
-    </>
+    </div>
   );
 };
 

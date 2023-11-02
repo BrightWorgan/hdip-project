@@ -66,7 +66,7 @@ sable ish #d6d2b9 */
 }
 
 .footer {
-  position: fixed;
+  position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
@@ -76,11 +76,16 @@ sable ish #d6d2b9 */
   /* background-color: #f5f5f5; */
   background: #d6d2b9 !important;
   color: #23232b;
+  min-height: 60px;
 }
 
 .ss-copywright {
   float: right;
   text-align: right;
+}
+
+.ss-body {
+  height: 100%;
 }
 
 
