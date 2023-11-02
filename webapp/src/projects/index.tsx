@@ -69,15 +69,11 @@ const Project = () => {
     setProject(project);
   };
 
-  // testing :
-  // console.log(project);
-
   // logic to display either the view of all Project cards OR the Reports for a selected Project
   if (project === null) {
     return (
       <div>
         <br></br>
-        {/* <h2>Projects:</h2> */}
         <Cardbox cardData={cardData} onSelect={onSelect} />
         <FAB name="Project" onAdd={onToggle} />
         <ModalBackdrop
@@ -92,7 +88,6 @@ const Project = () => {
     );
   } else {
     return <Sheets project={project} />;
-    // sheets page
   }
 };
 export default Project;

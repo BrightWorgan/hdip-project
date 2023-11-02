@@ -35,14 +35,7 @@ const AllReportCards = () => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card‘s content.
                   </CardText>
-                  <Button
-                    className="ss-info-btn"
-                    // onClick={() => alert("Click is working!")}
-                    // onClick={() }
-                    // href="/contextRegisterPage.tsx"
-                  >
-                    View Context Register
-                  </Button>
+                  <Button className="ss-info-btn">View Context Register</Button>
                 </CardBody>
               </Card>
             </Col>
