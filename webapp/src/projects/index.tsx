@@ -3,29 +3,49 @@ import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import Cardbox from "./projectCards";
 import ProjectAddForm from "./projectForm";
-// import Reports from "./reports";
+import Sheets from "./reports/sheets";
 
 const cardData = [
   {
-    title: "Trim Castle Excavation",
+    projectID: "0000001",
+    title: "Trim Castle Field School",
     imgSrc: "src/assets/IMAG0463.jpg",
     location: "Location: Trim Castle, Trim, Co. Meath",
     siteID: "Site ID: 2023000000021",
-    description: "DESCRIPTON",
+    siteName: "Trim Castle Area 1",
+    licenceNumber: "202300020009",
+    director: "Sean Shannanan",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+    contractType: "Field School",
+    startDate: "10/October/2023",
   },
   {
-    title: "something",
+    projectID: "0000002",
+    title: "Kylemore Abbey  Capel L-Dar Preparation",
     imgSrc: "src/assets/IMAG1100-EFFECTS.jpg",
     location: "Location: Kylemore Abbey, Co. Galway",
     siteID: "Site ID: 2023000000022",
-    description: "DESCRIPTON",
+    siteName: "",
+    licenceNumber: "",
+    director: "Derric Mountain",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+    contractType: "Count Council",
   },
   {
-    title: "something",
+    projectID: "0000003",
+    title: "Trim Castle Field School Winter Grads",
     imgSrc: "src/assets/IMAG0463.jpg",
     location: "Location: Trim Castle, Trim, Co. Meath",
     siteID: "Site ID: 2023000000023",
-    description: "DESCRIPTON",
+    siteName: "Trim Castle",
+    licenceNumber: "202300020009",
+    director: "Sean Shannanan",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+    contractType: "Field School",
+    startDate: "10/October/2023",
   },
 ];
 
@@ -43,30 +63,36 @@ const Project = () => {
   };
 
   // state variable
-  // get projectID from API/list of project ids
+  const [project, setProject] = useState(null);
 
-  // const projectId = useState()
+  const onSelect = (project: any) => {
+    setProject(project);
+  };
 
-  // if (projectId === null) {
-  return (
-    <div>
-      <br></br>
-      <h2>Projects:</h2>
-      <Cardbox cardData={cardData} />
-      <FAB name="Project" onAdd={onToggle} />
-      <ModalBackdrop
-        header="Add a new Project"
-        toggle={onToggle}
-        isOpen={isOpen}
-        onAdd={onAdd}
-      >
-        <ProjectAddForm onSubmit={onAdd} />
-      </ModalBackdrop>
-    </div>
-  );
-  // }
-  // return(
-  //   <Reports/>
-  // )
+  // testing :
+  // console.log(project);
+
+  // logic to display either the view of all Project cards OR the Reports for a selected Project
+  if (project === null) {
+    return (
+      <div>
+        <br></br>
+        <h2>Projects:</h2>
+        <Cardbox cardData={cardData} onSelect={onSelect} />
+        <FAB name="Project" onAdd={onToggle} />
+        <ModalBackdrop
+          header="Add a new Project"
+          toggle={onToggle}
+          isOpen={isOpen}
+          onAdd={onAdd}
+        >
+          <ProjectAddForm onSubmit={onAdd} />
+        </ModalBackdrop>
+      </div>
+    );
+  } else {
+    return <Sheets project={project} />;
+    // sheets page
+  }
 };
 export default Project;

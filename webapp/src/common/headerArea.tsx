@@ -2,7 +2,7 @@ import { Container, Button, Row, Col } from "reactstrap";
 
 const HeaderArea = () => {
   return (
-    <Row className="header-container">
+    <Row noGutters className="header-container">
       <Col xs={1}>
         <img
           className="ss-logo"
