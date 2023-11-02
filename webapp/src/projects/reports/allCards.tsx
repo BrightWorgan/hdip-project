@@ -87,6 +87,7 @@ const AllReportCards = () => {
                   </CardSubtitle>
                   <CardText>Coming Soon ....</CardText>
                   <br />
+                  <br />
                   <Button color="disabled">View Sample Table</Button>
                 </CardBody>
               </Card>

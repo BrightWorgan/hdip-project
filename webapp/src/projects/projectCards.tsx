@@ -39,7 +39,9 @@ const Cardbox = (props: any) => {
               <Button onClick={() => props.onSelect(project)}>
                 Project Details
               </Button>
+              <br />
             </CardBody>
+            <br />
           </Card>
         </Col>
       ))}
