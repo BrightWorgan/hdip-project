@@ -1,4 +1,4 @@
-import { Container, Button, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 
 const HeaderArea = () => {
   return (

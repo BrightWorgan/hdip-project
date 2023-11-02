@@ -1,6 +1,5 @@
-import { Nav, NavItem, NavLink, NavbarToggler } from "reactstrap";
+import { Nav, NavItem, NavLink } from "reactstrap";
 import { Tabs } from "../body";
-import { useState } from "react";
 
 type NavbarProps = {
   tab: Tabs;
@@ -8,13 +7,8 @@ type NavbarProps = {
 };
 
 const Navbar = (props: NavbarProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
   return (
     <Nav justified id="navbar">
-      <NavbarToggler onClick={toggle} />
       <NavItem onClick={() => props.onClick(Tabs.Home)}>
         <NavLink
           className="ss-nav-link"
