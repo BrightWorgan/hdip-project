@@ -10,7 +10,7 @@ sable ish #d6d2b9 */
 
 .nav {
   background: #717d52 !important;
-  width: 100% !important;
+  /* width: 100% !important; */
   color: #23232b;
 }
 
@@ -22,6 +22,7 @@ sable ish #d6d2b9 */
 .nav-link {
   background: #717d52 !important;
   color: #d6d2b9 !important;
+  width: auto;
 }
 
 .body {
