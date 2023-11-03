@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Carousel,
   CarouselItem,
@@ -7,28 +7,29 @@ import {
   CarouselCaption,
 } from "reactstrap";
 
+// IMAG1262-PANO
 const items = [
   {
-    src: "src/assets/trimCastlePano1200.jpg",
+    src: "src/assets/wicklowMountainsPano1600.jpg",
     altText: "Slide 1",
     caption: "Slide 1",
     key: 1,
   },
   {
-    src: "src/assets/trimCastlePano1200.jpg",
+    src: "src/assets/cliffsPano1600.jpg",
     altText: "Slide 2",
     caption: "Slide 2",
     key: 2,
   },
   {
-    src: "src/assets/trimCastlePano1200.jpg",
+    src: "src/assets/trimCastlePano1600.jpg",
     altText: "Slide 3",
     caption: "Slide 3",
     key: 3,
   },
 ];
 
-function Example(args) {
+const HomeImages = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -70,7 +71,7 @@ function Example(args) {
       activeIndex={activeIndex}
       next={next}
       previous={previous}
-      {...args}
+      {...props}
     >
       <CarouselIndicators
         items={items}
@@ -90,6 +91,6 @@ function Example(args) {
       />
     </Carousel>
   );
-}
+};
 
-export default Example;
+export default HomeImages;

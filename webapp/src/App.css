@@ -17,6 +17,7 @@ sable ish #d6d2b9 */
 .nav-link.active {
   background: #d6d2b9 !important;
   color: #23232b !important;
+  max-width: 500px;
 }
 
 .nav-link {
@@ -27,6 +28,10 @@ sable ish #d6d2b9 */
 
 .body {
   background-color: #d6d2b9 !important;
+}
+
+.CarouselItem {
+  height: 470px !important;
 }
 
 .ss-fab-button {
@@ -62,7 +67,7 @@ sable ish #d6d2b9 */
 }
 
 .carousel-item.active {
-  width: 100% !important;
+  width: 100%;
 }
 
 .footer {

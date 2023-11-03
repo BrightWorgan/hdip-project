@@ -9,7 +9,6 @@ import {
   Col,
   Button,
 } from "reactstrap";
-// import ToggleBtn from "./toggleBtn";
 
 const Cardbox = (props: any) => {
   return (
@@ -34,7 +33,6 @@ const Cardbox = (props: any) => {
                 <br />
                 {project.description}
               </CardText>
-              {/* <ToggleBtn /> */}
 
               <Button onClick={() => props.onSelect(project)}>
                 Project Details

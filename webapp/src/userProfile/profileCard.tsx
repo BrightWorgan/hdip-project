@@ -26,7 +26,7 @@ const ProfileCard = () => {
             <Row>
               <Col xs={3}>
                 <CardImg
-                  alt="Card image cap"
+                  alt="user profile image"
                   src="src/assets/meZeusandSkadi.jpg"
                   height="100%"
                   //   width="25px"
