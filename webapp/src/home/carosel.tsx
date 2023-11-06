@@ -10,21 +10,21 @@ import {
 // IMAG1262-PANO
 const items = [
   {
-    src: "src/assets/wicklowMountainsPano1600.jpg",
-    altText: "Slide 1",
-    caption: "Slide 1",
+    src: "src/assets/cliffsPano1600.jpg",
+    altText: "Slide 2",
+    caption: "O'Briens Tower, Cliffs of Moher, Co. Clare",
     key: 1,
   },
   {
-    src: "src/assets/cliffsPano1600.jpg",
-    altText: "Slide 2",
-    caption: "Slide 2",
+    src: "src/assets/wicklowMountainsPano1600x435.jpg",
+    altText: "Slide 1",
+    caption: "Wicklow National Park, Co. Wicklow ",
     key: 2,
   },
   {
-    src: "src/assets/trimCastlePano1600.jpg",
+    src: "src/assets/trimCastlePano1600x435.jpg",
     altText: "Slide 3",
-    caption: "Slide 3",
+    caption: "Trim Castle, Trim, Co. Meath",
     key: 3,
   },
 ];

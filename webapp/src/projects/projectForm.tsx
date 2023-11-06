@@ -7,7 +7,6 @@ import {
   Input,
   Button,
   ButtonGroup,
-  FormProps,
 } from "reactstrap";
 
 const ProjectAddForm = (props: any) => {
