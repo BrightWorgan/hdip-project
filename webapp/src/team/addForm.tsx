@@ -129,6 +129,10 @@ const AddForm = (props) => {
           </FormGroup>
         </Col>
       </Row>
+      <FormGroup>
+        <Label for="site">Current Site / None / OnLeave / WFM / etc.</Label>
+        <Input id="site" name="site" placeholder="Current Site" />
+      </FormGroup>
       <Row>
         <Col xs={{ size: 6, offset: 6 }}>
           <ButtonGroup style={{ float: "right" }}>

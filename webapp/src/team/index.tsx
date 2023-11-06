@@ -16,6 +16,7 @@ const userList = [
     certs: "Training Certs",
     drive: "Yes",
     position: "Supervisor",
+    site: "None",
   },
   {
     name: "John",
@@ -28,6 +29,7 @@ const userList = [
     certs: "Training Certs",
     drive: "NO",
     position: "Company Position",
+    site: "Trim Castle Excavation",
   },
   {
     name: "Cormac",
@@ -40,6 +42,7 @@ const userList = [
     certs: "Training Certs",
     drive: "Yes",
     position: "Company Position",
+    site: "None",
   },
 ];
 
