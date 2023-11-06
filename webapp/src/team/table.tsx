@@ -16,6 +16,7 @@ const TeamTable = (props) => {
           <th>Training Certs</th>
           <th>Drive</th>
           <th>Company Position</th>
+          <th>Current Site</th>
         </tr>
       </thead>
       <tbody>
@@ -35,6 +36,7 @@ const TeamTable = (props) => {
               <td>{user.certs}</td>
               <td>{user.drive}</td>
               <td>{user.position}</td>
+              <td>{user.site}</td>
             </tr>
           );
         })}
