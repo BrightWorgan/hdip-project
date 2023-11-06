@@ -36,7 +36,7 @@ const cardData = [
   {
     projectID: "0000003",
     title: "Trim Castle Field School Winter Grads",
-    imgSrc: "src/assets/IMAG0463.jpg",
+    imgSrc: "src/assets/trimCastleSideImage.jpg",
     location: "Location: Trim Castle, Trim, Co. Meath",
     siteID: "Site ID: 2023000000023",
     siteName: "Trim Castle",

@@ -32,6 +32,7 @@ sable ish #d6d2b9 */
 
 .CarouselItem {
   height: 470px !important;
+  /* max-height: 470px !important; */
 }
 
 .ss-fab-button {
@@ -91,6 +92,10 @@ sable ish #d6d2b9 */
 
 .ss-body {
   height: 100%;
+}
+
+.ss-spacer {
+  height: 15%;
 }
 
 
