@@ -4,6 +4,7 @@ import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import AddForm from "./addForm";
 
+// old users list / pre-API
 // const userList = [
 //   {
 //     name: "Sarah",
@@ -46,8 +47,6 @@ import AddForm from "./addForm";
 //   },
 // ];
 
-// fettch
-
 const Team = () => {
   const [users, setUsers] = useState<any[]>([]);
   const [selectedUsers, setSelectedUsers] = useState<any[]>([]);
@@ -73,9 +72,6 @@ const Team = () => {
 
   const removeUsers = () => {
     if (selectedUsers.length !== 0) {
-      // for (const user of selectedUsers){
-
-      // }
       const newUserList = users.filter((user) => {
         const foundUser = selectedUsers.some((selectedUser) => {
           return selectedUser.number === user.number;
