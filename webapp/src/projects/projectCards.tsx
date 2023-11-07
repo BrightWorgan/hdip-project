@@ -34,7 +34,10 @@ const Cardbox = (props: any) => {
                 {project.description}
               </CardText>
 
-              <Button onClick={() => props.onSelect(project)}>
+              <Button
+                className="ss-info-btn"
+                onClick={() => props.onSelect(project)}
+              >
                 Project Details
               </Button>
               <br />
