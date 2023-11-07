@@ -26,12 +26,13 @@ const cardData = [
     imgSrc: "src/assets/IMAG1100-EFFECTS.jpg",
     location: "Location: Kylemore Abbey, Co. Galway",
     siteID: "Site ID: 2023000000022",
-    siteName: "",
-    licenceNumber: "",
+    siteName: "Kylemore Abbey  Capel L-Dar Preparation",
+    licenceNumber: "202300020076",
     director: "Derric Mountain",
     description:
       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
     contractType: "Count Council",
+    startDate: "10/October/2023",
   },
   {
     projectID: "0000003",

@@ -59,7 +59,12 @@ const AllReportCards = () => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card‘s content.
                   </CardText>
-                  <Button className="ss-info-btn">View Finds Table</Button>
+                  <Button
+                    className="ss-info-btn"
+                    // onClick={() => props.onSelect(project)}
+                  >
+                    View Finds Table
+                  </Button>
                 </CardBody>
               </Card>
             </Col>

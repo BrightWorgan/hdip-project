@@ -1,55 +1,63 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TeamTable from "./table";
 import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import AddForm from "./addForm";
 
-const userList = [
-  {
-    name: "Sarah",
-    surname: "Halford",
-    number: "0834690565",
-    email: "X00192313@mytudublin.ie",
-    address: "place, street road, Rush, Co. Dublin",
-    experience: "Site Assiastant",
-    education: "Level 8",
-    certs: "Training Certs",
-    drive: "Yes",
-    position: "Supervisor",
-    site: "None",
-  },
-  {
-    name: "John",
-    surname: "Bird",
-    number: "0864695505",
-    email: "email@addresss.ie",
-    address: "place, street road, town, Co. County",
-    experience: "Experience",
-    education: "Education",
-    certs: "Training Certs",
-    drive: "NO",
-    position: "Company Position",
-    site: "Trim Castle Excavation",
-  },
-  {
-    name: "Cormac",
-    surname: "O'Sullivan",
-    number: "0867690305",
-    email: "email@addresss.ie",
-    address: "place, street road, town, Co. County",
-    experience: "Experience",
-    education: "Education",
-    certs: "Training Certs",
-    drive: "Yes",
-    position: "Company Position",
-    site: "None",
-  },
-];
+// const userList = [
+//   {
+//     name: "Sarah",
+//     surname: "Halford",
+//     number: "0834690565",
+//     email: "X00192313@mytudublin.ie",
+//     address: "place, street road, Rush, Co. Dublin",
+//     experience: "Site Assiastant",
+//     education: "Level 8",
+//     certs: "Training Certs",
+//     drive: "Yes",
+//     position: "Supervisor",
+//     site: "None",
+//   },
+//   {
+//     name: "John",
+//     surname: "Bird",
+//     number: "0864695505",
+//     email: "email@addresss.ie",
+//     address: "place, street road, town, Co. County",
+//     experience: "Experience",
+//     education: "Education",
+//     certs: "Training Certs",
+//     drive: "NO",
+//     position: "Company Position",
+//     site: "Trim Castle Excavation",
+//   },
+//   {
+//     name: "Cormac",
+//     surname: "O'Sullivan",
+//     number: "0867690305",
+//     email: "email@addresss.ie",
+//     address: "place, street road, town, Co. County",
+//     experience: "Experience",
+//     education: "Education",
+//     certs: "Training Certs",
+//     drive: "Yes",
+//     position: "Company Position",
+//     site: "None",
+//   },
+// ];
+
+// fettch
 
 const Team = () => {
-  const [users, setUsers] = useState(userList);
+  const [users, setUsers] = useState<any[]>([]);
   const [selectedUsers, setSelectedUsers] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/user").then(async (result) => {
+      setUsers((await result.json()) as any[]);
+    });
+  }, []);
 
   const toggle = () => setIsOpen(!isOpen);
 
