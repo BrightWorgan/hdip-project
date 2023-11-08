@@ -8,7 +8,7 @@ console.log('Hello world!');
 // routing library - express layer
 //
 
-const express = require('express')
+import express from "express";
 const app = express()
 const port = 3000
 
@@ -21,7 +21,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 // get users
-app.get('/user', (req :any, res:any) => {
+app.get('/user', (req, res) => {
   res.send([
     {
       name: "Sarah",
@@ -63,6 +63,11 @@ app.get('/user', (req :any, res:any) => {
       site: "None",
     },
   ])
+})
+
+app.post('/user', (req, res) => {
+  console.log(req.body)
+  res.send('Ok');
 })
 
 
