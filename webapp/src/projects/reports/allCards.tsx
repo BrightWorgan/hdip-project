@@ -8,29 +8,27 @@ import {
   CardTitle,
   CardSubtitle,
   CardText,
+  CardImg,
 } from "reactstrap";
 
-const AllReportCards = () => {
+const AllReportCards = (project: any) => {
   return (
     <div>
       <div>
         <Container>
           <Row>
             <Col xs="4">
-              <Card
-                style={{
-                  width: "18rem",
-                }}
-              >
-                <img
-                  alt="Card image cap"
-                  src="src/assets/trimCastlePano1200.jpg"
-                />
+              <Card>
                 <CardBody>
                   <CardTitle tag="h5">Context Register:</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     Cut and Fill Numbers
                   </CardSubtitle>
+                  <CardImg
+                    alt="Card image cap"
+                    src="src/assets/contextLayersCavanSite.jpg"
+                    className="ss-"
+                  />
                   <CardText>
                     Some quick example text to build on the card title and make
                     up the bulk of the card‘s content.
@@ -41,20 +39,16 @@ const AllReportCards = () => {
             </Col>
 
             <Col xs="4">
-              <Card
-                style={{
-                  width: "18rem",
-                }}
-              >
-                <img
-                  alt="Card image cap"
-                  src="src/assets/trimCastlePano1200.jpg"
-                />
+              <Card>
                 <CardBody>
                   <CardTitle tag="h5">Find Register:</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     All Finds
                   </CardSubtitle>
+                  <CardImg
+                    alt="https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
+                    src="src/assets/copperFinds.jpg"
+                  />
                   <CardText>
                     Some quick example text to build on the card title and make
                     up the bulk of the card‘s content.
@@ -69,17 +63,13 @@ const AllReportCards = () => {
               </Card>
             </Col>
             <Col xs="4">
-              <Card
-                style={{
-                  width: "18rem",
-                }}
-              >
-                <img
-                  alt="Card image cap"
-                  src="src/assets/trimCastlePano1200.jpg"
-                />
+              <Card>
                 <CardBody>
                   <CardTitle tag="h5">Sample Register:</CardTitle>
+                  <CardImg
+                    alt="Bags of soil"
+                    src="src/assets/soilSamples.jpeg"
+                  />
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     Soil Samples
                   </CardSubtitle>
@@ -118,8 +108,8 @@ const AllReportCards = () => {
                 }}
               >
                 <img
-                  alt="Card image cap"
-                  src="src/assets/trimCastlePano1200.jpg"
+                  alt="Cabinteely burial under excavation (Photo Ken Wiggins/Judith Carroll), http://irisharchaeology.ie/2015/10/medieval-burials-discovered-at-cabinteely-co-dublin/"
+                  src="src/assets/remainsBeingExcavated.jpg"
                 />
                 <CardBody>
                   <CardTitle tag="h5">Bone Sample Register:</CardTitle>
@@ -155,6 +145,7 @@ const AllReportCards = () => {
             </Col> */}
           </Row>
         </Container>
+        <br />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import TeamTable from "./table";
 import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import AddForm from "./addForm";
+import axios from "axios";
 
 // old users list / pre-API
 // const userList = [
@@ -53,10 +54,14 @@ const Team = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/user").then(async (result) => {
-      setUsers((await result.json()) as any[]);
+    axios.get("http://localhost:3000/user").then(async (result) => {
+      // fetch
+      // setUsers((await result.json()) as any[]);
+      //
+      // axios way:
+      setUsers(result.data);
     });
-  }, []);
+  }, [isOpen]);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -65,8 +70,12 @@ const Team = () => {
   };
 
   const addUser = (user: any) => {
-    const newUserList = users.concat([user]);
-    setUsers(newUserList);
+    // local array:
+    // const newUserList = users.concat([user]);
+    // setUsers(newUserList);
+    //
+    // axios way:
+    axios.post("http://localhost:3000/user", user);
     toggle();
   };
 
