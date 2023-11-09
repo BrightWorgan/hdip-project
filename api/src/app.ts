@@ -1,75 +1,101 @@
-console.log('Hello world!');
-//get all users
-// add
-// update
-// delete
+// array
+const users = [{
+  name: "Sarah",
+  surname: "Halford",
+  number: "0834690565",
+  email: "X00192313@mytudublin.ie",
+  address: "place, street road, Rush, Co. Dublin",
+  experience: "Site Assiastant",
+  education: "Level 8",
+  certs: "Training Certs",
+  drive: "Yes",
+  position: "Supervisor",
+  site: "None",
+},
+{
+  name: "John",
+  surname: "Bird",
+  number: "0864695505",
+  email: "email@addresss.ie",
+  address: "place, street road, town, Co. County",
+  experience: "Experience",
+  education: "Education",
+  certs: "Training Certs",
+  drive: "NO",
+  position: "Company Position",
+  site: "Trim Castle Excavation",
+},
+{
+  name: "Cormac",
+  surname: "O'Sullivan",
+  number: "0867690305",
+  email: "email@addresss.ie",
+  address: "place, street road, town, Co. County",
+  experience: "Experience",
+  education: "Education",
+  certs: "Training Certs",
+  drive: "Yes",
+  position: "Company Position",
+  site: "None",
+},]
 
+// console.log('Hello world!');
 
 // routing library - express layer
 //
 
 import express from "express";
+import bodyParser from "body-parser";
 const app = express()
+
 const port = 3000
 
 const cors = require("cors");
 const corsOptions = {
     origin: "*"
-
 }
 
 app.use(cors(corsOptions))
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
+// USERS / Team Page:
+
 // get users
 app.get('/user', (req, res) => {
-  res.send([
-    {
-      name: "Sarah",
-      surname: "Halford",
-      number: "0834690565",
-      email: "X00192313@mytudublin.ie",
-      address: "place, street road, Rush, Co. Dublin",
-      experience: "Site Assiastant",
-      education: "Level 8",
-      certs: "Training Certs",
-      drive: "Yes",
-      position: "Supervisor",
-      site: "None",
-    },
-    {
-      name: "John",
-      surname: "Bird",
-      number: "0864695505",
-      email: "email@addresss.ie",
-      address: "place, street road, town, Co. County",
-      experience: "Experience",
-      education: "Education",
-      certs: "Training Certs",
-      drive: "NO",
-      position: "Company Position",
-      site: "Trim Castle Excavation",
-    },
-    {
-      name: "Cormac",
-      surname: "O'Sullivan",
-      number: "0867690305",
-      email: "email@addresss.ie",
-      address: "place, street road, town, Co. County",
-      experience: "Experience",
-      education: "Education",
-      certs: "Training Certs",
-      drive: "Yes",
-      position: "Company Position",
-      site: "None",
-    },
-  ])
+  res.send(users
+  )
 })
 
+// post
 app.post('/user', (req, res) => {
   console.log(req.body)
-  res.send('Ok');
+  users.push(req.body)
+  res.send('Post Sucess');
+  
 })
 
+// Remove a user
+app.delete('/user', (req, res) =>{
+  //user id
+  const userID = "00001"
+  const LookFor = () => {
+    return(userID)
+  }
+
+  const selectedUser = users.findIndex(LookFor)
+})
+
+// update / edit user
+app.patch('/user', (req, res) => {
+
+})
+
+// Projects:
 
 // get projects
 app.get('/project', (req :any, res:any) => {
@@ -119,8 +145,18 @@ app.get('/project', (req :any, res:any) => {
             },
         ])
     })
+
+// post, remove?, update
   
-  
+// CONTEXT
+// get, post, remove?, update
+
+// FINDS
+// get, post, remove?, update
+
+// SAMPLES
+// get, post, remove?, update
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
