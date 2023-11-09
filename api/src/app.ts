@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 // array
 const users = [{
   name: "Sarah",
@@ -39,6 +41,21 @@ const users = [{
   site: "None",
 },]
 
+//database
+import knex from "knex";
+const db = knex({
+  client: 'mysql',
+  connection: {
+    host : process.env.DB_HOST,
+    port : parseInt(process.env.DB_PORT ?? "0", 10),
+    user : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : 'SheetScribe'
+  }
+});
+
+
+
 // console.log('Hello world!');
 
 // routing library - express layer
@@ -63,6 +80,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// dogs
+app.get('/dogs', async (req, res) =>{
+  const allDogs = await db("Dogs").select("*")
+  res.send(allDogs)
+// all dogs
+} )
+
 // USERS / Team Page:
 
 // get users
@@ -83,12 +107,26 @@ app.post('/user', (req, res) => {
 app.delete('/user', (req, res) =>{
   //user id
   const userID = "00001"
-  const LookFor = () => {
-    return(userID)
+  const LookFor = (user:any) => {
+    if (user.userID == userID)
+      return true
+    else{
+      return false
+    }
   }
 
   const selectedUser = users.findIndex(LookFor)
+
+  if (selectedUser === -1){
+    throw new Error("User ID / User is not present in the system")
+  }
+  else {
+    users.splice(selectedUser, 1)
+  }
+
+  res.send("Okay")
 })
+
 
 // update / edit user
 app.patch('/user', (req, res) => {
