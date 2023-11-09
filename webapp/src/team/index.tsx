@@ -82,19 +82,22 @@ const Team = () => {
   };
 
   const removeUsers = () => {
-    if (selectedUsers.length !== 0) {
-      const newUserList = users.filter((user) => {
-        const foundUser = selectedUsers.some((selectedUser) => {
-          return selectedUser.number === user.number;
-        });
-        if (foundUser === true) {
-          return false;
-        }
-        return true;
-      });
+    // if (selectedUsers.length !== 0) {
+    //   const newUserList = users.filter((user) => {
+    //     const foundUser = selectedUsers.some((selectedUser) => {
+    //       return selectedUser.number === user.number;
+    //     });
+    //     if (foundUser === true) {
+    //       return false;
+    //     }
+    //     return true;
+    //   });
 
-      setUsers(newUserList);
-    }
+    //   setUsers(newUserList);
+    // }
+
+    // api / axios way
+    axios.delete("http://localhost:3000/user", selectedUsers);
   };
 
   const onChecked = (user: any) => {
