@@ -74,6 +74,8 @@ const Team = () => {
     // const newUserList = users.concat([user]);
     // setUsers(newUserList);
     //
+    console.log(user);
+
     // axios way:
     axios.post("http://localhost:3000/user", user);
     toggle();
