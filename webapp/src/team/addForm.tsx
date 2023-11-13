@@ -15,17 +15,17 @@ const AddForm = (props) => {
     e.preventDefault();
     const user = {
       name: e?.target?.name?.value,
-      surname: e?.target?.surname?.value,
-      number: e?.target?.number?.value,
+      // surname: e?.target?.surname?.value,
+      // number: e?.target?.number?.value,
       email: e?.target?.email?.value,
-      address: e?.target?.address?.value,
-      townCity: e?.target?.townCity?.value,
-      county: e?.target?.county?.value,
-      eircode: e?.target?.eircode?.value,
-      experience: e?.target?.experience?.value,
-      education: e?.target?.education?.value,
-      training: e?.target?.training?.value,
-      drive: e?.target?.drive?.value,
+      // address: e?.target?.address?.value,
+      // townCity: e?.target?.townCity?.value,
+      // county: e?.target?.county?.value,
+      // eircode: e?.target?.eircode?.value,
+      // experience: e?.target?.experience?.value,
+      // education: e?.target?.education?.value,
+      // training: e?.target?.training?.value,
+      // drive: e?.target?.drive?.value,
     };
     props.onSubmit(user);
   };
@@ -97,7 +97,22 @@ const AddForm = (props) => {
         <Col md={6}>
           <FormGroup>
             <Label for="education">Education</Label>
-            <Input id="education" name="education" placeholder="Level 8" />
+            <Input
+              id="education"
+              name="education"
+              placeholder="Level 8"
+              type="select"
+            >
+              <option>Leaving Cert</option>
+              <option>Level 5</option>
+              <option>Level 6</option>
+              <option>Level 7</option>
+              <option>Level 8</option>
+              <option>Masters / Level 9</option>
+              <option>PHD / Level 10</option>
+              <option>Student</option>
+              <option>Other</option>
+            </Input>
           </FormGroup>
         </Col>
         <Col md={6}>
@@ -106,33 +121,77 @@ const AddForm = (props) => {
             <Input
               id="experience"
               name="experience"
-              placeholder="Site Assistant"
-            />
+              placeholder="Site Assistant etc."
+              type="select"
+            >
+              <option>General Operative</option>
+              <option>Site Assisatant</option>
+              <option>Supervisor</option>
+              <option>Director</option>
+              <option>Student</option>
+              <option>Other</option>
+            </Input>
           </FormGroup>
         </Col>
       </Row>
       <Row>
         <Col md={6}>
           <FormGroup>
-            <Label for="training">Training </Label>
+            <Label for="certs">Training </Label>
             <Input
-              id="training"
+              id="certs"
               name="Training"
+              type="select"
               placeholder="Safe Pass, Manual Handling, Etc."
-            />
+            >
+              <option>Safe Pass</option>
+              <option>Manual Handling</option>
+              <option>Safe Pass and Manual Handling</option>
+              <option>First Aid</option>
+              <option>Safe Pass, Manual Handling and First Aid</option>
+            </Input>
           </FormGroup>
         </Col>
         <Col md={6}>
           <FormGroup>
             <Label for="drive">Driving</Label>
-            <Input id="drive" name="drive" placeholder="Can Drive ? Yes/No" />
+            <Input
+              id="drive"
+              name="drive"
+              placeholder="Can Drive ? Yes/No"
+              type="select"
+            >
+              <option>Yes</option>
+              <option>No </option>
+            </Input>
           </FormGroup>
         </Col>
       </Row>
-      <FormGroup>
-        <Label for="site">Current Site / None / OnLeave / WFM / etc.</Label>
-        <Input id="site" name="site" placeholder="Current Site" />
-      </FormGroup>
+      <Row>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="site">Current Site / None / OnLeave / WFM / etc.</Label>
+            <Input id="site" name="site" placeholder="Current Site" />
+          </FormGroup>
+        </Col>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="certs">Training </Label>
+            <Input
+              id="certs"
+              name="Training"
+              type="select"
+              placeholder="Safe Pass, Manual Handling, Etc."
+            >
+              <option>Safe Pass</option>
+              <option>Manual Handling</option>
+              <option>Safe Pass and Manual Handling</option>
+              <option>First Aid</option>
+              <option>Safe Pass, Manual Handling and First Aid</option>
+            </Input>
+          </FormGroup>
+        </Col>
+      </Row>
       <Row>
         <Col xs={{ size: 6, offset: 6 }}>
           <ButtonGroup style={{ float: "right" }}>
