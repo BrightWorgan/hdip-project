@@ -90,17 +90,40 @@ app.get('/dogs', async (req, res) =>{
 // USERS / Team Page:
 
 // get users
-app.get('/user', (req, res) => {
-  res.send(users
-  )
+app.get('/user',  async (req, res) => {
+  // res.send(users
+  // )
+  // select query in here
+  const allUsers = await db("Users")
+    .select()
+  res.send(allUsers)
+
 })
 
 // post
-app.post('/user', (req, res) => {
-  console.log(req.body)
-  users.push(req.body)
+app.post('/user', async  (req, res) => {
+  // console.log(req.body)
+  // users.push(req.body)
+  // res.send('Post Sucess');
+
+  await db("Users")
+  .insert({
+    forename: req.body.name,
+    surname: req.body.surname, 
+    number: req.body.number, 
+    email: req.body.email, 
+    address: req.body.address, 
+    town: req.body.townCity, 
+    county: req.body.county, 
+    eircode: req.body.eircode, 
+    education: req.body.education, 
+    experience: req.body.experience, 
+    certs: req.body.certs, 
+    driving: req.body.drive, 
+    position: req.body.position, 
+    site: req.body.site, }
+  )
   res.send('Post Sucess');
-  
 })
 
 // Remove a user
