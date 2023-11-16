@@ -3,6 +3,8 @@ import {
   Col,
   Row,
   FormGroup,
+  FormFeedback,
+  FormText,
   Label,
   Input,
   Button,
@@ -170,26 +172,33 @@ const AddForm = (props) => {
       <Row>
         <Col md={6}>
           <FormGroup>
-            <Label for="site">Current Site / None / OnLeave / WFM / etc.</Label>
+            <Label for="site">Current Site / None / etc.</Label>
             <Input id="site" name="site" placeholder="Current Site" />
           </FormGroup>
         </Col>
         <Col md={6}>
           <FormGroup>
-            <Label for="certs">Training </Label>
+            <Label for="position">Position </Label>
             <Input
-              id="certs"
-              name="Training"
+              id="position"
+              name="position"
               type="select"
-              placeholder="Safe Pass, Manual Handling, Etc."
+              placeholder="Site Assisatant, Etc."
             >
-              <option>Safe Pass</option>
-              <option>Manual Handling</option>
-              <option>Safe Pass and Manual Handling</option>
-              <option>First Aid</option>
-              <option>Safe Pass, Manual Handling and First Aid</option>
+              <option>General Operative</option>
+              <option>Site Assisatant</option>
+              <option>Supervisor</option>
+              <option>Director</option>
+              <option>Student</option>
+              <option>Other</option>
             </Input>
           </FormGroup>
+          {/* <FormGroup>
+            <Label for="examplePassword">Invalid input</Label>
+            <Input invalid />
+            <FormFeedback>Oh noes! that name is already taken</FormFeedback>
+            <FormText>Example help text that remains unchanged.</FormText>
+          </FormGroup> */}
         </Col>
       </Row>
       <Row>
