@@ -69,7 +69,7 @@ const Team = () => {
     toggle();
   };
 
-  const addUser = (user: any) => {
+  const addUser = async (user: any) => {
     // local array:
     // const newUserList = users.concat([user]);
     // setUsers(newUserList);
@@ -77,7 +77,7 @@ const Team = () => {
     console.log(user);
 
     // axios way:
-    axios.post("http://localhost:3000/user", user);
+    await axios.post("http://localhost:3000/user", user);
     toggle();
   };
 

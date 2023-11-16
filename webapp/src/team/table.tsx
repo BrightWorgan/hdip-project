@@ -26,7 +26,7 @@ const TeamTable = (props) => {
               <td>
                 <Input type="checkbox" onChange={() => props.onChecked(user)} />
               </td>
-              <td>{user.name}</td>
+              <td>{user.forename}</td>
               <td>{user.surname}</td>
               <td>{user.number}</td>
               <td>{user.email}</td>
@@ -34,7 +34,7 @@ const TeamTable = (props) => {
               <td>{user.experience}</td>
               <td>{user.education}</td>
               <td>{user.certs}</td>
-              <td>{user.drive}</td>
+              <td>{user.driving}</td>
               <td>{user.position}</td>
               <td>{user.site}</td>
             </tr>
