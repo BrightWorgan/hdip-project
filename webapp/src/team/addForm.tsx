@@ -1,36 +1,41 @@
+// import { useState } from "react";
+// import * as yup from "yup";
+
 import {
   Form,
   Col,
   Row,
   FormGroup,
-  FormFeedback,
-  FormText,
   Label,
   Input,
   Button,
-  FormProps,
   ButtonGroup,
 } from "reactstrap";
+import teamSchema from "../validation/teamValidation";
 
 const AddForm = (props) => {
-  const onSubmit = (e: Event): void => {
+  const onSubmit = async (e: Event): void => {
     e.preventDefault();
     const user = {
       name: e?.target?.name?.value,
-      // surname: e?.target?.surname?.value,
-      // number: e?.target?.number?.value,
+      surname: e?.target?.surname?.value,
+      number: e?.target?.number?.value,
       email: e?.target?.email?.value,
-      // address: e?.target?.address?.value,
-      // townCity: e?.target?.townCity?.value,
-      // county: e?.target?.county?.value,
-      // eircode: e?.target?.eircode?.value,
-      // experience: e?.target?.experience?.value,
-      // education: e?.target?.education?.value,
-      // training: e?.target?.training?.value,
-      // drive: e?.target?.drive?.value,
+      address: e?.target?.address?.value,
+      townCity: e?.target?.townCity?.value,
+      county: e?.target?.county?.value,
+      eircode: e?.target?.eircode?.value,
+      experience: e?.target?.experience?.value,
+      education: e?.target?.education?.value,
+      training: e?.target?.training?.value,
+      drive: e?.target?.drive?.value,
     };
     props.onSubmit(user);
+
+    const isValid = await teamSchema.isValid(user);
+    console.log(isValid);
   };
+
   return (
     <Form onSubmit={onSubmit}>
       <Row>
@@ -38,12 +43,14 @@ const AddForm = (props) => {
           <FormGroup>
             <Label for="name">Forename</Label>
             <Input id="name" name="name" placeholder="Forename" />
+            {/* <span>{"errorMessage"}</span> */}
           </FormGroup>
         </Col>
         <Col md={6}>
           <FormGroup>
             <Label for="surname">Surname</Label>
             <Input id="surname" name="surname" placeholder="Surname" />
+            {/* <span>{"errorMessage"}</span> */}
           </FormGroup>
         </Col>
       </Row>
@@ -51,7 +58,13 @@ const AddForm = (props) => {
         <Col md={6}>
           <FormGroup>
             <Label for="number">Contact Number</Label>
-            <Input id="number" name="number" placeholder="+353 80 000 00 00" />
+            <Input
+              id="number"
+              name="number"
+              placeholder="+353 80 000 00 00"
+              required
+            />
+            {/* <span>{"errorMessage"}</span> */}
           </FormGroup>
         </Col>
         <Col md={6}>
@@ -62,7 +75,9 @@ const AddForm = (props) => {
               name="email"
               placeholder="Email Addresss"
               type="email"
+              // required
             />
+            <span>{"errorMessage"}</span>
           </FormGroup>
         </Col>
       </Row>
@@ -104,6 +119,7 @@ const AddForm = (props) => {
               name="education"
               placeholder="Level 8"
               type="select"
+              // required
             >
               <option>Leaving Cert</option>
               <option>Level 5</option>
@@ -125,6 +141,7 @@ const AddForm = (props) => {
               name="experience"
               placeholder="Site Assistant etc."
               type="select"
+              // required
             >
               <option>General Operative</option>
               <option>Site Assisatant</option>
@@ -145,12 +162,14 @@ const AddForm = (props) => {
               name="Training"
               type="select"
               placeholder="Safe Pass, Manual Handling, Etc."
+              // required
             >
               <option>Safe Pass</option>
               <option>Manual Handling</option>
               <option>Safe Pass and Manual Handling</option>
               <option>First Aid</option>
               <option>Safe Pass, Manual Handling and First Aid</option>
+              <option>Other/None</option>
             </Input>
           </FormGroup>
         </Col>
@@ -162,6 +181,7 @@ const AddForm = (props) => {
               name="drive"
               placeholder="Can Drive ? Yes/No"
               type="select"
+              // required
             >
               <option>Yes</option>
               <option>No </option>
@@ -184,6 +204,7 @@ const AddForm = (props) => {
               name="position"
               type="select"
               placeholder="Site Assisatant, Etc."
+              // required
             >
               <option>General Operative</option>
               <option>Site Assisatant</option>
@@ -193,12 +214,6 @@ const AddForm = (props) => {
               <option>Other</option>
             </Input>
           </FormGroup>
-          {/* <FormGroup>
-            <Label for="examplePassword">Invalid input</Label>
-            <Input invalid />
-            <FormFeedback>Oh noes! that name is already taken</FormFeedback>
-            <FormText>Example help text that remains unchanged.</FormText>
-          </FormGroup> */}
         </Col>
       </Row>
       <Row>
