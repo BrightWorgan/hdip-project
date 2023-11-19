@@ -7,7 +7,7 @@ const teamSchema = yup.object().shape({
   email: yup.string().email().lowercase().required(),
   address: yup.string().min(2).max(10).required(),
   townCity: yup.string().min(10).required(),
-  county: yup.string().email().required(),
+  county: yup.string().required().typeError("Test Message"),
   eircode: yup.string().min(2).max(10).required(),
   //   experience: yup.string().min(10).required(),
   //   education: yup.string().email().required(),
