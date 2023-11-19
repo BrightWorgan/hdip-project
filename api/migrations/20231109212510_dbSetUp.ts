@@ -18,6 +18,7 @@ export async function up(knex: Knex): Promise<void> {
         userTable.enum("driving", ["Yes", "No"]);
         userTable.enum("position",["General Operative", "Site Assisatant", "Supervisor", "Director", "Student", "Other"]);
         userTable.string("site");
+        userTable.string("password");
 
     })
 }

@@ -1,4 +1,6 @@
 import 'dotenv/config'
+// import {jsonwebtoken} from "";
+import jwt from "jsonwebtoken";
 
 // array
 const users = [{
@@ -62,6 +64,13 @@ const db = knex({
 
 import express from "express";
 import bodyParser from "body-parser";
+import hash from './util/hashing';
+
+
+if (process.env.JWT_KEY === undefined){
+  throw new Error("JWT_KEY must be defined");
+}
+
 const app = express()
 
 const port = 3000
@@ -79,12 +88,36 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// // dogs
-// app.get('/dogs', async (req, res) =>{
-//   const allDogs = await db("Dogs").select("*")
-//   res.send(allDogs)
-// // all dogs
-// } )
+// Login
+
+app.post('/login', async (req, res) =>{
+  //email and password
+  const email =  req.body.email;
+  const password = req.body.password;
+
+  //TO DO: validate that the user gave email and password, else error ( heck types typeOf string)
+
+  const selectedUsers = await db("Users").select("*"). where({
+    email: email,
+    password: hash(password),
+  })
+
+  if ( selectedUsers.length !== 1){
+    // throw new Error("User not found!")
+    res.send(false);
+    return;
+  }
+  
+  const selectedUser = selectedUsers[0];
+  console.log(selectedUser);
+
+  // jwt / jsonwebtoken
+const token = jwt.sign( JSON.parse(JSON.stringify(selectedUser)), process.env.JWT_KEY as string );
+  console.log(jwt.decode(token))
+  res.send(token)
+})
+
+
 
 // USERS / Team Page:
 
@@ -120,7 +153,9 @@ app.post('/user', async  (req, res) => {
     certs: req.body.certs, 
     driving: req.body.drive, 
     position: req.body.position, 
-    site: req.body.site, }
+    site: req.body.site,
+    password: hash(req.body.password)
+   }
   )
   res.send('Post Sucess');
 })
