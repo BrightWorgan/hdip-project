@@ -13,5 +13,6 @@ const teamSchema = yup.object().shape({
   //   education: yup.string().email().required(),
   //   training: yup.string().min(10).required(),
   //   drive: yup.enmum().email().required(), ????
+  password: yup.string(),
 });
 export default teamSchema;
