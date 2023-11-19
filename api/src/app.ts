@@ -55,7 +55,6 @@ const db = knex({
 });
 
 
-
 // console.log('Hello world!');
 
 // routing library - express layer
@@ -80,12 +79,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// dogs
-app.get('/dogs', async (req, res) =>{
-  const allDogs = await db("Dogs").select("*")
-  res.send(allDogs)
-// all dogs
-} )
+// // dogs
+// app.get('/dogs', async (req, res) =>{
+//   const allDogs = await db("Dogs").select("*")
+//   res.send(allDogs)
+// // all dogs
+// } )
 
 // USERS / Team Page:
 

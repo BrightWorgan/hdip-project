@@ -1,5 +1,9 @@
 // import { useState } from "react";
 // import * as yup from "yup";
+// import { useForm } from "react-hook-form";
+import teamSchema from "../validation/teamValidation";
+
+import { useState } from "react";
 
 import {
   Form,
@@ -11,9 +15,9 @@ import {
   Button,
   ButtonGroup,
 } from "reactstrap";
-import teamSchema from "../validation/teamValidation";
 
 const AddForm = (props) => {
+  const [error, setError] = useState("");
   const onSubmit = async (e: Event): void => {
     e.preventDefault();
     const user = {
@@ -30,10 +34,14 @@ const AddForm = (props) => {
       training: e?.target?.training?.value,
       drive: e?.target?.drive?.value,
     };
-    props.onSubmit(user);
-
-    const isValid = await teamSchema.isValid(user);
-    console.log(isValid);
+    // validation
+    try {
+      const validatedUser = await teamSchema.validate(user);
+      setError("");
+      props.onSubmit(validatedUser);
+    } catch (error: any) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -215,6 +223,9 @@ const AddForm = (props) => {
             </Input>
           </FormGroup>
         </Col>
+      </Row>
+      <Row>
+        <p> {error} </p>
       </Row>
       <Row>
         <Col xs={{ size: 6, offset: 6 }}>
