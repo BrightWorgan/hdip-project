@@ -5,9 +5,8 @@ import Express from "express";
 // get, post, remove?, update
 
 const getAll = async (req: Express.Request, res: Express.Response) => {
-  const allUsers = await db("Users")
-    .select()
-  res.send(allUsers)
+
+  res.send([])
 };
 
 const create = async (req: Express.Request, res: Express.Response) => {

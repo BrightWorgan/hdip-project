@@ -3,9 +3,9 @@ import db from "../util/knex";
 import projectController from "../controllers/project.controller";
 
 const projectRoute = (app:Express) => {
-    app.get('/user',  projectController.getAll);
-    app.delete('/user', projectController.destroy);
-    app.post('/user', projectController.create);
+    app.get('/project',  projectController.getAll);
+    app.delete('/project', projectController.destroy);
+    app.post('/project', projectController.create);
 };
 
 export default projectRoute;

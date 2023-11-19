@@ -4,11 +4,18 @@ import Footer from "./common/Footer";
 import HeaderArea from "./common/headerArea";
 import Body from "./body";
 import LoginForm from "./settings/loginForm";
+import axios from "axios";
 
 const App = () => {
   const [isLoggedIn, setLogin] = useState(false);
-  const onLogin = () => {
-    setLogin(true);
+  const onLogin = async (user: any) => {
+    const res = await axios.post("http://localhost:3000/login", user);
+    // post/login user email and password
+    // user.email user.password
+    console.log(user);
+    if (res.data !== false) {
+      setLogin(res.data);
+    }
   };
 
   if (!isLoggedIn) {

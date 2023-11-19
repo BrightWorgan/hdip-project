@@ -33,7 +33,9 @@ const AddForm = (props) => {
       education: e?.target?.education?.value,
       training: e?.target?.training?.value,
       drive: e?.target?.drive?.value,
+      password: e?.target.password.value,
     };
+
     // validation
     try {
       const validatedUser = await teamSchema.validate(user);
@@ -225,6 +227,11 @@ const AddForm = (props) => {
         </Col>
       </Row>
       <Row>
+        <Input
+          id="password"
+          name="password"
+          placeholder="Temporary Password."
+        ></Input>
         <p> {error} </p>
       </Row>
       <Row>
