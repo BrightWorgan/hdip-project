@@ -69,6 +69,21 @@ sable ish #d6d2b9 */
   background-color: #73a2d1 !important;
 }
 
+
+/* 
+.ss-table-footer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+} */
+
+.ss-pagination-btn {
+  background-color: #73a2d1 !important;
+  /* display: flex; */
+  /* margin-left: "auto" */
+  /* float: 'right'; */
+}
+
 .ss-info-btn {
   background-color: #73a2d1 !important;
 }
