@@ -38,7 +38,7 @@ const FAB = (props: FABProps) => {
         icon="fas fa-plus"
         className="ss-fab-button"
         rotate={true}
-        onClick={() => alert("FAB is working!")}
+        // onClick={() => alert("FAB is working!")}
       />
     </Container>
   );
