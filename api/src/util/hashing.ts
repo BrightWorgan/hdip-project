@@ -2,6 +2,6 @@
 import { createHash } from "crypto";
 
 const hash = (password:string) => {
-    return createHash("sha256").update(password + "SALT").digest("hex");
+    return createHash("sha256").update(password + process.env.salt).digest("hex");
 }
 export default hash;

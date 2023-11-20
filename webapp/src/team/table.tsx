@@ -1,6 +1,6 @@
-import { Input, Table } from "reactstrap";
+import { Button, Input, Table } from "reactstrap";
 
-const TeamTable = (props) => {
+const TeamTable = (props: any) => {
   return (
     <Table striped>
       <thead>
@@ -41,6 +41,12 @@ const TeamTable = (props) => {
           );
         })}
       </tbody>
+      <tfoot>
+        <Button onClick={() => props.onPrev()} disabled={props.onPrev !== null}>
+          Prev
+        </Button>
+        <Button onClick={() => props.onNext()}>Next</Button>
+      </tfoot>
     </Table>
   );
 };

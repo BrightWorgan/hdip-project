@@ -1,9 +1,21 @@
+import hash from "../util/hashing";
 import db from "../util/knex";
 import Express from "express";
 
+
 const getAll = async (req: Express.Request, res: Express.Response) => {
+  // const limit = req.params.limit;
+  // const offset = req.params.offset;
+
+  const limit = parseInt(req.query.limit as string, 10);
+  const offset = parseInt(req.query.offset as string, 10);
+
+  console.log('Limit is:', limit);
+  console.log('Offset is:', offset);
   const allUsers = await db("Users")
     .select()
+    .limit(limit)
+    .offset(offset);
   res.send(allUsers)
 };
 
@@ -23,7 +35,8 @@ const create = async (req: Express.Request, res: Express.Response) => {
       certs: req.body.certs, 
       driving: req.body.drive, 
       position: req.body.position, 
-      site: req.body.site, }
+      site: req.body.site,
+      password: hash(req.body.password)  }
     )
     res.send('Post Sucess');
 };

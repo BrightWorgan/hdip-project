@@ -11,7 +11,7 @@ import {
 import { useState } from "react";
 import loginSchema from "../validation/loginValidation";
 
-const LoginForm = (props) => {
+const LoginForm = (props: any) => {
   const [error, setError] = useState("");
 
   const onLogin = async (e: Event): void => {

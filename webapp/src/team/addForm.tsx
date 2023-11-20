@@ -16,7 +16,7 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-const AddForm = (props) => {
+const AddForm = (props: any) => {
   const [error, setError] = useState("");
   const onSubmit = async (e: Event): void => {
     e.preventDefault();
@@ -33,6 +33,7 @@ const AddForm = (props) => {
       education: e?.target?.education?.value,
       training: e?.target?.training?.value,
       drive: e?.target?.drive?.value,
+      site: e?.target?.site?.value,
       password: e?.target.password.value,
     };
 
@@ -53,14 +54,12 @@ const AddForm = (props) => {
           <FormGroup>
             <Label for="name">Forename</Label>
             <Input id="name" name="name" placeholder="Forename" />
-            {/* <span>{"errorMessage"}</span> */}
           </FormGroup>
         </Col>
         <Col md={6}>
           <FormGroup>
             <Label for="surname">Surname</Label>
             <Input id="surname" name="surname" placeholder="Surname" />
-            {/* <span>{"errorMessage"}</span> */}
           </FormGroup>
         </Col>
       </Row>
@@ -74,7 +73,6 @@ const AddForm = (props) => {
               placeholder="+353 80 000 00 00"
               required
             />
-            {/* <span>{"errorMessage"}</span> */}
           </FormGroup>
         </Col>
         <Col md={6}>
@@ -85,9 +83,7 @@ const AddForm = (props) => {
               name="email"
               placeholder="Email Addresss"
               type="email"
-              // required
             />
-            <span>{"errorMessage"}</span>
           </FormGroup>
         </Col>
       </Row>
@@ -99,7 +95,6 @@ const AddForm = (props) => {
           placeholder="Apt 23, The Farmhouse"
         />
       </FormGroup>
-
       <Row>
         <Col md={6}>
           <FormGroup>
@@ -129,7 +124,6 @@ const AddForm = (props) => {
               name="education"
               placeholder="Level 8"
               type="select"
-              // required
             >
               <option>Leaving Cert</option>
               <option>Level 5</option>
@@ -151,7 +145,6 @@ const AddForm = (props) => {
               name="experience"
               placeholder="Site Assistant etc."
               type="select"
-              // required
             >
               <option>General Operative</option>
               <option>Site Assisatant</option>
@@ -167,19 +160,20 @@ const AddForm = (props) => {
         <Col md={6}>
           <FormGroup>
             <Label for="certs">Training </Label>
+            {/* <select */}
             <Input
               id="certs"
-              name="Training"
+              name="certs"
               type="select"
+              multiple={true}
               placeholder="Safe Pass, Manual Handling, Etc."
-              // required
             >
               <option>Safe Pass</option>
               <option>Manual Handling</option>
-              <option>Safe Pass and Manual Handling</option>
               <option>First Aid</option>
-              <option>Safe Pass, Manual Handling and First Aid</option>
-              <option>Other/None</option>
+              <option>Other</option>
+              <option>None</option>
+              {/* </select> */}
             </Input>
           </FormGroup>
         </Col>
@@ -191,7 +185,6 @@ const AddForm = (props) => {
               name="drive"
               placeholder="Can Drive ? Yes/No"
               type="select"
-              // required
             >
               <option>Yes</option>
               <option>No </option>
@@ -214,7 +207,6 @@ const AddForm = (props) => {
               name="position"
               type="select"
               placeholder="Site Assisatant, Etc."
-              // required
             >
               <option>General Operative</option>
               <option>Site Assisatant</option>
@@ -232,7 +224,7 @@ const AddForm = (props) => {
           name="password"
           placeholder="Temporary Password."
         ></Input>
-        <p> {error} </p>
+        <p className="ss-errror-message"> {error} </p>
       </Row>
       <Row>
         <Col xs={{ size: 6, offset: 6 }}>
