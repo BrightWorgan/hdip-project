@@ -160,20 +160,17 @@ const AddForm = (props: any) => {
         <Col md={6}>
           <FormGroup>
             <Label for="certs">Training </Label>
-            {/* <select */}
             <Input
               id="certs"
               name="certs"
               type="select"
-              multiple={true}
               placeholder="Safe Pass, Manual Handling, Etc."
             >
               <option>Safe Pass</option>
               <option>Manual Handling</option>
               <option>First Aid</option>
-              <option>Other</option>
+              <option>All</option>
               <option>None</option>
-              {/* </select> */}
             </Input>
           </FormGroup>
         </Col>
