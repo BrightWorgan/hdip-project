@@ -34,12 +34,7 @@ const LoginForm = (props: any) => {
   return (
     <div className="ss-login-div">
       <Form onSubmit={onLogin}>
-        <Card
-          className="ss-login-card"
-          style={{
-            width: "30%",
-          }}
-        >
+        <Card className="ss-login-card">
           <CardBody>
             <CardTitle className="ss-login-card-title">Login</CardTitle>
             Email

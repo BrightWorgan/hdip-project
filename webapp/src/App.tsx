@@ -22,6 +22,8 @@ const App = () => {
     return (
       <>
         <HeaderArea />
+        <br />
+        <br />
         <LoginForm onLogin={onLogin} />
         <Footer />
       </>
