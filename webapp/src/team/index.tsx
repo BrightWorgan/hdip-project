@@ -52,16 +52,19 @@ const Team = () => {
   const [users, setUsers] = useState<any[]>([]);
   const [selectedUsers, setSelectedUsers] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/user").then(async (result) => {
-      // fetch
-      // setUsers((await result.json()) as any[]);
-      //
-      // axios way:
-      setUsers(result.data);
-    });
-  }, [isOpen]);
+    axios
+      .get(`http://localhost:3000/user?limit=20&offset=${offset}`)
+      .then(async (result) => {
+        // fetch
+        // setUsers((await result.json()) as any[]);
+        //
+        // axios way:
+        setUsers(result.data);
+      });
+  }, [isOpen, offset]);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -115,10 +118,23 @@ const Team = () => {
     }
   };
 
+  const next = () => {
+    setOffset(offset + 20);
+  };
+
+  const prev = () => {
+    setOffset(offset - 20);
+  };
+
   return (
     <div>
       <h4>Team Members:</h4>
-      <TeamTable users={users} onChecked={onChecked} />
+      <TeamTable
+        users={users}
+        onChecked={onChecked}
+        onPrev={offset === 0 ? null : prev}
+        onNext={next}
+      />
       <FAB name="Team" onAdd={onToggle} onRemove={removeUsers} />
       <ModalBackdrop
         header="Add a new Team Member"
