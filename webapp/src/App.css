@@ -52,6 +52,12 @@ sable ish #d6d2b9 */
   align-items: center;
 }
 
+.ss-login-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .ss-login-card-title {
   display: flex;
   justify-content: center;
