@@ -1,3 +1,4 @@
+import { right } from "@popperjs/core";
 import {
   Card,
   CardBody,
@@ -13,27 +14,33 @@ import {
 const Cardbox = (props: any) => {
   return (
     <Row>
-      {props.cardData.map((project) => (
+      {props.cardData.map((project: any) => (
         <Col xs="4">
           <Card>
             <CardImg
               alt="Card image cap"
-              src={project.imgSrc}
-              top
-              width="100%"
+              src="src/assets/IMAG3201.jpg"
+              style={{
+                padding: "5%",
+              }}
             />
             <CardBody>
-              <CardTitle tag="h5">{project.title}</CardTitle>
-              <CardSubtitle className="mb-2 text-muted" tag="h6">
-                {project.licenceNumber}
+              <CardTitle tag="h5">{project.name}</CardTitle>
+              <CardSubtitle tag="h6">
+                Licence #: {project.licenceNumber}
               </CardSubtitle>
               <CardText>
-                {project.location}
-                {project.siteID}
+                Site ID:{project.siteID}
                 <br />
-                {project.description}
+                Location: {project.location}
+                <br />
+                Director: {project.director}
+                <br />
+                Date Started: {project.startDate}
+                <br />
+                Description:{project.description}
+                Type: {project.contract}
               </CardText>
-
               <Button
                 className="ss-info-btn"
                 onClick={() => props.onSelect(project)}
