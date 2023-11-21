@@ -23,7 +23,8 @@ const ProjectAddForm = (props: any) => {
       licenceNumber: e?.target?.licenceNumber?.value,
       // mainImg: e?.target?.mainImg?.value,
     };
-    console.log(e?.target?.startDate?.value);
+    // testing startDate
+    // console.log(e?.target?.startDate?.value);
     props.onSubmit(project);
   };
   return (
