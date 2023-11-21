@@ -4,6 +4,7 @@ import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import AddForm from "./addForm";
 import axios from "axios";
+import util from "../util";
 
 // old users list / pre-API
 // const userList = [
@@ -55,15 +56,13 @@ const Team = () => {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/user?limit=20&offset=${offset}`)
-      .then(async (result) => {
-        // fetch
-        // setUsers((await result.json()) as any[]);
-        //
-        // axios way:
-        setUsers(result.data);
-      });
+    util.get(`/user?limit=20&offset=${offset}`).then(async (result) => {
+      // fetch
+      // setUsers((await result.json()) as any[]);
+      //
+      // axios way:
+      setUsers(result.data);
+    });
   }, [isOpen, offset]);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -80,7 +79,7 @@ const Team = () => {
     console.log(user);
 
     // axios way:
-    await axios.post("http://localhost:3000/user", user);
+    await util.post("/user", user);
     toggle();
   };
 
@@ -95,12 +94,10 @@ const Team = () => {
     //     }
     //     return true;
     //   });
-
     //   setUsers(newUserList);
     // }
-
     // api / axios way
-    axios.delete("http://localhost:3000/user", selectedUsers);
+    // axios.delete("http://localhost:3000/user", selectedUsers);
   };
 
   const onChecked = (user: any) => {
