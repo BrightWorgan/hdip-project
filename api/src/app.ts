@@ -1,9 +1,8 @@
 import 'dotenv/config'
-import router from './routes';
-
 // routing library - express layer
 import express from "express";
 import bodyParser from "body-parser";
+import router from './routes';
 
 const app = express()
 

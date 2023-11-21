@@ -21,10 +21,31 @@ export async function up(knex: Knex): Promise<void> {
         userTable.string("password");
 
     })
+
+    await knex.schema.createTable("Projects", (projectsTable) => {
+      projectsTable.increments("projectID").unique().notNullable();
+      projectsTable.string("name").notNullable();;
+      projectsTable.string("siteID").unique().notNullable();
+      projectsTable.string("projectLocation").notNullable();;
+      projectsTable.string("director").notNullable();;
+      projectsTable.dateTime("startDate").notNullable();
+      projectsTable.string("description");
+      projectsTable.string("contract").notNullable();
+      projectsTable.string("licenceNumber").unique().notNullable();
+  })
+
+   // context
+   // finds
+   // samples / coming soon
 }
+
 
 
 export async function down(knex: Knex): Promise<void> {
    await knex.schema.dropTable("Users");
+   await knex.schema.dropTable("Projects");
+    // context
+    // finds
+    // samples / coming soon
 }
 

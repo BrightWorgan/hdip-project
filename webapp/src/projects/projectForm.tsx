@@ -17,11 +17,13 @@ const ProjectAddForm = (props: any) => {
       siteID: e?.target?.siteID?.value,
       projectLocation: e?.target?.projectLocation?.value,
       director: e?.target?.director?.value,
-      startDate: e?.target?.startDate?.value,
+      startDate: new Date(e?.target?.startDate?.value),
       description: e?.target?.description?.value,
       contract: e?.target?.contract?.value,
-      mainImg: e?.target?.mainImg?.value,
+      licenceNumber: e?.target?.licenceNumber?.value,
+      // mainImg: e?.target?.mainImg?.value,
     };
+    console.log(e?.target?.startDate?.value);
     props.onSubmit(project);
   };
   return (
@@ -92,9 +94,17 @@ const ProjectAddForm = (props: any) => {
         </Col>
         <Col md={6}>
           <FormGroup>
+            <Label for="licenceNumber">licence #:</Label>
+            <Input
+              id="licenceNumber"
+              name="licenceNumber"
+              placeholder="licenceNumber"
+            />
+          </FormGroup>
+          {/* <FormGroup>
             <Label for="mainImg">Primary Image</Label>
             <Input id="mainImg" name="mainImg" placeholder="Image" />
-          </FormGroup>
+          </FormGroup> */}
         </Col>
         <FormGroup>
           <Col md={12}>

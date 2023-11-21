@@ -4,6 +4,7 @@ import ModalBackdrop from "../common/modalBackdrop";
 import Cardbox from "./projectCards";
 import ProjectAddForm from "./projectForm";
 import Sheets from "./reports/sheets";
+import axios from "axios";
 
 // old projects list / pre-API
 // const cardData = [
@@ -60,7 +61,10 @@ const Project = () => {
     toggle();
   };
 
-  const onAdd = (project: any) => {
+  const onAdd = async (project: any) => {
+    // send to backend
+    await axios.post("http://localhost:3000/project", project);
+    //
     toggle();
   };
 
@@ -76,7 +80,7 @@ const Project = () => {
     fetch("http://localhost:3000/project").then(async (result) => {
       setAllProjects((await result.json()) as any[]);
     });
-  }, []);
+  }, [isOpen]);
 
   // logic to display either the view of all Project cards OR the Reports for a selected Project
   if (project === null) {
