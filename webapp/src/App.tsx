@@ -4,17 +4,18 @@ import Footer from "./common/Footer";
 import HeaderArea from "./common/headerArea";
 import Body from "./body";
 import LoginForm from "./settings/loginForm";
-import axios from "axios";
+// import axios from "axios";
+import util from "./util";
 
 const App = () => {
-  const [isLoggedIn, setLogin] = useState(false);
+  const [isLoggedIn, setLogin] = useState<any>(false);
   const onLogin = async (user: any) => {
-    const res = await axios.post("http://localhost:3000/login", user);
+    const res = await util.login(user.email, user.password);
     // post/login user email and password
     // user.email user.password
     console.log(user);
-    if (res.data !== false) {
-      setLogin(res.data);
+    if (res !== false) {
+      setLogin(res);
     }
   };
 

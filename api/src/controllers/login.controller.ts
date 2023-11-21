@@ -30,6 +30,19 @@ const login = async (req: Express.Request, res: Express.Response) => {
     res.send(token)
   };
 
+  const validate = (req: Express.Request, res: Express.Response , next: Express.NextFunction) => {
+    const token = req.get('Authorization');
+    if (!token) {
+        return res.status(401).send();
+    }
+    const isValid = jwt.verify(token, process.env.JWT_KEY as string);
+    if (isValid) {
+        return next();
+    }
+    return res.status(401).send();
+}
+
   export default {
     login,
+    validate
   }

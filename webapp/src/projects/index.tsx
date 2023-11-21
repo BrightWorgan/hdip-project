@@ -5,6 +5,7 @@ import Cardbox from "./projectCards";
 import ProjectAddForm from "./projectForm";
 import Sheets from "./reports/sheets";
 import axios from "axios";
+import util from "../util";
 
 // old projects list / pre-API
 // const cardData = [
@@ -63,7 +64,7 @@ const Project = () => {
 
   const onAdd = async (project: any) => {
     // send to backend
-    await axios.post("http://localhost:3000/project", project);
+    await util.post("/project", project);
     //
     toggle();
   };
@@ -77,8 +78,8 @@ const Project = () => {
   const [allProjects, setAllProjects] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/project").then(async (result) => {
-      setAllProjects((await result.json()) as any[]);
+    util.get("/project").then(async (result) => {
+      setAllProjects(result.data);
     });
   }, [isOpen]);
 
