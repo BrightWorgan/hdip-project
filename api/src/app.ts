@@ -10,7 +10,7 @@ const port = 3000
 
 const cors = require("cors");
 const corsOptions = {
-    origin: "*"
+    origin: process.env.CORS
 }
 
 app.use(cors(corsOptions))
