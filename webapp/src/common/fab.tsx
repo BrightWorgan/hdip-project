@@ -1,4 +1,4 @@
-import { Container, Button } from "reactstrap";
+import { Container, Button } from "react-floating-action-button";
 
 type FABProps = {
   onAdd: () => void;
