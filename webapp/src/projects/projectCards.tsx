@@ -31,13 +31,14 @@ const Cardbox = (props: any) => {
               <CardText>
                 Site ID:{project.siteID}
                 <br />
-                Location: {project.location}
+                Location: {project.projectLocation}
                 <br />
                 Director: {project.director}
                 <br />
-                Date Started: {project.startDate}
+                Date Started: {new Date(project.startDate).toDateString()}
                 <br />
                 Description:{project.description}
+                <br />
                 Type: {project.contract}
               </CardText>
               <Button

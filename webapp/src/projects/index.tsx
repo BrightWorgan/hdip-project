@@ -35,7 +35,7 @@ const Project = () => {
     });
   }, [isOpen]);
 
-  // logic to display either the view of all Project cards OR the Reports for a selected Project
+  // logic to display either the view of all Project cards OR the Reports page, i.e. "Sheets" for a selected Project
   if (project === null) {
     return (
       <div>
@@ -48,7 +48,7 @@ const Project = () => {
           isOpen={isOpen}
           onAdd={onAdd}
         >
-          <ProjectAddForm onSubmit={onAdd} />
+          <ProjectAddForm onSubmit={onAdd} toggle={onToggle} />
         </ModalBackdrop>
       </div>
     );

@@ -5,7 +5,7 @@ import HeaderArea from "./common/headerArea";
 import Body from "./body";
 import LoginForm from "./settings/loginForm";
 import util from "./util";
-
+import { Toaster } from "react-hot-toast";
 const App = () => {
   const [isLoggedIn, setLogin] = useState<any>(false);
   const onLogin = async (user: any) => {
@@ -21,6 +21,7 @@ const App = () => {
   if (!isLoggedIn) {
     return (
       <>
+        <Toaster />
         <HeaderArea />
         <br />
         <br />
@@ -31,6 +32,7 @@ const App = () => {
   }
   return (
     <>
+      <Toaster />
       <HeaderArea />
       <Body />
       <Footer />

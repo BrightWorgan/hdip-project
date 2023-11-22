@@ -17,7 +17,7 @@ const login = async (req: Express.Request, res: Express.Response) => {
   
     if ( selectedUsers.length !== 1){
       // throw new Error("User not found!")
-      res.send(false);
+      res.status(401).send("Invalid Login");
       return;
     }
     
