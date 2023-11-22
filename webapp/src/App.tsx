@@ -4,7 +4,6 @@ import Footer from "./common/Footer";
 import HeaderArea from "./common/headerArea";
 import Body from "./body";
 import LoginForm from "./settings/loginForm";
-// import axios from "axios";
 import util from "./util";
 
 const App = () => {

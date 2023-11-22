@@ -1,7 +1,6 @@
 import db from "../util/knex";
 import Express from "express";
 
-
 // get, post, remove?, update
 const getAll = async (req: Express.Request, res: Express.Response) => {
   const allProjects = await db("Projects")
@@ -23,7 +22,6 @@ const create = async (req: Express.Request, res: Express.Response) => {
       licenceNumber:req.body.licenceNumber,  }
     )
     res.send('Post Sucess');      
-
   // res.send(
   //           [
   //               {
@@ -72,14 +70,11 @@ const create = async (req: Express.Request, res: Express.Response) => {
 };
 
 const destroy = async (req: Express.Request, res: Express.Response) => {
-  
     res.send("Okay")
-
 };
 
 // TO DO:
 // edit project function
-
 
 
 export default {
