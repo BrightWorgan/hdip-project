@@ -53,11 +53,7 @@ const LoginForm = (props: any) => {
             ></Input>
           </CardBody>
           <CardFooter>
-            <Button
-              className="ss-login-btn"
-              type="submit"
-              // onClick={(e) => onLogin(e)}
-            >
+            <Button className="ss-login-btn" type="submit">
               Login
             </Button>
           </CardFooter>

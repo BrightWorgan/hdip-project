@@ -3,51 +3,7 @@ import TeamTable from "./table";
 import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import AddForm from "./addForm";
-import axios from "axios";
 import util from "../util";
-
-// old users list / pre-API
-// const userList = [
-//   {
-//     name: "Sarah",
-//     surname: "Halford",
-//     number: "0834690565",
-//     email: "X00192313@mytudublin.ie",
-//     address: "place, street road, Rush, Co. Dublin",
-//     experience: "Site Assiastant",
-//     education: "Level 8",
-//     certs: "Training Certs",
-//     drive: "Yes",
-//     position: "Supervisor",
-//     site: "None",
-//   },
-//   {
-//     name: "John",
-//     surname: "Bird",
-//     number: "0864695505",
-//     email: "email@addresss.ie",
-//     address: "place, street road, town, Co. County",
-//     experience: "Experience",
-//     education: "Education",
-//     certs: "Training Certs",
-//     drive: "NO",
-//     position: "Company Position",
-//     site: "Trim Castle Excavation",
-//   },
-//   {
-//     name: "Cormac",
-//     surname: "O'Sullivan",
-//     number: "0867690305",
-//     email: "email@addresss.ie",
-//     address: "place, street road, town, Co. County",
-//     experience: "Experience",
-//     education: "Education",
-//     certs: "Training Certs",
-//     drive: "Yes",
-//     position: "Company Position",
-//     site: "None",
-//   },
-// ];
 
 const Team = () => {
   const [users, setUsers] = useState<any[]>([]);
@@ -57,11 +13,8 @@ const Team = () => {
 
   useEffect(() => {
     util.get(`/user?limit=20&offset=${offset}`).then(async (result) => {
-      // fetch
-      // setUsers((await result.json()) as any[]);
-      //
       // axios way:
-      setUsers(result.data);
+      setUsers(result?.data);
     });
   }, [isOpen, offset]);
 
@@ -72,12 +25,6 @@ const Team = () => {
   };
 
   const addUser = async (user: any) => {
-    // local array:
-    // const newUserList = users.concat([user]);
-    // setUsers(newUserList);
-    //
-    console.log(user);
-
     // axios way:
     await util.post("/user", user);
     toggle();

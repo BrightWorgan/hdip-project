@@ -1,4 +1,4 @@
-import { Container, Button } from "react-floating-action-button";
+import { Container, Button } from "reactstrap";
 
 type FABProps = {
   onAdd: () => void;
@@ -13,8 +13,7 @@ const FAB = (props: FABProps) => {
         tooltip={`Delete ${props.name}`}
         icon="fas fa-trash-alt"
         className="ss-fab-button"
-        //onClick={() => alert("Click is working!")}
-        onClick={() => props?.onRemove()}
+        // onClick={() => props?.onRemove()}
       />
       <Button
         href="#"
@@ -29,8 +28,6 @@ const FAB = (props: FABProps) => {
         icon="fas fa-plus-square"
         className="ss-fab-button"
         onClick={() => props.onAdd()}
-        // testting button workd \/
-        //onClick={() => props.onAdd(user)}
       />
 
       <Button
@@ -38,7 +35,6 @@ const FAB = (props: FABProps) => {
         icon="fas fa-plus"
         className="ss-fab-button"
         rotate={true}
-        // onClick={() => alert("FAB is working!")}
       />
     </Container>
   );
