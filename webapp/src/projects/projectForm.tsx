@@ -8,9 +8,14 @@ import {
   Button,
   ButtonGroup,
 } from "reactstrap";
+import projectSchema from "../validation/projectValidation";
+import { useState } from "react";
 
 const ProjectAddForm = (props: any) => {
-  const onSubmit = (e: Event): void => {
+  //use start erreors
+  const [error, setError] = useState("");
+
+  const onSubmit = async (e: Event): void => {
     e.preventDefault();
     const project = {
       name: e?.target?.name?.value,
@@ -23,10 +28,20 @@ const ProjectAddForm = (props: any) => {
       licenceNumber: e?.target?.licenceNumber?.value,
       // mainImg: e?.target?.mainImg?.value,
     };
-    // testing startDate
+    // testing
     // console.log(e?.target?.startDate?.value);
+
+    // validation
+    // try {
+    //   const validatedProject = await projectSchema.validate(project);
+    //   setError("");
+    //   props.onSubmit(validatedProject);
+    // } catch (error: any) {
+    //   setError(error.message);
+    // }
     props.onSubmit(project);
   };
+
   return (
     <Form onSubmit={onSubmit}>
       <Row>
@@ -116,6 +131,8 @@ const ProjectAddForm = (props: any) => {
               placeholder="Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pro"
             />
           </Col>
+          {/* error message  ----  TO DO: needs stlying!*/}
+          <p className="ss-errror-message"> {error} </p>
         </FormGroup>
       </Row>
       <Row>

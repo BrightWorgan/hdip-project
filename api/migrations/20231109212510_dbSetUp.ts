@@ -18,7 +18,6 @@ export async function up(knex: Knex): Promise<void> {
         userTable.enum("position",["General Operative", "Site Assisatant", "Supervisor", "Director", "Student", "Other"]).notNullable();;
         userTable.string("site");
         userTable.string("password");
-
     })
 
     await knex.schema.createTable("Projects", (projectsTable) => {

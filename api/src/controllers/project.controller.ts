@@ -9,8 +9,10 @@ const getAll = async (req: Express.Request, res: Express.Response) => {
 };
 
 const create = async (req: Express.Request, res: Express.Response) => {
-  await db("Projects")
+  try {
+    await db("Projects")
     .insert({
+      // *** project id is generated not added by user! ***
       // projectID: req.body.projectID,
       name: req.body.name, 
       siteID: req.body.siteID, 
@@ -21,7 +23,11 @@ const create = async (req: Express.Request, res: Express.Response) => {
       contract: req.body.contract, 
       licenceNumber:req.body.licenceNumber,  }
     )
-    res.send('Post Sucess');      
+    res.send('Post Sucess'); 
+  } catch (error: any) {
+    res.status(500).send(error.message);
+  }
+         
   // res.send(
   //           [
   //               {
