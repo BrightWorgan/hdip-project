@@ -20,6 +20,8 @@ const getAll = async (req: Express.Request, res: Express.Response) => {
 };
 
 const create = async (req: Express.Request, res: Express.Response) => {
+    
+  try {
     await db("Users")
     .insert({
       forename: req.body.name,
@@ -38,7 +40,11 @@ const create = async (req: Express.Request, res: Express.Response) => {
       site: req.body.site,
       password: hash(req.body.password)  }
     )
-    res.send('Post Sucess');
+    res.send('Post Sucess'); 
+  } catch (error: any) {
+    res.status(500).send(error.message);
+  }
+
 };
 
 const destroy = async (req: Express.Request, res: Express.Response) => {

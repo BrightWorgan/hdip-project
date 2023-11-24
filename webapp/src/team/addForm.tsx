@@ -67,12 +67,7 @@ const AddForm = (props: any) => {
         <Col md={6}>
           <FormGroup>
             <Label for="number">Contact Number</Label>
-            <Input
-              id="number"
-              name="number"
-              placeholder="+353 80 000 00 00"
-              required
-            />
+            <Input id="number" name="number" placeholder="+353 80 000 00 00" />
           </FormGroup>
         </Col>
         <Col md={6}>
@@ -87,21 +82,25 @@ const AddForm = (props: any) => {
           </FormGroup>
         </Col>
       </Row>
-      <FormGroup>
-        <Label for="address">Primary Address Line 1</Label>
-        <Input
-          id="address"
-          name="address"
-          placeholder="Apt 23, The Farmhouse"
-        />
-      </FormGroup>
       <Row>
+        <Col md={6}>
+          <FormGroup>
+            <Label for="address">Primary Address Line 1</Label>
+            <Input
+              id="address"
+              name="address"
+              placeholder="Apt 23, The Farmhouse"
+            />
+          </FormGroup>
+        </Col>
         <Col md={6}>
           <FormGroup>
             <Label for="townCity">Town/City</Label>
             <Input id="townCity" name="towncity" placeholder="Clontarf" />
           </FormGroup>
         </Col>
+      </Row>
+      <Row>
         <Col md={3}>
           <FormGroup>
             <Label for="county">County</Label>
@@ -114,9 +113,23 @@ const AddForm = (props: any) => {
             <Input id="eircode" name="eircode" placeholder="W91VA07" />
           </FormGroup>
         </Col>
+        <Col md={3}>
+          <FormGroup>
+            <Label for="drive">Driving</Label>
+            <Input
+              id="drive"
+              name="drive"
+              placeholder="Can Drive ? Yes/No"
+              type="select"
+            >
+              <option>Yes</option>
+              <option>No </option>
+            </Input>
+          </FormGroup>
+        </Col>
       </Row>
       <Row>
-        <Col md={6}>
+        <Col md={4}>
           <FormGroup>
             <Label for="education">Education</Label>
             <Input
@@ -137,7 +150,7 @@ const AddForm = (props: any) => {
             </Input>
           </FormGroup>
         </Col>
-        <Col md={6}>
+        <Col md={4}>
           <FormGroup>
             <Label for="experience">Experience</Label>
             <Input
@@ -155,9 +168,7 @@ const AddForm = (props: any) => {
             </Input>
           </FormGroup>
         </Col>
-      </Row>
-      <Row>
-        <Col md={6}>
+        <Col md={4}>
           <FormGroup>
             <Label for="certs">Training </Label>
             <Input
@@ -174,20 +185,6 @@ const AddForm = (props: any) => {
             </Input>
           </FormGroup>
         </Col>
-        <Col md={6}>
-          <FormGroup>
-            <Label for="drive">Driving</Label>
-            <Input
-              id="drive"
-              name="drive"
-              placeholder="Can Drive ? Yes/No"
-              type="select"
-            >
-              <option>Yes</option>
-              <option>No </option>
-            </Input>
-          </FormGroup>
-        </Col>
       </Row>
       <Row>
         <Col md={6}>
@@ -198,7 +195,7 @@ const AddForm = (props: any) => {
         </Col>
         <Col md={6}>
           <FormGroup>
-            <Label for="position">Position </Label>
+            <Label for="position">Current Position </Label>
             <Input
               id="position"
               name="position"
@@ -216,12 +213,14 @@ const AddForm = (props: any) => {
         </Col>
       </Row>
       <Row>
-        <Input
-          id="password"
-          name="password"
-          placeholder="Temporary Password."
-        ></Input>
-        <p className="ss-errror-message"> {error} </p>
+        <Col md={12}>
+          <Input
+            id="password"
+            name="password"
+            placeholder="Temporary Password."
+          ></Input>
+          <p className="ss-errror-message"> {error} </p>
+        </Col>
       </Row>
       <Row>
         <Col xs={{ size: 6, offset: 6 }}>
