@@ -32,14 +32,14 @@ const ProjectAddForm = (props: any) => {
     // console.log(e?.target?.startDate?.value);
 
     // validation
-    // try {
-    //   const validatedProject = await projectSchema.validate(project);
-    //   setError("");
-    //   props.onSubmit(validatedProject);
-    // } catch (error: any) {
-    //   setError(error.message);
-    // }
-    props.onSubmit(project);
+    try {
+      const validatedProject = await projectSchema.validate(project);
+      setError("");
+      props.onSubmit(validatedProject);
+    } catch (error: any) {
+      setError(error.message);
+    }
+    // props.onSubmit(project);
   };
 
   return (
