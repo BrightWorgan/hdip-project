@@ -123,3 +123,7 @@ sable ish #d6d2b9 */
 /* .ss-footer-icons {
   height: 80% !important;
 } */
+
+.ss-errror-message {
+  color: red;
+}
