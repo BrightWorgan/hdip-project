@@ -55,6 +55,21 @@ const post = async (endpoint: string, payload: any) => {
     
 }
 
+const remove = async (endpoint: string, payload: any) => {
+    try{
+        await axios.delete(import.meta.env.VITE_API_URL + endpoint, {
+            data: payload,
+            headers: {
+                Authorization: token
+            }
+        });
+    }
+    catch(error:any){
+        toast.error(error.message);
+    }
+    
+}
+
 
 // TO DO:
 // delete / remove func
@@ -63,5 +78,6 @@ const post = async (endpoint: string, payload: any) => {
 export default {
     login,
     get,
-    post
+    post,
+    remove
 }

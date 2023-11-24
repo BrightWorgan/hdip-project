@@ -11,11 +11,36 @@ import {
 } from "reactstrap";
 
 const Cardbox = (props: any) => {
+  const onCardClick = (project: any) => {
+    if (props.editMode) {
+      props.onChecked(project);
+    }
+  };
   return (
     <Row>
       {props.cardData.map((project: any) => (
         <Col xs="4">
-          <Card>
+          <Card
+            onClick={() => onCardClick(project)}
+            style={{
+              cursor: props.editMode ? "pointer" : "default",
+              opacity:
+                props.editMode &&
+                props.selectedProjects.some(
+                  (p: any) => p.projectID === project.projectID
+                )
+                  ? "0.5"
+                  : "1",
+              borderColor:
+                props.editMode &&
+                props.selectedProjects.some(
+                  (p: any) => p.projectID === project.projectID
+                )
+                  ? "#73a2d1"
+                  : "inherit",
+            }}
+          >
+            <br />
             <CardImg
               alt="Card image cap"
               src="src/assets/IMAG3201.jpg"

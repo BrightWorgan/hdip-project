@@ -6,6 +6,7 @@ import AddForm from "./addForm";
 import util from "../util";
 
 const Team = () => {
+  // state variables
   const [users, setUsers] = useState<any[]>([]);
   const [selectedUsers, setSelectedUsers] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +31,21 @@ const Team = () => {
     toggle();
   };
 
+  const onChecked = (user: any) => {
+    const existingUserIndex = selectedUsers.findIndex(
+      (aSelectedUser) => aSelectedUser.number === user.number
+    );
+    if (existingUserIndex === -1) {
+      const newSelectedUsers = selectedUsers.concat([user]);
+      setSelectedUsers(newSelectedUsers);
+    } else {
+      const newSelectedUsers = selectedUsers.filter(
+        (_item, index) => index !== existingUserIndex
+      );
+      setSelectedUsers(newSelectedUsers);
+    }
+  };
+
   const removeUsers = () => {
     // if (selectedUsers.length !== 0) {
     //   const newUserList = users.filter((user) => {
@@ -45,21 +61,16 @@ const Team = () => {
     // }
     // api / axios way
     // axios.delete("http://localhost:3000/user", selectedUsers);
-  };
-
-  const onChecked = (user: any) => {
-    const existingUserIndex = selectedUsers.findIndex(
-      (aSelectedUser) => aSelectedUser.number === user.number
-    );
-    if (existingUserIndex === -1) {
-      const newSelectedUsers = selectedUsers.concat([user]);
-      setSelectedUsers(newSelectedUsers);
-    } else {
-      const newSelectedUsers = selectedUsers.filter(
-        (_item, index) => index !== existingUserIndex
-      );
-      setSelectedUsers(newSelectedUsers);
+    // [{ userId: 123, email: "test@test.com", ...}, { userId: 434, ...}]
+    // { userId: 434, ...}
+    console.log("Trying to remove users");
+    let idArray = [];
+    for (let i = 0; i < selectedUsers.length; i += 1) {
+      idArray.push(selectedUsers[i].userID);
     }
+    util.remove("/user", idArray);
+    //
+    // if()
   };
 
   const next = () => {

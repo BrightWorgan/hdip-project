@@ -26,10 +26,7 @@ const ProjectAddForm = (props: any) => {
       description: e?.target?.description?.value,
       contract: e?.target?.contract?.value,
       licenceNumber: e?.target?.licenceNumber?.value,
-      // mainImg: e?.target?.mainImg?.value,
     };
-    // testing
-    // console.log(e?.target?.startDate?.value);
 
     // validation
     try {
@@ -39,7 +36,6 @@ const ProjectAddForm = (props: any) => {
     } catch (error: any) {
       setError(error.message);
     }
-    // props.onSubmit(project);
   };
 
   return (
@@ -117,10 +113,6 @@ const ProjectAddForm = (props: any) => {
               placeholder="licenceNumber"
             />
           </FormGroup>
-          {/* <FormGroup>
-            <Label for="mainImg">Primary Image</Label>
-            <Input id="mainImg" name="mainImg" placeholder="Image" />
-          </FormGroup> */}
         </Col>
         <FormGroup>
           <Col md={12}>
@@ -131,7 +123,7 @@ const ProjectAddForm = (props: any) => {
               placeholder="Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pro"
             />
           </Col>
-          {/* error message  ----  TO DO: needs stlying!*/}
+          {/* error message */}
           <p className="ss-errror-message"> {error} </p>
         </FormGroup>
       </Row>

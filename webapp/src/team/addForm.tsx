@@ -2,9 +2,7 @@
 // import * as yup from "yup";
 // import { useForm } from "react-hook-form";
 import teamSchema from "../validation/teamValidation";
-
 import { useState } from "react";
-
 import {
   Form,
   Col,
@@ -17,7 +15,9 @@ import {
 } from "reactstrap";
 
 const AddForm = (props: any) => {
+  // use state variable
   const [error, setError] = useState("");
+
   const onSubmit = async (e: Event): void => {
     e.preventDefault();
     const user = {

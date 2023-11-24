@@ -92,8 +92,12 @@ sable ish #d6d2b9 */
   width: 100%;
 }
 
+body {
+  margin-bottom: 60px !important;
+}
+
 .footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   right: 0;
@@ -126,4 +130,9 @@ sable ish #d6d2b9 */
 
 .ss-errror-message {
   color: red;
+}
+
+.ss-checkbox {
+  margin: 10px;
+  margin-top: 10px;
 }

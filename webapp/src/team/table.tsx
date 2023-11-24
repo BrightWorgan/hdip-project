@@ -1,4 +1,4 @@
-import { Table, Button, Input, Row, Col, Container } from "reactstrap";
+import { Table, Button, Input, Row, Col } from "reactstrap";
 
 const TeamTable = (props: any) => {
   return (
@@ -21,9 +21,10 @@ const TeamTable = (props: any) => {
           </tr>
         </thead>
         <tbody>
-          {props.users.map((user) => {
+          {props?.users?.map((user: any) => {
             return (
               <tr key={user.number}>
+                {/* checkbox */}
                 <td>
                   <Input
                     type="checkbox"

@@ -5,9 +5,12 @@ import Cardbox from "./projectCards";
 import ProjectAddForm from "./projectForm";
 import Sheets from "./reports/sheets";
 import util from "../util";
+import toast from "react-hot-toast";
 
 const Project = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const [selectedProjects, setSelectedProjects] = useState<any[]>([]);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -21,13 +24,51 @@ const Project = () => {
     toggle();
   };
 
-  // state variable
+  // state variables
   const [project, setProject] = useState(null);
+
+  const [allProjects, setAllProjects] = useState<any[]>([]);
+
+  // edit mode
+  const [editMode, setEditMode] = useState(false);
+
   const onSelect = (project: any) => {
     setProject(project);
   };
 
-  const [allProjects, setAllProjects] = useState<any[]>([]);
+  // checking a checkbox logic
+  const onChecked = (project: any) => {
+    const existingProjectIndex = selectedProjects.findIndex(
+      (aSelectedProject) => aSelectedProject.projectID === project.projectID
+    );
+
+    if (existingProjectIndex === -1) {
+      const newSelectedProjects = selectedProjects.concat([project]);
+      setSelectedProjects(newSelectedProjects);
+    } else {
+      const newSelectedProjects = selectedProjects.filter(
+        (_item, index) => index !== existingProjectIndex
+      );
+      setSelectedProjects(newSelectedProjects);
+    }
+  };
+
+  // toggle edit mode
+  const toggleEdit = () => {
+    setEditMode(!editMode);
+  };
+
+  // remove logic with edit mode
+  const onRemove = () => {
+    if (editMode) {
+      // remove things
+      toast("Select mode disabled");
+      toggleEdit();
+    } else {
+      toast("Select mode enabled");
+      toggleEdit();
+    }
+  };
 
   useEffect(() => {
     util.get("/project").then(async (result) => {
@@ -40,8 +81,14 @@ const Project = () => {
     return (
       <div>
         <br></br>
-        <Cardbox cardData={allProjects} onSelect={onSelect} />
-        <FAB name="Project" onAdd={onToggle} />
+        <Cardbox
+          cardData={allProjects}
+          onSelect={onSelect}
+          editMode={editMode}
+          selectedProjects={selectedProjects}
+          onChecked={onChecked}
+        />
+        <FAB name="Project" onAdd={onToggle} onRemove={() => onRemove()} />
         <ModalBackdrop
           header="Add a new Project"
           toggle={onToggle}

@@ -13,7 +13,7 @@ const FAB = (props: FABProps) => {
         tooltip={`Delete ${props.name}`}
         icon="fas fa-trash-alt"
         className="ss-fab-button"
-        // onClick={() => props?.onRemove()}
+        onClick={() => props?.onRemove?.()}
       />
       <Button
         href="#"
