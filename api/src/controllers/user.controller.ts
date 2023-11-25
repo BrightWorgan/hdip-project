@@ -68,7 +68,17 @@ const destroy = async (req: Express.Request, res: Express.Response) => {
     // db("Users").delete().where({
 
     // })
-    res.send("Okay")
+    try {
+      
+      console.log(req.body);
+      await db("Users")
+        .delete()
+        .whereIn("userID", req.body ?? [])
+      
+      res.send('Removal Sucess'); 
+    } catch (error: any) {
+      res.status(500).send(error.message);
+    }
 
 };
 
