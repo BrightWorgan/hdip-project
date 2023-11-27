@@ -7,29 +7,29 @@ import {
   CarouselCaption,
 } from "reactstrap";
 
-// IMAG1262-PANO
+// images
 const items = [
   {
     src: "src/assets/cliffsPano1600.jpg",
-    altText: "Slide 2",
-    caption: "O'Briens Tower, Cliffs of Moher, Co. Clare",
+    altText: "O'Briens Tower, Cliffs of Moher, Co. Clare",
+    caption: "Sheet Scribe: For all of your Traceable Heritage needs",
     key: 1,
   },
   {
     src: "src/assets/wicklowMountainsPano1600x435.jpg",
-    altText: "Slide 1",
-    caption: "Wicklow National Park, Co. Wicklow ",
+    altText: "Wicklow National Park, Co. Wicklow",
+    caption: "Sheet Scribe: For all of your Traceable Heritage needs",
     key: 2,
   },
   {
     src: "src/assets/trimCastlePano1600x435.jpg",
-    altText: "Slide 3",
-    caption: "Trim Castle, Trim, Co. Meath",
+    altText: "Trim Castle, Trim, Co. Meath",
+    caption: "Sheet Scribe: For all of your Traceable Heritage needs",
     key: 3,
   },
 ];
 
-const HomeImages = (props) => {
+const HomeImages = (props: any) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -45,7 +45,7 @@ const HomeImages = (props) => {
     setActiveIndex(nextIndex);
   };
 
-  const goToIndex = (newIndex) => {
+  const goToIndex = (newIndex: any) => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
@@ -59,7 +59,7 @@ const HomeImages = (props) => {
       >
         <img src={item.src} alt={item.altText} />
         <CarouselCaption
-          captionText={item.caption}
+          captionText={item.altText}
           captionHeader={item.caption}
         />
       </CarouselItem>
