@@ -31,7 +31,7 @@ export async function up(knex: Knex): Promise<void> {
       projectsTable.string("contract").notNullable();
       projectsTable.string("licenceNumber").unique().notNullable();
   })
-   // context
+   // context -- done on other migration
    // finds
    // samples / coming soon
 }
@@ -39,7 +39,7 @@ export async function up(knex: Knex): Promise<void> {
 export async function down(knex: Knex): Promise<void> {
    await knex.schema.dropTable("Users");
    await knex.schema.dropTable("Projects");
-    // context
+    // context -- done on other migration
     // finds
     // samples / coming soon
 }
