@@ -1,6 +1,6 @@
 import { Container, Table } from "reactstrap";
 
-const FindsTable = (props) => {
+const FindsTable = () => {
   return (
     <Container>
       <h3>Finds Register: </h3>

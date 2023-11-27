@@ -1,20 +1,28 @@
+import ModalBackdrop from "../../common/modalBackdrop";
+import FAB from "../../common/fab";
+import ContextForm from "./cutFillAddForm";
 import ContextTable from "./cutFillTable";
-
 import ReportHeader from "./reportHeader";
-
-import { Container } from "reactstrap";
-
 const ContextRegister = () => {
   return (
     <div>
-      <br></br>
-      {/* <h1>Reports page is working</h1> */}
-      <div>
-        <Container>
-          <ReportHeader />
-          <ContextTable />
-        </Container>
-      </div>
+      <h4>Context Register:</h4>
+      <ReportHeader />
+      <ContextTable
+      // context={context}
+      // onChecked={onChecked}
+      // onPrev={offset === 0 ? null : prev}
+      // onNext={next}
+      />
+      {/* <FAB name="Context" onAdd={onToggle} />
+      <ModalBackdrop
+        header="Add to the Context Regisiter"
+        toggle={onToggle}
+        isOpen={isOpen}
+        onAdd={addUser}
+      >
+        <ContextForm onSubmit={addContext} toggle={onToggle} />
+      </ModalBackdrop> */}
     </div>
   );
 };

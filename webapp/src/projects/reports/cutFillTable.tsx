@@ -1,6 +1,6 @@
 import { Container, Table } from "reactstrap";
 
-const ContextTable = (props) => {
+const ContextTable = () => {
   return (
     <Container>
       <h3>Context Register: </h3>
@@ -13,7 +13,7 @@ const ContextTable = (props) => {
         <thead>
           <tr>
             <th>Context Number #</th>
-            <th>Cut / Fill</th>
+            <th>Type (Cut / Fill)</th>
             <th>Description</th>
             <th>Soil Type</th>
             <th>Samples</th>

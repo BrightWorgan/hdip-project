@@ -8,9 +8,17 @@ import util from "../util";
 import toast from "react-hot-toast";
 
 const Project = () => {
+  // state variables
   const [isOpen, setIsOpen] = useState(false);
 
   const [selectedProjects, setSelectedProjects] = useState<any[]>([]);
+
+  const [project, setProject] = useState(null);
+
+  const [allProjects, setAllProjects] = useState<any[]>([]);
+
+  // edit mode
+  const [editMode, setEditMode] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -23,14 +31,6 @@ const Project = () => {
     await util.post("/project", project);
     toggle();
   };
-
-  // state variables
-  const [project, setProject] = useState(null);
-
-  const [allProjects, setAllProjects] = useState<any[]>([]);
-
-  // edit mode
-  const [editMode, setEditMode] = useState(false);
 
   const onSelect = (project: any) => {
     setProject(project);

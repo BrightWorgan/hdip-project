@@ -1,6 +1,6 @@
 import { Container, Form, FormGroup, Row, Col, Label, Input } from "reactstrap";
 
-const FindReportCard = () => {
+const ContextForm = () => {
   return (
     <div>
       <Container>
@@ -8,56 +8,58 @@ const FindReportCard = () => {
           <Row>
             <Col md={6}>
               <FormGroup>
-                <Label for="exampleEmail">Email</Label>
-                <Input
-                  id="exampleEmail"
-                  name="email"
-                  placeholder="with a placeholder"
-                  type="email"
-                />
+                <Label for="type">Cut or Fill</Label>
+                <Input id="type" name="type" placeholder="Cut or Fill?" />
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
-                <Label for="examplePassword">Password</Label>
+                <Label for="description">Description</Label>
                 <Input
-                  id="examplePassword"
-                  name="password"
-                  placeholder="password placeholder"
-                  type="password"
+                  id="description"
+                  name="description"
+                  placeholder="description"
                 />
               </FormGroup>
             </Col>
           </Row>
-          <FormGroup>
-            <Label for="exampleAddress">Address</Label>
-            <Input
-              id="exampleAddress"
-              name="address"
-              placeholder="1234 Main St"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleAddress2">Address 2</Label>
-            <Input
-              id="exampleAddress2"
-              name="address2"
-              placeholder="Apartment, studio, or floor"
-            />
-          </FormGroup>
+          <Row>
+            <FormGroup>
+              <Label for="soilType">Soil Type</Label>
+              <Input
+                id="exampleAddsoilTyperess"
+                name="soilType"
+                placeholder="Soil Type"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="samples">Samples</Label>
+              <Input id="samples" name="samples" placeholder="Samples" />
+            </FormGroup>
+          </Row>
           <Row>
             <Col md={6}>
               <FormGroup>
-                <Label for="exampleCity">City</Label>
-                <Input id="exampleCity" name="city" />
+                <Label for="location">Location</Label>
+                <Input id="location" name="location" placeholder="location" />
+              </FormGroup>
+            </Col>
+            <Col md={6}>
+              <FormGroup>
+                <Label for="date">Date</Label>
+                <Input
+                  id="date"
+                  name="date"
+                  type="date"
+                  placeholder="27/11/2023"
+                />
               </FormGroup>
             </Col>
           </Row>
         </Form>
-        ;
       </Container>
     </div>
   );
 };
 
-export default FindReportCard;
+export default ContextForm;
