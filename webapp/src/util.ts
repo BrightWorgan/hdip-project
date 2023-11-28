@@ -67,12 +67,8 @@ const remove = async (endpoint: string, payload: any) => {
     catch(error:any){
         toast.error(error.message);
     }
-    
 }
 
-
-// TO DO:
-// delete / remove func
 
 
 export default {

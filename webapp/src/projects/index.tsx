@@ -62,6 +62,12 @@ const Project = () => {
   const onRemove = () => {
     if (editMode) {
       // remove things
+      console.log("Trying to remove projesct(s)");
+      let idArray = [];
+      for (let i = 0; i < selectedProjects.length; i += 1) {
+        idArray.push(selectedProjects[i].projectID);
+      }
+      util.remove("/project", idArray);
       toast("Select mode disabled");
       toggleEdit();
     } else {

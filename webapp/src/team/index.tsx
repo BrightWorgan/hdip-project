@@ -4,6 +4,7 @@ import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
 import AddForm from "./addForm";
 import util from "../util";
+import toast from "react-hot-toast";
 
 const Team = () => {
   // state variables
@@ -29,6 +30,7 @@ const Team = () => {
     // axios way:
     await util.post("/user", user);
     toggle();
+    toast("Team Member Sucessfully Added");
   };
 
   const onChecked = (user: any) => {
@@ -47,30 +49,13 @@ const Team = () => {
   };
 
   const removeUsers = () => {
-    // if (selectedUsers.length !== 0) {
-    //   const newUserList = users.filter((user) => {
-    //     const foundUser = selectedUsers.some((selectedUser) => {
-    //       return selectedUser.number === user.number;
-    //     });
-    //     if (foundUser === true) {
-    //       return false;
-    //     }
-    //     return true;
-    //   });
-    //   setUsers(newUserList);
-    // }
-    // api / axios way
-    // axios.delete("http://localhost:3000/user", selectedUsers);
-    // [{ userId: 123, email: "test@test.com", ...}, { userId: 434, ...}]
-    // { userId: 434, ...}
     console.log("Trying to remove users");
     let idArray = [];
     for (let i = 0; i < selectedUsers.length; i += 1) {
       idArray.push(selectedUsers[i].userID);
     }
     util.remove("/user", idArray);
-    //
-    // if()
+    toast("Team Member Sucessfully Deleted");
   };
 
   const next = () => {
