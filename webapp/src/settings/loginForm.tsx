@@ -12,9 +12,9 @@ import { useState } from "react";
 import loginSchema from "../validation/loginValidation";
 
 const LoginForm = (props: any) => {
-  const [error, setError] = useState("");
+  const [, /*error*/ setError] = useState("");
 
-  const onLogin = async (e: Event): void => {
+  const onLogin = async (e: Event): Promise<void> => {
     e.preventDefault();
     const user = {
       email: e?.target?.email?.value,
