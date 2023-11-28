@@ -8,12 +8,12 @@ const Footer = () => {
           <Row>
             <Col xs={1}>
               <a target="_blank" href="https://www.facebook.com">
-                <i class="fab fa-facebook-f"></i>
+                <i className="fab fa-facebook-f"></i>
               </a>
             </Col>
             <Col xs={1}>
               <a target="_blank" href="https://www.twitter.com">
-                <i class="fab fa-twitter"></i>
+                <i className="fab fa-twitter"></i>
               </a>
             </Col>
             <Col xs={1}>
@@ -21,7 +21,7 @@ const Footer = () => {
                 target="_blank"
                 href="https://github.com/BrightWorgan/hdip-project"
               >
-                <i class="fab fa-github"></i>
+                <i className="fab fa-github"></i>
               </a>
             </Col>
             <Col xs={1}>
@@ -29,17 +29,17 @@ const Footer = () => {
                 target="_blank"
                 href="https://www.linkedin.com/in/sarah-halford-369b1414b/"
               >
-                <i class="fab fa-linkedin"></i>
+                <i className="fab fa-linkedin"></i>
               </a>
             </Col>
             <Col xs={1}>
               <a target="_blank" href="https://www.instagram.com/">
-                <i class="fab fa-instagram"></i>
+                <i className="fab fa-instagram"></i>
               </a>
             </Col>
             <Col xs={1}>
               <a target="_blank" href="https://www.googlemaps.com/">
-                <i class="fas fa-map"></i>
+                <i className="fas fa-map"></i>
               </a>
             </Col>
             <Col md={3}>
