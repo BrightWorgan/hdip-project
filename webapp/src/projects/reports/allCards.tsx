@@ -33,9 +33,13 @@ const AllReportCards = (project: any) => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card‘s content.
                   </CardText>
-                  <Button className="ss-info-btn" /*onClick={}*/>
+                  <Button
+                    className="ss-info-btn"
+                    // onClick={() => props.onSelect(project)}
+                  >
                     View Context Register
                   </Button>
+                  {/* <ContextRegister project={props.project}></ContextRegister> */}
                 </CardBody>
               </Card>
             </Col>
