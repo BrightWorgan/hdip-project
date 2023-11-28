@@ -1,10 +1,36 @@
 import { Container, Form, FormGroup, Row, Col, Label, Input } from "reactstrap";
+import { useState } from "react";
+import contextRegisterSchema from "../../validation/contextRegisterValidation";
 
-const ContextForm = () => {
+const ContextForm = (props: any) => {
+  // use state variable
+  const [error, setError] = useState("");
+
+  const onSubmit = async (e: Event): Promise<void> => {
+    e.preventDefault();
+    const context = {
+      type: e?.target?.type?.value,
+      description: e?.target?.description?.value,
+      soilType: e?.target?.soilType?.value,
+      samples: e?.target?.samples?.value,
+      location: e?.target?.location?.value,
+      date: e?.target?.date?.value,
+    };
+
+    // validation
+    try {
+      const validatedContext = await contextRegisterSchema.validate(context);
+      setError("");
+      props.onSubmit(validatedContext);
+    } catch (error: any) {
+      setError(error.message);
+    }
+  };
+
   return (
     <div>
       <Container>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Row>
             <Col md={6}>
               <FormGroup>
