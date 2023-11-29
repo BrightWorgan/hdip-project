@@ -3,11 +3,10 @@ import FAB from "../../common/fab";
 import ContextForm from "./cutFillAddForm";
 import ContextTable from "./cutFillTable";
 import ReportHeader from "./reportHeader";
-const ContextRegister = () => {
+const ContextRegister = (props: any) => {
   return (
     <div>
       <h4>Context Register:</h4>
-      <ReportHeader />
       <ContextTable
       // context={context}
       // onChecked={onChecked}

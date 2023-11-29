@@ -3,12 +3,6 @@ import { Container, Table } from "reactstrap";
 const ContextTable = () => {
   return (
     <Container>
-      <h3>Context Register: </h3>
-      <h6>Project Name: </h6>
-      <h6>Project ID: </h6>
-      <h6>Site Name: </h6>
-      <h6>Licence Number: </h6>
-      <h6>Area: </h6>
       <Table>
         <thead>
           <tr>

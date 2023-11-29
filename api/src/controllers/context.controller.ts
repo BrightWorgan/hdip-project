@@ -2,22 +2,27 @@ import db from "../util/knex";
 import Express from "express";
 
 const getAll = async (req: Express.Request, res: Express.Response) => {
+    const projectID = req.params.projectID;
   const allContexts = await db("Context")
     .select()
+    .where({
+        projectID: projectID
+    });
     res.send(allContexts)
 };
 
 const create = async (req: Express.Request, res: Express.Response) => {
+    const projectID = req.params.projectID;
     try {
         await db("Context")
         .insert({
-          contextNumber: req.body.contextNumber,
           type: req.body.type, 
           description: req.body.description,
+          projectID: projectID,
           soilType: req.body.soilType,
           samples: req.body.samples,
           location: req.body.location,
-          date:  new Date (req.body.date), 
+          date: new Date(req.body.date), 
           }
         )
         res.send('Post Sucess'); 
@@ -28,7 +33,15 @@ const create = async (req: Express.Request, res: Express.Response) => {
 };
 
 const destroy = async (req: Express.Request, res: Express.Response) => {
+    const projectID = req.params.projectID;
+    const contextID = req.params.contextID;
     // TO DO:
+    await db('Context')
+        .where({
+            projectID: projectID,
+            contextNumber: contextID
+        })
+        .delete();
     res.send("Okay")
 
 };

@@ -2,13 +2,15 @@ import { Knex } from "knex";
 
 
 export async function up(knex: Knex): Promise<void> {
-    await knex.schema.createTable("Contexxt", (contextTable) => {
+    await knex.schema.createTable("Context", (contextTable) => {
         contextTable.increments("contextNumber").unique().notNullable();
-        contextTable.enum("Type", ["Cut", "Fill"]).notNullable();;
-        contextTable.string("Description").notNullable();
-        contextTable.string("Samples").notNullable();;
-        contextTable.string("Location").notNullable();
-        contextTable.dateTime("Date").notNullable();
+        contextTable.enum("type", ["Cut", "Fill"]).notNullable();;
+        contextTable.string("description").notNullable();
+        contextTable.string("soilType").notNullable();
+        contextTable.string("samples").notNullable();;
+        contextTable.string("location").notNullable();
+        contextTable.dateTime("date").notNullable();
+        contextTable.integer('projectID').unsigned().references('projectID').inTable('Projects');
       
     })
 }
