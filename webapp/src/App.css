@@ -77,14 +77,9 @@ sable ish #d6d2b9 */
   width: 100%;
 } */
 
-.ss-pagination-btn {
-  background-color: #73a2d1 !important;
-  /* display: flex; */
-  /* margin-left: "auto" */
-  /* float: 'right'; */
-}
-
-.ss-info-btn {
+.ss-info-btn,
+.ss-pagination-btn,
+.ss-back-btn {
   background-color: #73a2d1 !important;
 }
 

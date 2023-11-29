@@ -47,7 +47,7 @@ const ProjectAddForm = (props: any) => {
             <Input id="name" name="name" placeholder="Project Name" />
           </FormGroup>
         </Col>
-        <Col md={12}>
+        {/* <Col md={12}>
           <FormGroup>
             <Label for="siteID">Site ID</Label>
             <Input
@@ -57,7 +57,7 @@ const ProjectAddForm = (props: any) => {
               type="number"
             />
           </FormGroup>
-        </Col>
+        </Col> */}
       </Row>
       <Row>
         <Col md={6}>
