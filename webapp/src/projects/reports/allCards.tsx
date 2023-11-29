@@ -29,18 +29,21 @@ const AllReportCards = (props: any) => {
             <Col xs="4">
               <Card>
                 <CardBody>
-                  <CardTitle tag="h5">Context Register:</CardTitle>
+                  <CardTitle tag="h5">Context Register :</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     Cut and Fill Numbers
                   </CardSubtitle>
                   <CardImg
                     alt="Card image cap"
                     src="src/assets/contextLayersCavanSite.jpg"
-                    className="ss-"
+                    // className="ss-"
+                    style={{
+                      height: "208px",
+                    }}
                   />
                   <CardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card‘s content.
+                    Li Europan lingues es membres del sam familie. Lor separat
+                    existentie es un myth. Por scientie, musi
                   </CardText>
                   <Button className="ss-info-btn" onClick={contextClick}>
                     View Context Register
@@ -52,17 +55,20 @@ const AllReportCards = (props: any) => {
             <Col xs="4">
               <Card>
                 <CardBody>
-                  <CardTitle tag="h5">Find Register:</CardTitle>
+                  <CardTitle tag="h5">Find Register :</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     All Finds
                   </CardSubtitle>
                   <CardImg
                     alt="https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
                     src="src/assets/copperFinds.jpg"
+                    style={{
+                      height: "208px",
+                    }}
                   />
                   <CardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card‘s content.
+                    Li Europan lingues es membres del sam familie. Lor separat
+                    existentie es un myth. Por scientie, musi
                   </CardText>
                   <Button className="ss-info-btn" onClick={findsClick}>
                     View Finds Table
@@ -72,19 +78,28 @@ const AllReportCards = (props: any) => {
             </Col>
             <Col xs="4">
               <Card>
-                <CardBody>
-                  <CardTitle tag="h5">Sample Register:</CardTitle>
+                <CardBody
+                  style={{
+                    height: "396.8px",
+                  }} /* 396.8px is the height of the other two cards*/
+                >
+                  <CardTitle tag="h5">Sample Register :</CardTitle>
+                  <CardSubtitle className="mb-2 text-muted" tag="h6">
+                    All Soil Samples
+                  </CardSubtitle>
                   <CardImg
                     alt="Bags of soil"
                     src="src/assets/soilSamples.jpeg"
+                    style={{
+                      height: "208px",
+                    }}
                   />
-                  <CardSubtitle className="mb-2 text-muted" tag="h6">
-                    Soil Samples
-                  </CardSubtitle>
-                  <CardText>Coming Soon ....</CardText>
-                  <br />
-                  <br />
-                  <Button color="disabled">View Sample Table</Button>
+                  <br></br>
+                  <CardText>
+                    Li Europan lingues es membres del sam familie. Lor separat
+                    existentie es un myth. Por scientie, musi
+                  </CardText>
+                  <Button color="disabled">Coming Soon ....</Button>
                 </CardBody>
               </Card>
             </Col>
