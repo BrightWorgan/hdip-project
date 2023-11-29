@@ -11,6 +11,7 @@ export async function up(knex: Knex): Promise<void> {
         contextTable.string("location").notNullable();
         contextTable.dateTime("date").notNullable();
         contextTable.integer('projectID').unsigned().references('projectID').inTable('Projects');
+        contextTable.string('userID').unsigned().references('userID').inTable('Users');
       
     })
 }

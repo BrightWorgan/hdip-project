@@ -13,6 +13,7 @@ const getAll = async (req: Express.Request, res: Express.Response) => {
 
 const create = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
+    const userId = req.params.userId;
     try {
         await db("Context")
         .insert({
@@ -23,6 +24,7 @@ const create = async (req: Express.Request, res: Express.Response) => {
           samples: req.body.samples,
           location: req.body.location,
           date: new Date(req.body.date), 
+          userId: userId,
           }
         )
         res.send('Post Sucess'); 
