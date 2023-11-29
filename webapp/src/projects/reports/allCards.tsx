@@ -10,8 +10,17 @@ import {
   CardText,
   CardImg,
 } from "reactstrap";
+import Views from "./views.enum";
 
-const AllReportCards = (project: any) => {
+const AllReportCards = (props: any) => {
+  const contextClick = () => {
+    props.onViewChange(Views.context);
+  };
+
+  const findsClick = () => {
+    props.onViewChange(Views.finds);
+  };
+
   return (
     <div>
       <div>
@@ -33,13 +42,9 @@ const AllReportCards = (project: any) => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card‘s content.
                   </CardText>
-                  <Button
-                    className="ss-info-btn"
-                    // onClick={() => props.onSelect(project)}
-                  >
+                  <Button className="ss-info-btn" onClick={contextClick}>
                     View Context Register
                   </Button>
-                  {/* <ContextRegister project={props.project}></ContextRegister> */}
                 </CardBody>
               </Card>
             </Col>
@@ -59,10 +64,7 @@ const AllReportCards = (project: any) => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card‘s content.
                   </CardText>
-                  <Button
-                    className="ss-info-btn"
-                    // onClick={() => props.onSelect(project)}
-                  >
+                  <Button className="ss-info-btn" onClick={findsClick}>
                     View Finds Table
                   </Button>
                 </CardBody>

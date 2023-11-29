@@ -15,7 +15,7 @@ const ProjectAddForm = (props: any) => {
   //use start erreors
   const [error, setError] = useState("");
 
-  const onSubmit = async (e: Event): void => {
+  const onSubmit = async (e: Event): Promise<void> => {
     e.preventDefault();
     const project = {
       name: e?.target?.name?.value,

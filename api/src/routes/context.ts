@@ -2,14 +2,13 @@
 // get, post, remove?, update
 import { type Express } from "express"
 import db from "../util/knex";
-import contextController from '../controllers/user.controller'
+import contextController from '../controllers/context.controller'
 
 const contextRoute = (app:Express) => {
-    app.get('/context',  contextController.getAll);
-    app.post('/context', contextController.create);
-    app.delete('/context', contextController.destroy); 
+    app.get('/context/:projectID',  contextController.getAll);
+    app.post('/context/:projectID', contextController.create);
+    app.delete('/context/:projectID/:contextID', contextController.destroy); 
 };
-
 export default contextRoute;
 
 // FINDS
