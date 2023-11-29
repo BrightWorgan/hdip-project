@@ -36,7 +36,6 @@ const AllReportCards = (props: any) => {
                   <CardImg
                     alt="Card image cap"
                     src="src/assets/contextLayersCavanSite.jpg"
-                    // className="ss-"
                     style={{
                       height: "208px",
                     }}
@@ -60,7 +59,7 @@ const AllReportCards = (props: any) => {
                     All Finds
                   </CardSubtitle>
                   <CardImg
-                    alt="https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
+                    alt="irish bronze age artifacts image source: https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
                     src="src/assets/copperFinds.jpg"
                     style={{
                       height: "208px",
@@ -103,69 +102,90 @@ const AllReportCards = (props: any) => {
                 </CardBody>
               </Card>
             </Col>
-            {/* <Col xs="4">
-              <Card
-                style={{
-                  width: "18rem",
-                }}
-              >
-                <img
-                  alt="Card image cap"
-                  src="src/assets/trimCastlePano1200.jpg"
-                />
-                <CardBody>
+            <Row
+              style={{
+                height: "5px",
+              }}
+            ></Row>
+            {/* Second row of cards */}
+            <Col xs="4">
+              <Card>
+                <CardBody
+                  style={{
+                    height: "396.8px",
+                  }}
+                >
                   <CardTitle tag="h5">Wood Sample Register:</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     Wood Samples
                   </CardSubtitle>
-                  <CardText>Coming Soon ....</CardText>
-                  <br />
-                  <Button color="disabled">Wood Samples</Button>
+                  <CardImg
+                    alt="irish bronze age artifacts image source: https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
+                    src="src/assets/copperFinds.jpg"
+                    style={{
+                      height: "208px",
+                    }}
+                  />
+                  <CardText>
+                    Li Europan lingues es membres del sam familie. Lor separat
+                    existentie es un myth. Por scientie, musi
+                  </CardText>
+                  <Button color="disabled">Coming Soon ....</Button>
                 </CardBody>
               </Card>
             </Col>
             <Col xs="4">
-              <Card
-                style={{
-                  width: "18rem",
-                }}
-              >
-                <img
-                  alt="Cabinteely burial under excavation (Photo Ken Wiggins/Judith Carroll), http://irisharchaeology.ie/2015/10/medieval-burials-discovered-at-cabinteely-co-dublin/"
-                  src="src/assets/remainsBeingExcavated.jpg"
-                />
-                <CardBody>
+              <Card>
+                <CardBody
+                  style={{
+                    height: "396.8px",
+                  }}
+                >
                   <CardTitle tag="h5">Bone Sample Register:</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     Bone Sample Register
                   </CardSubtitle>
-                  <CardText>Coming Soon ....</CardText>
-                  <br />
-                  <Button color="disabled">Bone Samples</Button>
+                  <CardImg
+                    alt="irish bronze age artifacts image source: https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
+                    src="src/assets/copperFinds.jpg"
+                    style={{
+                      height: "208px",
+                    }}
+                  />
+                  <CardText>
+                    Li Europan lingues es membres del sam familie. Lor separat
+                    existentie es un myth. Por scientie, musi
+                  </CardText>
+                  <Button color="disabled">Coming Soon ....</Button>
                 </CardBody>
               </Card>
             </Col>
             <Col xs="4">
-              <Card
-                style={{
-                  width: "18rem",
-                }}
-              >
-                <img
-                  alt="Card image cap"
-                  src="src/assets/trimCastlePano1200.jpg"
-                />
-                <CardBody>
+              <Card>
+                <CardBody
+                  style={{
+                    height: "396.8px",
+                  }}
+                >
                   <CardTitle tag="h5">Animal Bone Sample Register:</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     Animal Bone Sample Register
                   </CardSubtitle>
-                  <CardText>Coming Soon ....</CardText>
-                  <br />
-                  <Button color="disabled">Bone Samples</Button>
+                  <CardImg
+                    alt="irish bronze age artifacts image source: https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
+                    src="src/assets/copperFinds.jpg"
+                    style={{
+                      height: "208px",
+                    }}
+                  />
+                  <CardText>
+                    Li Europan lingues es membres del sam familie. Lor separat
+                    existentie es un myth. Por scientie, musi
+                  </CardText>
+                  <Button color="disabled">Coming Soon ....</Button>
                 </CardBody>
               </Card>
-            </Col> */}
+            </Col>
           </Row>
         </Container>
         <br />
