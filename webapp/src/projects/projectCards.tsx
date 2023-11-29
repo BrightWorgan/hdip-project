@@ -54,8 +54,8 @@ const Cardbox = (props: any) => {
                 Licence #: {project.licenceNumber}
               </CardSubtitle>
               <CardText>
-                Site ID:{project.siteID}
-                <br />
+                {/* Site ID:{project.siteID}
+                <br /> */}
                 Location: {project.projectLocation}
                 <br />
                 Director: {project.director}
