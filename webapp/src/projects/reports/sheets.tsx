@@ -5,6 +5,7 @@ import { Button, Container } from "reactstrap";
 import { useState } from "react";
 import Views from "./views.enum";
 import FindsTable from "./findsTable";
+import ComingSoon from "./comingSoon";
 
 const Sheets = (props: any) => {
   // use state
@@ -23,8 +24,8 @@ const Sheets = (props: any) => {
     CurrentView = FindsTable;
   }
 
-  if (view === Views.finds) {
-    CurrentView = FindsTable;
+  if (view === Views.samples) {
+    CurrentView = ComingSoon;
   }
 
   return (
