@@ -4,7 +4,7 @@ import ContextRegister from "./contextRegisterPage";
 import { Button, Container } from "reactstrap";
 import { useState } from "react";
 import Views from "./views.enum";
-import FindsTable from "./findsTable";
+import FindRegister from "./findRegisterPage";
 import ComingSoon from "./comingSoon";
 
 const Sheets = (props: any) => {
@@ -21,7 +21,7 @@ const Sheets = (props: any) => {
   }
 
   if (view === Views.finds) {
-    CurrentView = FindsTable;
+    CurrentView = FindRegister;
   }
 
   if (view === Views.samples) {
