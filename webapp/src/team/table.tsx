@@ -1,4 +1,4 @@
-import { Table, Button, Input, Row, Col } from "reactstrap";
+import { Table, Button, Input, Row, Col, ButtonGroup } from "reactstrap";
 
 const TeamTable = (props: any) => {
   return (
@@ -50,16 +50,22 @@ const TeamTable = (props: any) => {
       </Table>
       <Row>
         <Col xs={{ offset: 10, size: 2 }}>
-          <Button
-            className="ss-pagination-btn"
-            onClick={() => props.onPrev()}
-            disabled={props.onPrev !== null}
-          >
-            Prev
-          </Button>
-          <Button className="ss-pagination-btn" onClick={() => props.onNext()}>
-            Next
-          </Button>
+          <ButtonGroup style={{ float: "right" }}>
+            <Button
+              className="ss-pagination-btn"
+              onClick={() => props.onPrev()}
+              disabled={props.onPrev === null}
+            >
+              Prev
+            </Button>
+            <Button
+              className="ss-pagination-btn"
+              onClick={() => props.onNext()}
+              disabled={props.onNext === null}
+            >
+              Next
+            </Button>
+          </ButtonGroup>
         </Col>
       </Row>
     </div>

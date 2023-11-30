@@ -5,6 +5,7 @@ import ModalBackdrop from "../common/modalBackdrop";
 import AddForm from "./addForm";
 import util from "../util";
 import toast from "react-hot-toast";
+import { Container } from "reactstrap";
 
 const Team = () => {
   // state variables
@@ -67,13 +68,12 @@ const Team = () => {
   };
 
   return (
-    <div>
-      <h4>Team Members:</h4>
+    <Container fluid>
       <TeamTable
         users={users}
         onChecked={onChecked}
         onPrev={offset === 0 ? null : prev}
-        onNext={next}
+        onNext={users.length < 20 ? null : next}
       />
       <FAB name="Team" onAdd={onToggle} onRemove={removeUsers} />
       <ModalBackdrop
@@ -84,7 +84,7 @@ const Team = () => {
       >
         <AddForm onSubmit={addUser} toggle={onToggle} />
       </ModalBackdrop>
-    </div>
+    </Container>
   );
 };
 export default Team;
