@@ -10,7 +10,6 @@ sable ish #d6d2b9 */
 
 .nav {
   background: #717d52 !important;
-  /* width: 100% !important; */
   color: #23232b;
 }
 
@@ -32,7 +31,6 @@ sable ish #d6d2b9 */
 
 .CarouselItem {
   height: 470px !important;
-  /* max-height: 470px !important; */
 }
 
 .ss-fab-button {
@@ -42,8 +40,6 @@ sable ish #d6d2b9 */
 .ss-logo {
   width: 100%;
   height: 100%;
-  /* display: inline-flex; */
-  /* float: left; */
 }
 
 .ss-login-div {
@@ -69,14 +65,6 @@ sable ish #d6d2b9 */
   background-color: #73a2d1 !important;
 }
 
-
-/* 
-.ss-table-footer {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-} */
-
 .ss-info-btn,
 .ss-pagination-btn,
 .ss-back-btn {
@@ -99,7 +87,6 @@ body {
   width: 100%;
   height: 60px;
   line-height: 60px;
-  /* background-color: #f5f5f5; */
   background: #d6d2b9 !important;
   color: #23232b;
   min-height: 60px;
@@ -117,11 +104,6 @@ body {
 .ss-spacer {
   height: 15%;
 }
-
-
-/* .ss-footer-icons {
-  height: 80% !important;
-} */
 
 .ss-errror-message {
   color: red;

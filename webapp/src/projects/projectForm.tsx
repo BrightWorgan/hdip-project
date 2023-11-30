@@ -19,7 +19,7 @@ const ProjectAddForm = (props: any) => {
     e.preventDefault();
     const project = {
       name: e?.target?.name?.value,
-      siteID: e?.target?.siteID?.value,
+      // siteID: e?.target?.siteID?.value,
       projectLocation: e?.target?.projectLocation?.value,
       director: e?.target?.director?.value,
       startDate: new Date(e?.target?.startDate?.value),

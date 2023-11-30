@@ -1,5 +1,4 @@
 import { type Express } from "express"
-import db from "../util/knex";
 import projectController from "../controllers/project.controller";
 
 const projectRoute = (app:Express) => {
