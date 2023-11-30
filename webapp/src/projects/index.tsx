@@ -30,6 +30,7 @@ const Project = () => {
     // send to backend
     await util.post("/project", project);
     toggle();
+    toast("Project Added");
   };
 
   const onSelect = (project: any) => {
