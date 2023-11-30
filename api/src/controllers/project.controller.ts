@@ -76,6 +76,7 @@ const create = async (req: Express.Request, res: Express.Response) => {
 };
 
 const destroy = async (req: Express.Request, res: Express.Response) => {
+  await db("Projects").delete().whereIn("projectID", req.body)
     res.send("Okay")
 };
 
