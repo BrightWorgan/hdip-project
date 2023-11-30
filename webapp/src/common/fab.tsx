@@ -20,7 +20,8 @@ const FAB = (props: FABProps) => {
         tooltip={`Edit ${props.name}`}
         icon="fas fa-edit"
         className="ss-fab-button"
-        onClick={() => alert("Click is working!")}
+        // onClick={() => alert("Click is working!")}
+        onClick={() => alert("Comming Soon")}
       />
       <Button
         href="#"
