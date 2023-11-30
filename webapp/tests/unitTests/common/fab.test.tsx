@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
-import Fab from "../../src/common/fab";
+import Fab from "../../../src/common/fab";
 
 describe("App", () => {
   it("render name correctly", () => {

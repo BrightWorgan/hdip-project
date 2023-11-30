@@ -7,7 +7,7 @@ test('has title', async ({ page }) => {
   // await expect(page).toHaveTitle(/Playwright/);
   // import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('first test', async ({ page }) => {
   await page.goto('http://45.77.59.59/');
   await page.getByPlaceholder('Email Addresss').click();
   await page.getByPlaceholder('Email Addresss').click();

@@ -60,7 +60,7 @@ const Project = () => {
   };
 
   // remove logic with edit mode
-  const onRemove = () => {
+  const onRemove = async () => {
     if (editMode) {
       // remove things
       console.log("Trying to remove projesct(s)");
@@ -68,11 +68,17 @@ const Project = () => {
       for (let i = 0; i < selectedProjects.length; i += 1) {
         idArray.push(selectedProjects[i].projectID);
       }
-      util.remove("/project", idArray);
-      toast("Select mode disabled");
+      if (idArray.length !== 0) {
+        await util.remove("/project", idArray);
+        toast(`${idArray.length} project(s) removed`);
+        setSelectedProjects([]);
+      } else {
+        toast("Select mode disabled");
+      }
       toggleEdit();
     } else {
       toast("Select mode enabled");
+
       toggleEdit();
     }
   };
@@ -81,7 +87,7 @@ const Project = () => {
     util.get("/project").then(async (result) => {
       setAllProjects(result?.data);
     });
-  }, [isOpen]);
+  }, [isOpen, editMode]);
 
   // logic to display either the view of all Project cards OR the Reports page, i.e. "Sheets" for a selected Project
   if (project === null) {
