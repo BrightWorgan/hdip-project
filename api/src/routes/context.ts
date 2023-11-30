@@ -1,7 +1,6 @@
 // CONTEXT
 // get, post, remove?, update
 import { type Express } from "express"
-import db from "../util/knex";
 import contextController from '../controllers/context.controller'
 
 const contextRoute = (app:Express) => {

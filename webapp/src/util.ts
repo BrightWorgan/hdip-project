@@ -28,13 +28,6 @@ const get = async (endpoint: string) => {
         });
         return result;
     } catch (error:any) {
-        // if (error.response.status === 401) {
-        //     // alert('You are not logged in.');
-        //     // window.location.reload();
-        // }
-        // alert(error.message);
-        // console.log(error)
-        // 
         toast.error(error.message);
     }
     
