@@ -1,12 +1,12 @@
 import ModalBackdrop from "../../common/modalBackdrop";
 import FAB from "../../common/fab";
-import ContextForm from "./cutFillAddForm";
-import ContextTable from "./cutFillTable";
+import FindsForm from "./cutFillAddForm";
+import FindsTable from "./findsTable";
 import { useState } from "react";
 import util from "../../util";
 import toast from "react-hot-toast";
 
-const ContextRegister = (props: any) => {
+const FindRegister = (props: any) => {
   // state variable
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,11 +17,11 @@ const ContextRegister = (props: any) => {
   };
 
   // Context POST
-  const onAdd = async (context: any) => {
+  const onAdd = async (find: any) => {
     // send to backend
-    await util.post("/context", context);
+    await util.post("/find", find);
     toggle();
-    toast("New Context Added");
+    toast("New Find Added");
   };
 
   // Context EDIT --> TO DO
@@ -30,24 +30,24 @@ const ContextRegister = (props: any) => {
   const onRemove = () => {
     // TO DO:
     // remove things
-    console.log("Trying to remove context");
-    toast("Context Removed");
+    console.log("Trying to remove find");
+    toast("Find Removed");
   };
 
   return (
     <div>
       <h4>Context Register:</h4>
-      <ContextTable />
-      <FAB name="Context" onAdd={onToggle} onRemove={() => onRemove()} />
+      <FindsTable />
+      <FAB name="Find" onAdd={onToggle} onRemove={() => onRemove()} />
       <ModalBackdrop
-        header="Add to the Context Regisiter"
+        header="Add to the Find Regisiter"
         toggle={onToggle}
         isOpen={isOpen}
         onAdd={onAdd}
       >
-        <ContextForm onSubmit={onAdd} toggle={onToggle} />
+        <FindsForm onSubmit={onAdd} toggle={onToggle} />
       </ModalBackdrop>
     </div>
   );
 };
-export default ContextRegister;
+export default FindRegister;

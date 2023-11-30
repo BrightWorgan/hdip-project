@@ -1,4 +1,14 @@
-import { Container, Form, FormGroup, Row, Col, Label, Input } from "reactstrap";
+import {
+  Container,
+  Form,
+  FormGroup,
+  Row,
+  Col,
+  Label,
+  Input,
+  Button,
+  ButtonGroup,
+} from "reactstrap";
 import { useState } from "react";
 import findRegisterSchema from "../../validation/findRegisterValidation";
 
@@ -80,7 +90,25 @@ const FindsForm = (props: any) => {
             <FormGroup>
               <Label for="bagged">Bagged</Label>
               <Input id="bagged" name="bagged" placeholder="Yes / No" />
+              {/* error message */}
+              <p className="ss-errror-message"> {error} </p>
             </FormGroup>
+          </Row>
+          <Row>
+            <Col xs={{ size: 6, offset: 6 }}>
+              <ButtonGroup style={{ float: "right" }}>
+                <Button
+                  color="danger"
+                  type="reset"
+                  onClick={() => props.toggle()}
+                >
+                  Cancel
+                </Button>
+                <Button color="success" type="submit">
+                  Submit
+                </Button>
+              </ButtonGroup>
+            </Col>
           </Row>
         </Form>
       </Container>
