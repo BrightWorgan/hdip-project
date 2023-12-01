@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import { useState } from "react";
 import findRegisterSchema from "../../validation/findRegisterValidation";
+import util from "../../util";
 
 const FindsForm = (props: any) => {
   // use state variable
@@ -18,14 +19,18 @@ const FindsForm = (props: any) => {
 
   const onSubmit = async (e: Event): Promise<void> => {
     e.preventDefault();
+
+    const user = util.getUser();
+
     const find = {
       contextNumber: e?.target?.contextNumber?.value,
       fillNumber: e?.target?.fillNumber?.value,
       description: e?.target?.description?.value,
       material: e?.target?.material?.value,
       photograph: e?.target?.photograph?.value,
-      date: e?.target?.date?.value,
       bagged: e?.target?.bagged?.value,
+      date: e?.target?.date?.value,
+      userID: user?.userID,
     };
 
     // validation

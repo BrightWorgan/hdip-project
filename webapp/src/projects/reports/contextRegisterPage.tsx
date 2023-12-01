@@ -36,6 +36,7 @@ const ContextRegister = (props: any) => {
   };
 
   // Context EDIT --> TO DO
+  //
 
   // Context Delete
   const onRemove = () => {
@@ -61,4 +62,5 @@ const ContextRegister = (props: any) => {
     </div>
   );
 };
+
 export default ContextRegister;

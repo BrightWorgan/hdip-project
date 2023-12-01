@@ -1,6 +1,6 @@
 import { Container, Table } from "reactstrap";
 
-const FindsTable = () => {
+const FindsTable = (props: any) => {
   return (
     <Container>
       <h3>Finds Register: </h3>
@@ -14,45 +14,27 @@ const FindsTable = () => {
             <th>Material</th>
             <th>Photograph</th>
             <th>Bagged</th>
+            <th>Date</th>
             <th>Found by</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>#00032</td>
-            <td>#00034</td>
-            <td>Simple copper pendant, no decoration, some pitted areas</td>
-            <td>Copper</td>
-            <td>Photograph</td>
-            <td>Yes</td>
-            <td>Found by Sarah</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>#00052</td>
-            <td>#00054</td>
-            <td>
-              Decorated cream and sable flint macehead, carved with symbolic
-              patterns, possibly Neolithic
-            </td>
-            <td>Stone</td>
-            <td>Photograph</td>
-            <td>Yes</td>
-            <td>Found by John</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>#00062</td>
-            <td>#00067</td>
-            <td>
-              Decorated bowl with Bronze age pattern, possibly middle Bronze Age
-            </td>
-            <td>Ceramic</td>
-            <td>Photograph</td>
-            <td>No</td>
-            <td>Found by Cormac</td>
-          </tr>
+          {props?.finds?.map((find: any) => {
+            return (
+              <tr key={find.findsNumber}>
+                <td>{find.findsNumber}</td>
+                <td>{find.contextNumber}</td>
+                <td>{find.description}</td>
+                <td>{find.material}</td>
+                <td>{find.photograph}</td>
+                <td>{find.bagged}</td>
+                <td>{find.date}</td>
+                <td>
+                  {find.forename + " " + find.surname.substring(0, 1) + "."}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
     </Container>
