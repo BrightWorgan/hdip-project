@@ -1,13 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// test('has title', async ({ page }) => {
-//   await page.goto('http://45.77.59.59/');
-// });
-
-  // // Expect a title "to contain" a substring.
-  // await expect(page).toHaveTitle(/Playwright/);
-  // import { test, expect } from '@playwright/test';
-
   test.describe('Login and basic UI structure', () => {
     test.skip('Invalid login test', async ({ page }) => {
         // TO DO
@@ -40,12 +32,13 @@ import { test, expect } from '@playwright/test';
         await loginBtn.click();
       });
   
-      // toast message confrim test
+      // toast message confrim test 
+      //await page.getByText('Invalid Login').click();
     
       });
   });
 
-  test('Home Page UI structure', async ({ page }) => {
+  test('Base UI structure', async ({ page }) => {
     await test.step('load page', async () => {
       await page.goto('http://45.77.59.59/');
     });
@@ -58,34 +51,106 @@ import { test, expect } from '@playwright/test';
       await page.getByRole('button', { name: 'Login' }).click();
     });
 
-    await test.step('', async () => {
-     
-
-    });
-
-    await test.step('', async () => {
+    await test.step('Check Header text and logo', async () => {
+      // logo
+      const sheetScribeLogo = await page.getByRole('img', { name: 'logo' })
+      await sheetScribeLogo.hover();
+      await expect( sheetScribeLogo).toBeVisible();
+      // header text
+      const headerTitle = await page.getByRole('heading', { name: 'Welcome to Sheet Scribe' });
+      const headerSubtitle = await page.getByRole('heading', { name: 'For all of your Traceable Archaeology and Heritage needs' });
+      await expect(headerTitle).toBeVisible();
+      await expect(headerTitle).toHaveCSS('color', 'rgb(33, 37, 41)' );
+      await expect(headerSubtitle).toBeVisible();
+      await expect(headerSubtitle).toHaveCSS('color', 'rgb(33, 37, 41)' );
   
-     
     });
 
+    await test.step('Confrim Navbar Structure', async () => {
+      const homeTab = await page.getByRole('link', { name: 'Home' })
+      await homeTab.hover();
+      await expect(homeTab).toHaveCSS('color', 'rgb(35, 35, 43)');
   
+      const projectTab = await page.getByRole('link', { name: 'Project' })
+      await projectTab.hover();
+      await expect(projectTab).toHaveCSS('color', 'rgb(214, 210, 185)');
+      
+      const teamTab = await page.getByRole('link', { name: 'Team' })
+      await teamTab.hover();
+      await expect(teamTab).toHaveCSS('color', 'rgb(214, 210, 185)');
+
+      const profileTab = await page.getByRole('link', { name: 'User Profile' })
+      await profileTab.hover();
+      await expect(profileTab).toHaveCSS('color', 'rgb(214, 210, 185)');
+      
+      const settingsTab = await page.getByRole('link', { name: 'Settings' })
+      await settingsTab.hover();
+      await expect(settingsTab).toHaveCSS('color', 'rgb(214, 210, 185)');
+
+
     });
+
+    await test.step('Confrim Footer Structure', async () => {
+      const footerContainer = await page.getByRole('contentinfo');
+      await expect (footerContainer).toHaveCSS('color', 'rgb(35, 35, 43)');
+      await expect (footerContainer).toHaveCSS('background-color', 'rgb(214, 210, 185)');
+      await footerContainer.click();
+      await page.getByText('©2023 Sheet Scribe').click();
+     
+    });
+  });
+
+  
+  test.skip('Home Page structure', async ({ page }) => {
+    await test.step('load page', async () => {
+      await page.goto('http://45.77.59.59/');
+    });
+
+    await test.step('login with correct email and password', async () => {
+      await page.getByPlaceholder('Email Addresss').click();
+      await page.getByPlaceholder('Email Addresss').type('edwardtest@test.com');
+      await page.getByPlaceholder('Password...').click();
+      await page.getByPlaceholder('Password...').type('Yc(bLS*od+iX');
+      await page.getByRole('button', { name: 'Login' }).click();
+    });
+
+    await test.step('Check ', async () => {
+
+    });
+
+    
+
+    
+  });
 
 
 //await test.step('', async () => {
 
 // });
-// await page.getByRole('img', { name: 'logo' }).click();
-//   await page.getByRole('link', { name: 'Settings' }).click();
-//   await page.getByRole('link', { name: 'Home' }).click();
-//   await page.locator('#root div').filter({ hasText: 'HomeProjectTeamUser' }).locator('h2').click();
-//   await page.getByText('©2023 Sheet Scribe').click();
-//   const page1Promise = page.waitForEvent('popup');
-//   await page.getByRole('link', { name: '' }).click();
-//   const page1 = await page1Promise;
-//   const page2Promise = page.waitForEvent('popup');
-//   await page.getByRole('link', { name: '' }).click();
-//   const page2 = await page2Promise;
+
+
+
+
+// await page.getByRole('link', { name: 'Project' }).click();
+  // await page.getByRole('button', { name: 'Menu ' }).click();
+  // await page.getByRole('button', { name: 'Add Project ' }).click();
+  // await page.getByRole('heading', { name: 'Add a new Project' }).click();
+  // await page.getByRole('button', { name: 'Cancel' }).click();
+  // page.once('dialog', dialog => {
+  //   console.log(`Dialog message: ${dialog.message()}`);
+  //   dialog.dismiss().catch(() => {});
+  // });
+  // await page.getByRole('button', { name: 'Edit Project ' }).click();
+  // await page.getByRole('button', { name: 'Delete Project ' }).click();
+  // await page.getByRole('button', { name: 'Delete Project ' }).click();
+
+
+
+
+// adding a project steps:
+
+
+
 //   await page.getByRole('link', { name: 'Project' }).click();
 //   await page.getByRole('button', { name: 'Menu ' }).click();
 //   await page.getByRole('button', { name: 'Add Project ' }).click();

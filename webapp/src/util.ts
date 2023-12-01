@@ -1,6 +1,6 @@
 import axios from "axios"
 import toast from "react-hot-toast";
-
+import { jwtDecode } from "jwt-decode";
 let token: string | undefined;
 
 const login = async (email: string, password: string): Promise<string|boolean|undefined> => {
@@ -62,11 +62,20 @@ const remove = async (endpoint: string, payload: any) => {
     }
 }
 
+const getUser = () => {
+    if( token === undefined){
+        return null;
+    }
+     const user = jwtDecode(token);
+    //  console.log(user);
+    return user;
+}
 
 
 export default {
     login,
     get,
     post,
-    remove
+    remove,
+    getUser
 }
