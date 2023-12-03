@@ -10,6 +10,7 @@ import {
 } from "reactstrap";
 import { useState } from "react";
 import contextRegisterSchema from "../../validation/contextRegisterValidation";
+import util from "../../util";
 
 const ContextForm = (props: any) => {
   // use state variable
@@ -17,6 +18,9 @@ const ContextForm = (props: any) => {
 
   const onSubmit = async (e: Event): Promise<void> => {
     e.preventDefault();
+
+    const user = util.getUser();
+
     const context = {
       type: e?.target?.type?.value,
       description: e?.target?.description?.value,
@@ -24,6 +28,7 @@ const ContextForm = (props: any) => {
       samples: e?.target?.samples?.value,
       location: e?.target?.location?.value,
       date: e?.target?.date?.value,
+      userID: user?.userID,
     };
 
     // validation

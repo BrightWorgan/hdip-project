@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 const projectSchema = yup.object().shape({
   name: yup.string().min(2).max(10).required(),
-  siteID: yup.string().min(2).required(),
+  // siteID: yup.string().min(2).required(),
   projectLocation: yup.string().min(2).required(),
   director: yup.string().min(2).required(),
   startDate: yup.date().required(),

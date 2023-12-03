@@ -5,15 +5,18 @@ const getAll = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
   const allContexts = await db("Context")
     .select()
+    .join('Users', 'Context.userID', '=', 'Users.userID') // joining User table to Context table
     .where({
         projectID: projectID
     });
+
+    console.log(allContexts);
     res.send(allContexts)
+    
 };
 
 const create = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
-    const userId = req.params.userId;
     try {
         await db("Context")
         .insert({
@@ -24,7 +27,7 @@ const create = async (req: Express.Request, res: Express.Response) => {
           samples: req.body.samples,
           location: req.body.location,
           date: new Date(req.body.date), 
-          userId: userId,
+          userID: req.body.userID,
           }
         )
         res.send('Post Sucess'); 
