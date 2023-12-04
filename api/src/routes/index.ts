@@ -3,6 +3,7 @@ import { Express } from 'express';
 import loginRoute from "./login";
 import projectRoute from "./projects";
 import contextRoute from "./context";
+import findRoute from "./finds";
 
 
 const router = (app: Express) => {
@@ -10,8 +11,7 @@ const router = (app: Express) => {
     userRoute(app);
     projectRoute(app);
     contextRoute(app);
-    // finds
-    // etc
+    findRoute(app);
 };
 
 export default router;
