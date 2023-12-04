@@ -16,6 +16,7 @@ const Sheets = (props: any) => {
   if (view === Views.default) {
     CurrentView = AllReportCards;
   }
+
   if (view === Views.context) {
     CurrentView = ContextRegister;
   }
@@ -31,7 +32,6 @@ const Sheets = (props: any) => {
   return (
     <div>
       <br />
-      {/* <h1>Reports page is working</h1> */}
       <div>
         <Container>
           {view !== Views.default ? (

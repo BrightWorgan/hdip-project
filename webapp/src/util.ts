@@ -62,6 +62,7 @@ const remove = async (endpoint: string, payload: any) => {
     }
 }
 
+// decode user details from user JWT token
 const getUser = () => {
     if( token === undefined){
         return null;
