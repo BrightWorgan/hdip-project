@@ -1,4 +1,4 @@
-import { Container, Table } from "reactstrap";
+import { Container, Table, Input } from "reactstrap";
 
 const ContextTable = (props: any) => {
   return (
@@ -20,6 +20,13 @@ const ContextTable = (props: any) => {
           {props?.contexts?.map((context: any) => {
             return (
               <tr key={context.contextNumber}>
+                {/* checkbox */}
+                <td>
+                  <Input
+                    type="checkbox"
+                    onChange={() => props.onChecked(context)}
+                  />
+                </td>
                 <td>{context.contextNumber}</td>
                 <td>{context.type}</td>
                 <td>{context.description}</td>

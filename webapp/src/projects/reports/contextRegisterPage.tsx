@@ -7,14 +7,30 @@ import util from "../../util";
 import toast from "react-hot-toast";
 
 const ContextRegister = (props: any) => {
-  // state variable
+  // state variables
   const [isOpen, setIsOpen] = useState(false);
   const [allContext, setAllContext] = useState<any[]>([]);
+  const [selectedContexts, setSelectedContexts] = useState<any[]>([]);
 
   const toggle = () => setIsOpen(!isOpen);
 
   const onToggle = () => {
     toggle();
+  };
+
+  const onChecked = (context: any) => {
+    const existingContextIndex = selectedContexts.findIndex(
+      (aSelectedContext) => aSelectedContext.number === context.number
+    );
+    if (existingContextIndex === -1) {
+      const newSelectedContexts = selectedContexts.concat([context]);
+      setSelectedContexts(newSelectedContexts);
+    } else {
+      const newSelectedContexts = selectedContexts.filter(
+        (_item, index) => index !== existingContextIndex
+      );
+      setSelectedContexts(newSelectedContexts);
+    }
   };
 
   const id = props.project.projectID;
@@ -49,7 +65,7 @@ const ContextRegister = (props: any) => {
   return (
     <div>
       <h4>Context Register:</h4>
-      <ContextTable contexts={allContext} />
+      <ContextTable contexts={allContext} onChecked={onChecked} />
       <FAB name="Context" onAdd={onToggle} onRemove={() => onRemove()} />
       <ModalBackdrop
         header="Add to the Context Regisiter"
