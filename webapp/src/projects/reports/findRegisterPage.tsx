@@ -7,13 +7,30 @@ import util from "../../util";
 import toast from "react-hot-toast";
 
 const FindRegister = (props: any) => {
-  // state variable
+  // state variables
   const [isOpen, setIsOpen] = useState(false);
+
+  const [selectedFinds, setSelectedFinds] = useState<any[]>([]);
 
   const toggle = () => setIsOpen(!isOpen);
 
   const onToggle = () => {
     toggle();
+  };
+
+  const onChecked = (find: any) => {
+    const existingFindIndex = selectedFinds.findIndex(
+      (aSelectedFind) => aSelectedFind.number === find.number
+    );
+    if (existingFindIndex === -1) {
+      const newSelectedFinds = selectedFinds.concat([find]);
+      setSelectedFinds(newSelectedFinds);
+    } else {
+      const newSelectedFinds = selectedFinds.filter(
+        (_item, index) => index !== existingFindIndex
+      );
+      setSelectedFinds(newSelectedFinds);
+    }
   };
 
   // Context POST
@@ -37,7 +54,7 @@ const FindRegister = (props: any) => {
   return (
     <div>
       <h4>Context Register:</h4>
-      <FindsTable />
+      <FindsTable onChecked={onChecked} />
       <FAB name="Find" onAdd={onToggle} onRemove={() => onRemove()} />
       <ModalBackdrop
         header="Add to the Find Regisiter"

@@ -1,4 +1,4 @@
-import { Container, Table } from "reactstrap";
+import { Container, Table, Input } from "reactstrap";
 
 const FindsTable = (props: any) => {
   return (
@@ -22,6 +22,13 @@ const FindsTable = (props: any) => {
           {props?.finds?.map((find: any) => {
             return (
               <tr key={find.findsNumber}>
+                {/* checkbox */}
+                <td>
+                  <Input
+                    type="checkbox"
+                    onChange={() => props.onChecked(find)}
+                  />
+                </td>
                 <td>{find.findsNumber}</td>
                 <td>{find.contextNumber}</td>
                 <td>{find.description}</td>
