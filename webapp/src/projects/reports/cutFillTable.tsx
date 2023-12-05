@@ -6,6 +6,7 @@ const ContextTable = (props: any) => {
       <Table>
         <thead>
           <tr>
+            <th></th>
             <th>Context Number #</th>
             <th>Type (Cut / Fill)</th>
             <th>Description</th>
@@ -33,7 +34,7 @@ const ContextTable = (props: any) => {
                 <td>{context.soilType}</td>
                 <td>{context.samples}</td>
                 <td>{context.location}</td>
-                <td>{context.date}</td>
+                <td>{new Date(context.date).toDateString()}</td>
                 <td>
                   {context.forename +
                     " " +

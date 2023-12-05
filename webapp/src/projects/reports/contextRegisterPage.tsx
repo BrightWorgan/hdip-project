@@ -54,11 +54,16 @@ const ContextRegister = (props: any) => {
   // Context EDIT --> TO DO
   //
 
-  // Context Delete
-  const onRemove = () => {
-    // TO DO:
+  // remove logic
+  const onRemove = async () => {
     // remove things
-    console.log("Trying to remove context");
+    console.log("Trying to remove context(s)");
+    let idArray = [];
+    for (let i = 0; i < selectedContexts.length; i += 1) {
+      idArray.push(selectedContexts[i].contextID);
+    }
+    util.remove("/context", idArray);
+    toast("Context Sucessfully Deleted");
     toast("Context Removed");
   };
 
