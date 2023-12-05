@@ -23,7 +23,6 @@ export async function up(knex: Knex): Promise<void> {
         findTable.string("photograph");
         findTable.string("bagged");
         findTable.dateTime("date").notNullable();
-        findTable.integer('projectID').unsigned().references('projectID').inTable('Projects');
         findTable.integer('userID').unsigned().references('userID').inTable('Users');
     })
 }

@@ -5,11 +5,10 @@ const getAll = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
     const allFinds = await db("Find")
     .select()
-    .join('Users', 'find.userID', '=', 'Users.userID') // joining User table to Find table
-    .join('Context', 'find.contextNumber', '=', 'Context.contextNumber')
-    .join('Context', 'find.fillNumber', '=', 'Context.contextNumber')
+    .join('Users', 'Find.userID', '=', 'Users.userID') // joining User table to Find table
+    .join('Context', 'Find.contextNumber', '=', 'Context.contextNumber')
     .where({
-        projectID: projectID
+        'Context.projectID': projectID
     });
 
     console.log(allFinds);

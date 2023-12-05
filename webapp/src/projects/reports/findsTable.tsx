@@ -7,6 +7,7 @@ const FindsTable = (props: any) => {
       <Table>
         <thead>
           <tr>
+            <th> </th>
             <th>Finds Number</th>
             <th>Context Number</th>
             <th>Fill Number</th>
@@ -29,13 +30,14 @@ const FindsTable = (props: any) => {
                     onChange={() => props.onChecked(find)}
                   />
                 </td>
-                <td>{find.findsNumber}</td>
+                <td>{find.findNumber}</td>
                 <td>{find.contextNumber}</td>
+                <td>{find.fillNumber}</td>
                 <td>{find.description}</td>
                 <td>{find.material}</td>
                 <td>{find.photograph}</td>
                 <td>{find.bagged}</td>
-                <td>{find.date}</td>
+                <td>{new Date(find.date).toDateString()}</td>
                 <td>
                   {find.forename + " " + find.surname.substring(0, 1) + "."}
                 </td>
