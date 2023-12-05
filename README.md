@@ -1,4 +1,4 @@
-# hdip-project
+# hdip-project  /  "Sheet Scribe
 
 
 # Live Link <http://....>
@@ -12,7 +12,7 @@ The primary aim of this project is to simplify archaeological paperwork in order
 
 # Scope: 
  
-As an inordinate amount of archaeological work involves paperwork, the possible scope of this project could easily be increased, however, in order to not only achieve the goals set below and to meet the project deadline set by TU,  I would like to narrow the scope of this project to one area of paperwork. This area is also probably the most important and most used on an everyday basis so it would be an excellent deliverable to achieve. 
+As an inordinate amount of archaeological work involves paperwork, the possible scope of this project could easily be increased, however, to not only achieve the goals set below and to meet the project deadline set by TU,  I would like to narrow the scope of this project to one area of paperwork. This area is also probably the most important and most used on an everyday basis so it would be an excellent deliverable to achieve. 
 
  
 
@@ -113,17 +113,21 @@ Mobile Application – that is responsive
 
 # Software: 
 
-Visual Studio – Backend Development 
+Visual Studio Code (with the necessary plugins) - Frontend Development 
 
-Visual Studio Code with the necessary plugins / - Frontend Development 
+Postman – visualising and testing API endpoints 
 
-Postman or Swagger – visualising and testing API endpoints 
+DBeaver - Database manager
 
-Canva – login design 
+Canva – logo design 
+
+Sonarcloud - code review tool (works with GitHub)
 
 Microsoft Office – reports etc. 
 
 Lucid chart – UML diagrams etc. 
+
+Outlook and Microsoft Teams - Communicating with my project Supervisor
 
 Build tools used: 
       
