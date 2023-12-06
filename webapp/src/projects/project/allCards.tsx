@@ -120,8 +120,8 @@ const AllReportCards = (props: any) => {
                     Wood Samples
                   </CardSubtitle>
                   <CardImg
-                    alt="irish bronze age artifacts image source: https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
-                    src="src/assets/copperFinds.jpg"
+                    alt="image with the text 'comming soon'"
+                    src="src/assets/commingSoon.png"
                     style={{
                       height: "208px",
                     }}
@@ -146,8 +146,8 @@ const AllReportCards = (props: any) => {
                     Bone Sample Register
                   </CardSubtitle>
                   <CardImg
-                    alt="irish bronze age artifacts image source: https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
-                    src="src/assets/copperFinds.jpg"
+                    alt="image with the text 'comming soon'"
+                    src="src/assets/commingSoon.png"
                     style={{
                       height: "208px",
                     }}
@@ -172,8 +172,8 @@ const AllReportCards = (props: any) => {
                     Animal Bone Sample Register
                   </CardSubtitle>
                   <CardImg
-                    alt="irish bronze age artifacts image source: https://microsites.museum.ie/bronzeagehandlingbox/bronze-age.html"
-                    src="src/assets/copperFinds.jpg"
+                    alt="image with the text 'comming soon'"
+                    src="src/assets/commingSoon.png"
                     style={{
                       height: "208px",
                     }}

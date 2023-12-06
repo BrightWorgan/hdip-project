@@ -4,9 +4,6 @@ import Express from "express";
 
 
 const getAll = async (req: Express.Request, res: Express.Response) => {
-  // const limit = req.params.limit;
-  // const offset = req.params.offset;
-
   const limit = parseInt(req.query.limit as string, 10);
   const offset = parseInt(req.query.offset as string, 10);
 
@@ -48,26 +45,6 @@ const create = async (req: Express.Request, res: Express.Response) => {
 };
 
 const destroy = async (req: Express.Request, res: Express.Response) => {
-    //user id
-    // const userID = "00001"
-    // const LookFor = (user:any) => {
-    //   if (user.userID == userID)
-    //     return true
-    //   else{
-    //     return false
-    //   }
-    // }
-  
-    // const selectedUser = users.findIndex(LookFor)
-    // if (selectedUser === -1){
-    //   throw new Error("User ID / User is not present in the system")
-    // }
-    // else {
-    //   users.splice(selectedUser, 1)
-    // }
-    // db("Users").delete().where({
-
-    // })
     try {
       
       console.log(req.body);
