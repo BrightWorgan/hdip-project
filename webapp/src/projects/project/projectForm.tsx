@@ -1,16 +1,8 @@
-import {
-  Form,
-  Col,
-  Row,
-  FormGroup,
-  Label,
-  Input,
-  Button,
-  ButtonGroup,
-} from "reactstrap";
+import { Form, Col, Row, FormGroup, Label, Input } from "reactstrap";
 import projectSchema from "../../validation/projectValidation";
 import { useState } from "react";
 import ContractTypeOption from "../../common/dropdowns/contractType";
+import FormButton from "../../common/formSubmitButtons";
 
 const ProjectAddForm = (props: any) => {
   //use start erreors
@@ -20,7 +12,6 @@ const ProjectAddForm = (props: any) => {
     e.preventDefault();
     const project = {
       name: e?.target?.name?.value,
-      // siteID: e?.target?.siteID?.value,
       projectLocation: e?.target?.projectLocation?.value,
       director: e?.target?.director?.value,
       startDate: new Date(e?.target?.startDate?.value),
@@ -118,14 +109,7 @@ const ProjectAddForm = (props: any) => {
       </Row>
       <Row>
         <Col xs={{ size: 6, offset: 6 }}>
-          <ButtonGroup style={{ float: "right" }}>
-            <Button color="danger" type="reset" onClick={() => props.toggle()}>
-              Cancel
-            </Button>
-            <Button color="success" type="submit">
-              Submit
-            </Button>
-          </ButtonGroup>
+          <FormButton />
         </Col>
       </Row>
     </Form>

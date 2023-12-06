@@ -8,9 +8,10 @@ import FindRegister from "./find/findRegisterPage";
 import ComingSoon from "../common/comingSoon";
 
 const Sheets = (props: any) => {
-  // use state
+  // use state variable
   const [view, setView] = useState(Views.default);
 
+  // logic to display correct view
   let CurrentView = AllReportCards;
 
   if (view === Views.default) {
