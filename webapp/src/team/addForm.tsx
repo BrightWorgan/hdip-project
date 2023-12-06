@@ -3,23 +3,15 @@
 // import { useForm } from "react-hook-form";
 import teamSchema from "../validation/teamValidation";
 import { useState } from "react";
-import {
-  Form,
-  Col,
-  Row,
-  FormGroup,
-  Label,
-  Input,
-  Button,
-  ButtonGroup,
-} from "reactstrap";
+import { Form, Col, Row, FormGroup, Label, Input } from "reactstrap";
 import YesNoOption from "../common/dropdowns/yesNoOption";
+import FormButton from "../common/formSubmitButtons";
 
 const AddForm = (props: any) => {
   // use state variable
   const [error, setError] = useState("");
 
-  const onSubmit = async (e: Event): void => {
+  const onSubmit = async (e: Event): Promise<void> => {
     e.preventDefault();
     const user = {
       name: e?.target?.name?.value,
@@ -217,14 +209,7 @@ const AddForm = (props: any) => {
       </Row>
       <Row>
         <Col xs={{ size: 6, offset: 6 }}>
-          <ButtonGroup style={{ float: "right" }}>
-            <Button color="danger" type="reset" onClick={() => props.toggle()}>
-              Cancel
-            </Button>
-            <Button color="success" type="submit">
-              Submit
-            </Button>
-          </ButtonGroup>
+          <FormButton />
         </Col>
       </Row>
     </Form>

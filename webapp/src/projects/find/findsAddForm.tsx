@@ -1,20 +1,11 @@
-import {
-  Container,
-  Form,
-  FormGroup,
-  Row,
-  Col,
-  Label,
-  Input,
-  Button,
-  ButtonGroup,
-} from "reactstrap";
+import { Container, Form, FormGroup, Row, Col, Label, Input } from "reactstrap";
 import { useState } from "react";
 import findRegisterSchema from "../../validation/findRegisterValidation";
 import util from "../../util";
 import YesNoOption from "../../common/dropdowns/yesNoOption";
 import ContextDropdown from "../../common/dropdowns/contextDropdown";
 import MaterialDropdown from "../../common/dropdowns/materialDropdown";
+import FormButton from "../../common/formSubmitButtons";
 
 const FindsForm = (props: any) => {
   // use state variable
@@ -122,18 +113,7 @@ const FindsForm = (props: any) => {
           </Row>
           <Row>
             <Col xs={{ size: 6, offset: 6 }}>
-              <ButtonGroup style={{ float: "right" }}>
-                <Button
-                  color="danger"
-                  type="reset"
-                  onClick={() => props.toggle()}
-                >
-                  Cancel
-                </Button>
-                <Button color="success" type="submit">
-                  Submit
-                </Button>
-              </ButtonGroup>
+              <FormButton />
             </Col>
           </Row>
         </Form>

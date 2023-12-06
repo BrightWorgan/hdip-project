@@ -61,6 +61,7 @@ const FindRegister = (props: any) => {
     for (let i = 0; i < selectedFinds.length; i += 1) {
       idArray.push(selectedFinds[i].userID);
     }
+    console.log("Trying to remove find(s) 2222");
     util.remove("/find", idArray);
     toast("Find(s) Sucessfully Deleted");
   };
@@ -81,6 +82,7 @@ const FindRegister = (props: any) => {
       >
         <FindsForm onSubmit={onAdd} toggle={onToggle} project={props.project} />
       </ModalBackdrop>
+      <br />
     </div>
   );
 };

@@ -1,18 +1,10 @@
-import {
-  Form,
-  FormGroup,
-  Row,
-  Col,
-  Label,
-  Input,
-  Button,
-  ButtonGroup,
-} from "reactstrap";
+import { Form, FormGroup, Row, Col, Label, Input } from "reactstrap";
 import { useState } from "react";
 import contextRegisterSchema from "../../validation/contextRegisterValidation";
 import util from "../../util";
 import YesNoOption from "../../common/dropdowns/yesNoOption";
 import CutFillOption from "../../common/dropdowns/cutFillDropdown";
+import FormButton from "../../common/formSubmitButtons";
 
 const ContextForm = (props: any) => {
   // use state variable
@@ -95,14 +87,7 @@ const ContextForm = (props: any) => {
       </Row>
       <Row>
         <Col xs={{ size: 6, offset: 6 }}>
-          <ButtonGroup style={{ float: "right" }}>
-            <Button color="danger" type="reset" onClick={() => props.toggle()}>
-              Cancel
-            </Button>
-            <Button color="success" type="submit">
-              Submit
-            </Button>
-          </ButtonGroup>
+          <FormButton />
         </Col>
       </Row>
     </Form>

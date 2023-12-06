@@ -63,6 +63,7 @@ const ContextRegister = (props: any) => {
       idArray.push(selectedContexts[i].contextID);
     }
     util.remove("/context", idArray);
+    console.log("Trying to remove context(s) 2");
     toast("Context Sucessfully Deleted");
     toast("Context Removed");
   };
@@ -80,6 +81,7 @@ const ContextRegister = (props: any) => {
       >
         <ContextForm onSubmit={onAdd} toggle={onToggle} />
       </ModalBackdrop>
+      <br />
     </div>
   );
 };

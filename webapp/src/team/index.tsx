@@ -69,6 +69,7 @@ const Team = () => {
 
   return (
     <Container fluid>
+      <br />
       <TeamTable
         users={users}
         onChecked={onChecked}
