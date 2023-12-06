@@ -6,7 +6,7 @@ const contextRegisterSchema = yup.object().shape({
   description: yup.string().min(2).max(100).required(),
   soilType: yup.string().min(2).required(),
   samples: yup.string().min(2).required(),
-  location: yup.string().min(10).max(100).required(),
+  location: yup.string().min(2).max(100).required(),
   date: yup.date().required(),
   // foundby taken via token
 });

@@ -4,7 +4,7 @@ const ComingSoon = () => {
   return (
     <div>
       <br></br>
-      {/* <h1>Reports page is working</h1> */}
+
       <h2>This page is coming soon ...</h2>
       <div>
         <Container>
@@ -20,11 +20,6 @@ const ComingSoon = () => {
                 <th>Accusantium</th>
                 <th>Por scientie</th>
                 <th>Sed ut perspiciatis</th>
-                <th>Lor separat existentie es un myth</th>
-                <th>Material</th>
-                <th>Totam rem aperiam</th>
-                <th>Laudantium</th>
-                <th>lingues es membres</th>
               </tr>
             </thead>
             <tbody>
@@ -38,13 +33,6 @@ const ComingSoon = () => {
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium, totam rem aperiam, eaque
                   ipsa quae ab
-                </td>
-                <td>Lor separat existentie es un myth.</td>
-                <td>Sed ut perspiciatis unde omnis iste natus</td>
-                <td>Por scientie, musica, sport etc</td>
-                <td>
-                  Sit voluptatem accusantium doloremque laudantium, totam rem
-                  aperiam, eaque ipsa quae ab
                 </td>
               </tr>
             </tbody>

@@ -6,7 +6,7 @@ import Team from "./team";
 import Project from "./projects";
 import UserProfile from "./userProfile";
 import LoginDemo from "./settings";
-import ComingSoon from "./projects/reports/comingSoon";
+import ComingSoon from "./common/comingSoon";
 
 export enum Tabs {
   Home = 0,

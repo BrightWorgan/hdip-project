@@ -10,7 +10,7 @@ import {
   CardText,
   CardImg,
 } from "reactstrap";
-import Views from "./views.enum";
+import Views from "../views.enum";
 
 const AllReportCards = (props: any) => {
   const contextClick = () => {

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import FAB from "../common/fab";
 import ModalBackdrop from "../common/modalBackdrop";
-import Cardbox from "./projectCards";
-import ProjectAddForm from "./projectForm";
-import Sheets from "./reports/sheets";
+import Cardbox from "./project/projectCards";
+import ProjectAddForm from "./project/projectForm";
+import Sheets from "./sheets";
 import util from "../util";
 import toast from "react-hot-toast";
 

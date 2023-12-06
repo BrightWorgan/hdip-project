@@ -14,6 +14,7 @@ import findRegisterSchema from "../../validation/findRegisterValidation";
 import util from "../../util";
 import YesNoOption from "../../common/dropdowns/yesNoOption";
 import ContextDropdown from "../../common/dropdowns/contextDropdown";
+import MaterialDropdown from "../../common/dropdowns/materialDropdown";
 
 const FindsForm = (props: any) => {
   // use state variable
@@ -86,7 +87,7 @@ const FindsForm = (props: any) => {
             <Col md={6}>
               <FormGroup>
                 <Label for="material">Material</Label>
-                <Input id="material" name="material" placeholder="material" />
+                <MaterialDropdown placeholder="material" id="material" />
               </FormGroup>
             </Col>
           </Row>
