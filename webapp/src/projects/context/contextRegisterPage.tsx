@@ -20,16 +20,19 @@ const ContextRegister = (props: any) => {
 
   const onChecked = (context: any) => {
     const existingContextIndex = selectedContexts.findIndex(
-      (aSelectedContext) => aSelectedContext.number === context.number
+      (aSelectedContext) =>
+        aSelectedContext.contextNumber === context.contextNumber
     );
     if (existingContextIndex === -1) {
       const newSelectedContexts = selectedContexts.concat([context]);
       setSelectedContexts(newSelectedContexts);
+      console.log(newSelectedContexts);
     } else {
       const newSelectedContexts = selectedContexts.filter(
         (_item, index) => index !== existingContextIndex
       );
       setSelectedContexts(newSelectedContexts);
+      console.log(newSelectedContexts);
     }
   };
 
@@ -41,7 +44,7 @@ const ContextRegister = (props: any) => {
       // axios way:
       setAllContext(result?.data);
     });
-  }, [isOpen, setIsOpen]);
+  }, [isOpen, setIsOpen, selectedContexts]);
 
   // Context POST
   const onAdd = async (context: any) => {
@@ -60,12 +63,14 @@ const ContextRegister = (props: any) => {
     console.log("Trying to remove context(s)");
     let idArray = [];
     for (let i = 0; i < selectedContexts.length; i += 1) {
-      idArray.push(selectedContexts[i].contextID);
+      idArray.push(selectedContexts[i].contextNumber);
     }
-    util.remove("/context", idArray);
+    await util.remove("/context/" + id, idArray);
     console.log("Trying to remove context(s) 2");
     toast("Context Sucessfully Deleted");
     toast("Context Removed");
+    //
+    setSelectedContexts([]);
   };
 
   return (
