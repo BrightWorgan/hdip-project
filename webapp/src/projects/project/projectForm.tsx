@@ -8,7 +8,7 @@ import {
   Button,
   ButtonGroup,
 } from "reactstrap";
-import projectSchema from "../validation/projectValidation";
+import projectSchema from "../../validation/projectValidation";
 import { useState } from "react";
 
 const ProjectAddForm = (props: any) => {

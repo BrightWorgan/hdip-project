@@ -1,11 +1,11 @@
-import ReportHeader from "./reportHeader";
-import AllReportCards from "./allCards";
-import ContextRegister from "./contextRegisterPage";
+import ReportHeader from "../common/reportHeader";
+import AllReportCards from "./project/allCards";
+import ContextRegister from "./context/contextRegisterPage";
 import { Button, Container } from "reactstrap";
 import { useState } from "react";
 import Views from "./views.enum";
-import FindRegister from "./findRegisterPage";
-import ComingSoon from "./comingSoon";
+import FindRegister from "./find/findRegisterPage";
+import ComingSoon from "../common/comingSoon";
 
 const Sheets = (props: any) => {
   // use state
