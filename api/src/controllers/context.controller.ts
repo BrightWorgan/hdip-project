@@ -40,7 +40,6 @@ const create = async (req: Express.Request, res: Express.Response) => {
 const destroy = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
     const contextID = req.params.contextID;
-    // TO DO:
     await db('Context')
         .where({
             projectID: projectID,
