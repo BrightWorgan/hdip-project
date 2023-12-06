@@ -11,6 +11,8 @@ import {
 import { useState } from "react";
 import contextRegisterSchema from "../../validation/contextRegisterValidation";
 import util from "../../util";
+import YesNoOption from "../../common/dropdowns/yesNoOption";
+import CutFillOption from "../../common/dropdowns/cutFillDropdown";
 
 const ContextForm = (props: any) => {
   // use state variable
@@ -47,7 +49,7 @@ const ContextForm = (props: any) => {
         <Col md={6}>
           <FormGroup>
             <Label for="type">Cut or Fill</Label>
-            <Input id="type" name="type" placeholder="Cut or Fill?" />
+            <CutFillOption id="type" placeholder="Cut or Fill?" />
           </FormGroup>
         </Col>
         <Col md={6}>
@@ -72,7 +74,7 @@ const ContextForm = (props: any) => {
         </FormGroup>
         <FormGroup>
           <Label for="samples">Samples</Label>
-          <Input id="samples" name="samples" placeholder="Samples" />
+          <YesNoOption id="samples" placeholder="Yes / No" />
         </FormGroup>
       </Row>
       <Row>
