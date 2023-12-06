@@ -13,6 +13,7 @@ import {
   Button,
   ButtonGroup,
 } from "reactstrap";
+import YesNoOption from "../common/dropdowns/yesNoOption";
 
 const AddForm = (props: any) => {
   // use state variable
@@ -116,15 +117,7 @@ const AddForm = (props: any) => {
         <Col md={3}>
           <FormGroup>
             <Label for="drive">Driving</Label>
-            <Input
-              id="drive"
-              name="drive"
-              placeholder="Can Drive ? Yes/No"
-              type="select"
-            >
-              <option>Yes</option>
-              <option>No </option>
-            </Input>
+            <YesNoOption id="drive" placeholder="Can Drive ? Yes/No" />
           </FormGroup>
         </Col>
       </Row>

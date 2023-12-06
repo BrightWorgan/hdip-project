@@ -10,6 +10,7 @@ import {
 } from "reactstrap";
 import projectSchema from "../../validation/projectValidation";
 import { useState } from "react";
+import ContractTypeOption from "../../common/dropdowns/contractType";
 
 const ProjectAddForm = (props: any) => {
   //use start erreors
@@ -47,17 +48,6 @@ const ProjectAddForm = (props: any) => {
             <Input id="name" name="name" placeholder="Project Name" />
           </FormGroup>
         </Col>
-        {/* <Col md={12}>
-          <FormGroup>
-            <Label for="siteID">Site ID</Label>
-            <Input
-              id="siteID"
-              name="siteID"
-              placeholder="Site ID"
-              type="number"
-            />
-          </FormGroup>
-        </Col> */}
       </Row>
       <Row>
         <Col md={6}>
@@ -97,10 +87,9 @@ const ProjectAddForm = (props: any) => {
         <Col md={6}>
           <FormGroup>
             <Label for="contract">Contract Type</Label>
-            <Input
+            <ContractTypeOption
               id="contract"
-              name="contract"
-              placeholder="Private / Public Contract"
+              placeholder="Public Contract etc."
             />
           </FormGroup>
         </Col>
