@@ -1,6 +1,3 @@
-// import { useState } from "react";
-// import * as yup from "yup";
-// import { useForm } from "react-hook-form";
 import teamSchema from "../validation/teamValidation";
 import { useState } from "react";
 import { Form, Col, Row, FormGroup, Label, Input } from "reactstrap";

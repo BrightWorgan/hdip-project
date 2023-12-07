@@ -5,7 +5,7 @@ import ContractTypeOption from "../../common/dropdowns/contractType";
 import FormButton from "../../common/formSubmitButtons";
 
 const ProjectAddForm = (props: any) => {
-  //use start erreors
+  //use state variable
   const [error, setError] = useState("");
 
   const onSubmit = async (e: Event): Promise<void> => {
