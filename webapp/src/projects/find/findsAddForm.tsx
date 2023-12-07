@@ -113,7 +113,7 @@ const FindsForm = (props: any) => {
           </Row>
           <Row>
             <Col xs={{ size: 6, offset: 6 }}>
-              <FormButton />
+              <FormButton toggle={props.toggle} />
             </Col>
           </Row>
         </Form>
