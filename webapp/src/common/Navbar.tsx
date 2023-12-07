@@ -23,21 +23,11 @@ const Navbar = (props: NavbarProps) => {
           Project
         </NavLink>
       </NavItem>
-      {/* <NavItem onClick={() => props.onClick(Tabs.Location)}>
-          <NavLink href="#" active={props.tab === Tabs.Location}>
-            Location
-          </NavLink>
-        </NavItem> */}
       <NavItem onClick={() => props.onClick(Tabs.Team)}>
         <NavLink href="#" active={props.tab === Tabs.Team}>
           Team
         </NavLink>
       </NavItem>
-      {/* <NavItem onClick={() => props.onClick(Tabs.Reports)}>
-          <NavLink href="#" active={props.tab === Tabs.Reports}>
-            Reports
-          </NavLink>
-        </NavItem> */}
       <NavItem onClick={() => props.onClick(Tabs.User_Profile)}>
         <NavLink href="#" active={props.tab === Tabs.User_Profile}>
           User Profile

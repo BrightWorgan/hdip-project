@@ -68,7 +68,6 @@ const getUser = () => {
         return null;
     }
      const user = jwtDecode(token);
-    //  console.log(user);
     return user;
 }
 

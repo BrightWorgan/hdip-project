@@ -39,11 +39,9 @@ const create = async (req: Express.Request, res: Express.Response) => {
 
 const destroy = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
-    // const contextID = req.params.contextID;
     await db('Context')
         .where({
             projectID: projectID,
-            // contextNumber: contextID
         })
         .whereIn("contextNumber", req.body ?? [])
         .delete();
