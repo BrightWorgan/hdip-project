@@ -9,7 +9,7 @@ type TeamModalProps = {
 };
 
 const ModalBackdrop = (props: TeamModalProps) => {
-  const addClose = (user) => {
+  const addClose = (user: any) => {
     props.onAdd(user);
     props.toggle();
   };
