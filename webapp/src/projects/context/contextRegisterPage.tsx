@@ -59,17 +59,15 @@ const ContextRegister = (props: any) => {
 
   // remove logic
   const onRemove = async () => {
-    // remove things
     console.log("Trying to remove context(s)");
     let idArray = [];
     for (let i = 0; i < selectedContexts.length; i += 1) {
       idArray.push(selectedContexts[i].contextNumber);
     }
     await util.remove("/context/" + id, idArray);
-    console.log("Trying to remove context(s) 2");
     toast("Context Sucessfully Deleted");
     toast("Context Removed");
-    //
+    // resets the array
     setSelectedContexts([]);
   };
 
