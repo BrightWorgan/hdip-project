@@ -1,8 +1,39 @@
 import { test, expect } from '@playwright/test';
 
   test.describe('Login and basic UI structure', () => {
-    test.skip('Invalid login test', async ({ page }) => {
-        // TO DO
+    test('Invalid login test', async ({ page }) => {
+        await test.step('load page', async () => {
+          await page.goto('http://45.77.59.59/');
+        });        
+      await test.step('login with incorrect email', async () => {
+        const emailInput = await page.getByPlaceholder('Email Addresss');
+        await expect(emailInput).toBeEmpty();
+        await emailInput.click();
+        await emailInput.type('edward@t.com');
+      });
+
+      await test.step('type in the incorrect password', async () => {
+        const passwordInput = await page.getByPlaceholder('Password...');
+        await expect(passwordInput).toBeEmpty();
+        await passwordInput.hover();
+        await passwordInput.click();
+        await passwordInput.type('FAKEPASSWORD');
+
+      });
+
+      await test.step('click the login button', async () => {
+        const loginBtn = await page.getByRole('button', { name: 'Login' });
+        await loginBtn.hover();
+        await loginBtn.click();
+      });
+
+        await test.step('confim toast message', async () => {
+          const loginToast = await page.getByText('Invalid Login')
+          await expect(loginToast).toBeVisible()
+          await expect(loginToast).toHaveText('Invalid Login')
+          
+        });
+
     });
 
     test('Sucessful login test', async ({ page }) => {
@@ -31,10 +62,13 @@ import { test, expect } from '@playwright/test';
         await loginBtn.hover();
         await loginBtn.click();
       });
-  
-      // toast message confrim test 
-      //await page.getByText('Invalid Login').click();
-    
+
+      await test.step('confim toast message', async () => {
+        const loginToast = await page.getByText('Logged In')
+        await expect(loginToast).toBeVisible()
+        await expect(loginToast).toHaveText('Logged In')
+      });
+
       });
   });
 
@@ -101,7 +135,7 @@ import { test, expect } from '@playwright/test';
   });
 
   
-  test.skip('Home Page structure', async ({ page }) => {
+  test('Home Page structure', async ({ page }) => {
     await test.step('load page', async () => {
       await page.goto('http://45.77.59.59/');
     });
@@ -114,12 +148,19 @@ import { test, expect } from '@playwright/test';
       await page.getByRole('button', { name: 'Login' }).click();
     });
 
-    await test.step('Check ', async () => {
+    await test.step('Check Carosol has visable buttons', async () => {
+      const prevBtn = await page.getByRole('button', { name: 'Previous' })
+      await expect(prevBtn).toBeVisible()
+      await prevBtn.hover();
+     
 
+      const nextBtn = await page.getByRole('button', { name: 'Previous' })
+      await expect(nextBtn).toBeVisible()
+      await nextBtn.hover();
+      
+      await nextBtn.click();
+      await prevBtn.click();
     });
-
-    
-
     
   });
 
