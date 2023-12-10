@@ -164,4 +164,27 @@ import { test, expect } from '@playwright/test';
     
   });
 
+  test('Project Page structure', async ({ page }) => {
+    await test.step('load page', async () => {
+      await page.goto('http://45.77.59.59/');
+    });
+
+    await test.step('login with correct email and password', async () => {
+      await page.getByPlaceholder('Email Addresss').click();
+      await page.getByPlaceholder('Email Addresss').type('edwardtest@test.com');
+      await page.getByPlaceholder('Password...').click();
+      await page.getByPlaceholder('Password...').type('Yc(bLS*od+iX');
+      await page.getByRole('button', { name: 'Login' }).click();
+    });
+
+    await test.step('Check Carosol has visable buttons', async () => {
+      const prevBtn = await page.getByRole('button', { name: 'Previous' })
+      await expect(prevBtn).toBeVisible()
+      await prevBtn.hover();
+     
+
+    });
+    
+  });
+
 
