@@ -23,6 +23,7 @@ const AddForm = (props: any) => {
       education: e?.target?.education?.value,
       training: e?.target?.training?.value,
       drive: e?.target?.drive?.value,
+      position: e?.target?.position.value,
       site: e?.target?.site?.value,
       password: e?.target.password.value,
     };

@@ -15,14 +15,17 @@ import ModalBackdrop from "../../common/modalBackdrop";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import AssignmentDisplay from "./assignDisplay";
+import util from "../../util";
 
 const Cardbox = (props: any) => {
   // state variables
   const [isOpen, setIsOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState(null);
 
   const toggle = () => setIsOpen(!isOpen);
 
-  const onToggle = () => {
+  const onToggle = (project?: any) => {
+    setCurrentProject(project);
     toggle();
   };
 
@@ -40,7 +43,7 @@ const Cardbox = (props: any) => {
   return (
     <Container>
       <Row>
-        {props.cardData.map((project: any) => (
+        {props?.cardData?.map((project: any) => (
           <Col xs="4">
             <Card
               onClick={() => onCardClick(project)}
@@ -93,19 +96,14 @@ const Cardbox = (props: any) => {
                   >
                     Project Details
                   </Button>
-                  <Button className="ss-info-btn" onClick={() => onToggle()}>
-                    Add Team Members
-                  </Button>
-                  <ModalBackdrop
-                    header="Assign a Team Member to Project"
-                    toggle={onToggle}
-                    isOpen={isOpen}
-                  >
-                    <AssignmentDisplay
-                      onSubmit={assignUsers}
-                      toggle={onToggle}
-                    />
-                  </ModalBackdrop>
+                  {util.isDirector() ? (
+                    <Button
+                      className="ss-info-btn"
+                      onClick={() => onToggle(project)}
+                    >
+                      Add Team Members
+                    </Button>
+                  ) : null}
                 </ButtonGroup>
 
                 <br />
@@ -114,6 +112,17 @@ const Cardbox = (props: any) => {
             </Card>
           </Col>
         ))}
+        <ModalBackdrop
+          header="Assign a Team Member to Project"
+          toggle={onToggle}
+          isOpen={isOpen}
+        >
+          <AssignmentDisplay
+            onSubmit={assignUsers}
+            project={currentProject}
+            toggle={onToggle}
+          />
+        </ModalBackdrop>
       </Row>
     </Container>
   );

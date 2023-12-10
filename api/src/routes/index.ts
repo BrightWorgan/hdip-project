@@ -4,6 +4,7 @@ import loginRoute from "./login";
 import projectRoute from "./projects";
 import contextRoute from "./context";
 import findRoute from "./finds";
+import assignmentRoute from "./assignment";
 
 
 const router = (app: Express) => {
@@ -12,6 +13,7 @@ const router = (app: Express) => {
     projectRoute(app);
     contextRoute(app);
     findRoute(app);
+    assignmentRoute(app);
 };
 
 export default router;

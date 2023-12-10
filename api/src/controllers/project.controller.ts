@@ -3,9 +3,23 @@ import Express from "express";
 
 // get, post, remove?, update
 const getAll = async (req: Express.Request, res: Express.Response) => {
-  const allProjects = await db("Projects")
-    .select()
+  // @ts-ignore
+  const user = req.user;
+  if (user.position === 'Director') {
+    const allProjects = await db("Projects")
+      .select()
     res.send(allProjects)
+    return;
+  }
+
+  const allProjects = await db("Projects")
+    .join('Assignment', (join) => {
+      join.on('Assignment.projectID', '=', 'Projects.projectID')
+        .andOn('Assignment.userID', '=', user.userID)
+    })
+    .select('Projects.*');
+  res.send(allProjects);
+    
 };
 
 const create = async (req: Express.Request, res: Express.Response) => {

@@ -33,9 +33,13 @@ const login = async (req: Express.Request, res: Express.Response) => {
   const validate = (req: Express.Request, res: Express.Response , next: Express.NextFunction) => {
     const token = req.get('Authorization');
     if (!token) {
+      console.log("Token was not available.")
         return res.status(401).send();
     }
     const isValid = jwt.verify(token, process.env.JWT_KEY as string);
+
+    // @ts-ignore
+    req.user = jwt.decode(token);
     if (isValid) {
         return next();
     }
