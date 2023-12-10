@@ -9,9 +9,29 @@ import {
   Col,
   Button,
   Container,
+  ButtonGroup,
 } from "reactstrap";
+import ModalBackdrop from "../../common/modalBackdrop";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import AssignmentDisplay from "./assignDisplay";
 
 const Cardbox = (props: any) => {
+  // state variables
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  const onToggle = () => {
+    toggle();
+  };
+
+  const assignUsers = async (users: any) => {
+    // TO DO
+    toggle();
+    toast("Team Member(s) Assigned");
+  };
+
   const onCardClick = (project: any) => {
     if (props.editMode) {
       props.onChecked(project);
@@ -56,8 +76,6 @@ const Cardbox = (props: any) => {
                   Licence #: {project.licenceNumber}
                 </CardSubtitle>
                 <CardText>
-                  {/* Site ID:{project.siteID}
-                <br /> */}
                   Location: {project.projectLocation}
                   <br />
                   Director: {project.director}
@@ -68,12 +86,28 @@ const Cardbox = (props: any) => {
                   <br />
                   Type: {project.contract}
                 </CardText>
-                <Button
-                  className="ss-info-btn"
-                  onClick={() => props.onSelect(project)}
-                >
-                  Project Details
-                </Button>
+                <ButtonGroup>
+                  <Button
+                    className="ss-info-btn"
+                    onClick={() => props.onSelect(project)}
+                  >
+                    Project Details
+                  </Button>
+                  <Button className="ss-info-btn" onClick={() => onToggle()}>
+                    Add Team Members
+                  </Button>
+                  <ModalBackdrop
+                    header="Assign a Team Member to Project"
+                    toggle={onToggle}
+                    isOpen={isOpen}
+                  >
+                    <AssignmentDisplay
+                      onSubmit={assignUsers}
+                      toggle={onToggle}
+                    />
+                  </ModalBackdrop>
+                </ButtonGroup>
+
                 <br />
               </CardBody>
               <br />
