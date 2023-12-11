@@ -6,13 +6,34 @@ import Express from "express";
 const getAll = async (req: Express.Request, res: Express.Response) => {
   const limit = parseInt(req.query.limit as string, 10);
   const offset = parseInt(req.query.offset as string, 10);
+  const position = req.query.position as string;
+  const search = req.query.search as string;
 
   console.log('Limit is:', limit);
   console.log('Offset is:', offset);
-  const allUsers = await db("Users")
+
+  const query =  db("Users")
     .select()
     .limit(limit)
     .offset(offset);
+    // 
+    if (position !== undefined){
+        query.whereNot({ 
+          position : position
+        })
+    }
+
+    // wildcard search
+    if(search){
+      // and (where like %% or like %%)
+        query.andWhere((sub) => {
+          sub
+            .whereILike("forename", `%${search}%`)
+            .orWhereILike("surname", `%${search}%`)
+        });
+    }
+
+  const allUsers = await query;
   res.send(allUsers)
 };
 
