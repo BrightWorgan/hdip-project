@@ -4,17 +4,34 @@ import Express from "express";
 const getAll = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
     const allFinds = await db("Find")
-    .select()
+    .select("Find.*", "Users.*", "Context.contextNumber")
     .join('Users', 'Find.userID', '=', 'Users.userID') // joining User table to Find table
     .join('Context', 'Find.contextNumber', '=', 'Context.contextNumber')
     .where({
         'Context.projectID': projectID
-    });
+    })
+    .orderBy("Find.findNumber", "asc");
 
-    console.log(allFinds);
+    // console.log(allFinds);
     res.send(allFinds)
     
 };
+
+const getAllPerUser = async (req: Express.Request, res: Express.Response) => {
+  // @ts-ignore
+  const userID = req.user.userID;
+  const allFindsPerUser = await db("Find")
+  .select()
+  .join('Users', 'Find.userID', '=', 'Users.userID') // joining User table to Find table
+  .where({
+      'Find.userID': userID
+  });
+
+  // console.log(allFindsPerUser);
+  res.send(allFindsPerUser)
+  
+};
+
 
 const create = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
@@ -66,6 +83,7 @@ const destroy = async (req: Express.Request, res: Express.Response) => {
 
 export default {
   getAll,
+  getAllPerUser,
   create,
   destroy,
   //edit
