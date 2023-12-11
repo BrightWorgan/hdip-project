@@ -6,6 +6,7 @@ import AddForm from "./addForm";
 import util from "../util";
 import toast from "react-hot-toast";
 import { Container } from "reactstrap";
+import ShowDirector from "../common/showDirector";
 
 const Team = () => {
   // state variables
@@ -76,7 +77,9 @@ const Team = () => {
         onPrev={offset === 0 ? null : prev}
         onNext={users.length < 20 ? null : next}
       />
-      <FAB name="Team" onAdd={onToggle} onRemove={removeUsers} />
+      <ShowDirector>
+        <FAB name="Team" onAdd={onToggle} onRemove={removeUsers} />
+      </ShowDirector>
       <ModalBackdrop
         header="Add a new Team Member"
         toggle={onToggle}

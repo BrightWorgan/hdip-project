@@ -6,6 +6,8 @@ import ProjectAddForm from "./project/projectForm";
 import Sheets from "./sheets";
 import util from "../util";
 import toast from "react-hot-toast";
+import ShowDirector from "../common/showDirector";
+import { Button, Container } from "reactstrap";
 
 const Project = () => {
   // state variables
@@ -101,7 +103,9 @@ const Project = () => {
           selectedProjects={selectedProjects}
           onChecked={onChecked}
         />
-        <FAB name="Project" onAdd={onToggle} onRemove={() => onRemove()} />
+        <ShowDirector>
+          <FAB name="Project" onAdd={onToggle} onRemove={() => onRemove()} />
+        </ShowDirector>
         <ModalBackdrop
           header="Add a new Project"
           toggle={onToggle}
@@ -113,7 +117,7 @@ const Project = () => {
       </div>
     );
   } else {
-    return <Sheets project={project} />;
+    return <Sheets project={project} onBack={() => setProject(null)} />;
   }
 };
 export default Project;

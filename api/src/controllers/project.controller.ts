@@ -94,6 +94,17 @@ const destroy = async (req: Express.Request, res: Express.Response) => {
     res.send("Okay")
 };
 
+const getOne = async (req: Express.Request, res: Express.Response) => {
+  const projectID = req.params.projectID;
+
+  const project = await db("Projects")
+    .where({
+      projectID: projectID
+    })
+    .first();
+  res.send(project);
+}
+
 // TO DO:
 // edit project function
 
@@ -102,5 +113,6 @@ export default {
   getAll,
   create,
   destroy,
+  getOne,
   //edit
 }
