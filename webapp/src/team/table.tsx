@@ -39,7 +39,8 @@ const TeamTable = (props: any) => {
                 <td>{user.experience}</td>
                 <td>{user.education}</td>
                 <td>{user.training}</td>
-                <td>{user.driving}</td>g<td>{user.position}</td>
+                <td>{user.driving}</td>
+                <td>{user.position}</td>
                 <td>{user.site}</td>
               </tr>
             );
