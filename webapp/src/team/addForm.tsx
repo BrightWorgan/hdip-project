@@ -153,10 +153,10 @@ const AddForm = (props: any) => {
         </Col>
         <Col md={4}>
           <FormGroup>
-            <Label for="certs">Training </Label>
+            <Label for="training">Training </Label>
             <Input
-              id="certs"
-              name="certs"
+              id="training"
+              name="training"
               type="select"
               placeholder="Safe Pass, Manual Handling, Etc."
             >
