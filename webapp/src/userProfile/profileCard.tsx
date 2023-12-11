@@ -94,6 +94,7 @@ const ProfileCard = (props: any) => {
         </Col>
       </Row>
       <div>
+        <br></br>
         <FindsTable finds={finds}></FindsTable>
       </div>
     </Container>
