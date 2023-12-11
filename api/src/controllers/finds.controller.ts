@@ -25,7 +25,9 @@ const getAllPerUser = async (req: Express.Request, res: Express.Response) => {
   .join('Users', 'Find.userID', '=', 'Users.userID') // joining User table to Find table
   .where({
       'Find.userID': userID
-  });
+  })
+  .orderBy("date", "desc")
+  .limit(5);
 
   // console.log(allFindsPerUser);
   res.send(allFindsPerUser)
