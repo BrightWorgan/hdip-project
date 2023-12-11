@@ -52,7 +52,7 @@ const create = async (req: Express.Request, res: Express.Response) => {
       eircode: req.body.eircode, 
       education: req.body.education, 
       experience: req.body.experience, 
-      certs: req.body.certs, 
+      training: req.body.training, 
       driving: req.body.drive, 
       position: req.body.position, 
       site: req.body.site,
