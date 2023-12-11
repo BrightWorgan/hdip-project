@@ -38,6 +38,7 @@ const FindRegister = (props: any) => {
   // Context Get
   useEffect(() => {
     util.get("/find/" + id).then(async (result) => {
+      console.log(result?.data);
       // axios way:
       setAllFind(result?.data);
     });
