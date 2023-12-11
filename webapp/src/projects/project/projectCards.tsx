@@ -16,6 +16,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import AssignmentDisplay from "./assignDisplay";
 import util from "../../util";
+import ShowDirector from "../../common/showDirector";
 
 const Cardbox = (props: any) => {
   // state variables
@@ -96,14 +97,14 @@ const Cardbox = (props: any) => {
                   >
                     Project Details
                   </Button>
-                  {util.isDirector() ? (
+                  <ShowDirector>
                     <Button
                       className="ss-info-btn"
                       onClick={() => onToggle(project)}
                     >
                       Add Team Members
                     </Button>
-                  ) : null}
+                  </ShowDirector>
                 </ButtonGroup>
 
                 <br />
