@@ -1,7 +1,12 @@
 import * as React from "react";
 import { useState } from "react";
-import { Text, TextInput, Button } from "react-native-paper";
+import { TextInput, Button } from "react-native-paper";
 import util from "./util";
+import DatePicker from "./datePicker";
+import ProjectPicker from "./projectPicker";
+import ContextPicker from "./contextPicker";
+import YesNoPicker from "./yesNoPicker";
+import MaterialPicker from "./materialPicker";
 
 const FindInfo = (props: any) => {
   if (!props.find) {
@@ -11,19 +16,22 @@ const FindInfo = (props: any) => {
   // use state variables
   const [text, setText] = useState("");
   const [findNumber, setFindNumber] = useState(props.find.findNumber);
-  const [conxtent, setConxtent] = useState(props.find.contextNumber);
+  const [context, setContext] = useState(props.find.contextNumber);
   const [fillNumber, setFillNumber] = useState(props.find.fillNumber);
   const [description, setDescription] = useState(props.find.description);
   const [material, setMaterial] = useState(props.find.material);
+  const [project, setProject] = useState(props.find.projectID);
   const [bagged, setBagged] = useState(props.find.bagged);
-  const [date, setDate] = useState(props.find.date);
+  const [date, setDate] = useState(new Date(props.find.date));
 
   const onSubmit = async () => {
     const paylod = {
-      conxtent: conxtent,
+      contextNumber: context,
+      context: context,
       fillNumber: fillNumber,
       description: description,
       material: material,
+      date: date,
       bagged: bagged,
     };
     await util.patch(`/find/${props.find.findNumber}`, paylod);
@@ -32,6 +40,14 @@ const FindInfo = (props: any) => {
 
   return (
     <div>
+      <ProjectPicker onChange={setProject} value={project} disabled={true} />
+      {project !== undefined ? (
+        <ContextPicker
+          onChange={setContext}
+          value={context}
+          project={project}
+        />
+      ) : null}
       <TextInput
         label="Find Number "
         value={findNumber}
@@ -39,41 +55,26 @@ const FindInfo = (props: any) => {
         onChangeText={(text) => setText(text)}
       />
       <TextInput
-        label="Context Number"
-        value={conxtent}
-        // editable={false}
-        onChangeText={(text) => setConxtent(text)}
-      />
-      <TextInput
         label="Fill Number"
         value={fillNumber}
-        // editable={false}
-        onChangeText={(text) => setConxtent(text)}
+        onChangeText={(text) => setFillNumber(text)}
       />
       <TextInput
         label="Description"
         value={description}
-        // editable={false}
         onChangeText={(text) => setDescription(text)}
       />
-      <TextInput
-        label="Material"
+      <MaterialPicker
+        label={"Material"}
         value={material}
-        // editable={false}
-        onChangeText={(text) => setMaterial(text)}
+        onChange={(text: any) => setMaterial(text)}
       />
-      <TextInput
+      <YesNoPicker
         label="Bagged"
         value={bagged}
-        // editable={false}
-        onChangeText={(text) => setBagged(text)}
+        onChange={(text: any) => setBagged(text)}
       />
-      <TextInput
-        label="Date Found"
-        value={date}
-        editable={false}
-        onChangeText={(text) => setText(text)}
-      />
+      <DatePicker date={date} setDate={setDate} label="Date Found" />
       <Button
         icon="camera"
         mode="outlined"

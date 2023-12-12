@@ -3,7 +3,12 @@ import { List } from "react-native-paper";
 
 const FindListItem = (props: any) => (
   <List.Item
-    title={"Find #: " + props.find.findNumber}
+    title={
+      "Project ID: " +
+      props.find.projectID +
+      " | Find #: " +
+      props.find.findNumber
+    }
     description={
       "Context #: " +
       props.find.contextNumber +
