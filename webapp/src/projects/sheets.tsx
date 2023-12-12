@@ -1,7 +1,7 @@
 import ReportHeader from "../common/reportHeader";
 import AllReportCards from "./project/allCards";
 import ContextRegister from "./context/contextRegisterPage";
-import { Button, Container } from "reactstrap";
+import { Container } from "reactstrap";
 import { useState } from "react";
 import Views from "./views.enum";
 import FindRegister from "./find/findRegisterPage";
