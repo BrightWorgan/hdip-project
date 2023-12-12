@@ -76,6 +76,21 @@ const post = async (endpoint: string, payload: any) => {
     
 }
 
+const patch = async (endpoint: string, payload: any) => {
+    try{
+        await axios.patch(API_URL + endpoint, payload, {
+        
+            headers: {
+                Authorization: token
+            }
+        });
+    }
+    catch(error:any){
+        // toast.error(error.message);
+    }
+    
+}
+
 const remove = async (endpoint: string, payload: any) => {
     try{
         await axios.delete(API_URL + endpoint, {
@@ -105,6 +120,7 @@ export default {
     login,
     get,
     post,
+    patch,
     remove,
     getUser
 }

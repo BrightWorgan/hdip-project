@@ -58,6 +58,30 @@ const create = async (req: Express.Request, res: Express.Response) => {
     
 };
 
+const update = async (req: Express.Request, res: Express.Response) => {
+  const findNumber = req.params.findNumber;
+  try {
+      await db("Find")
+      .update({
+          contextNumber: req.body.contextNumber, 
+          fillNumber: req.body.fillNumber, 
+          description: req.body.description,
+          material: req.body.material,
+          photograph: req.body.photograph,
+          bagged: req.body.bagged,
+          date: new Date(req.body.date), 
+        }
+      )
+      .where({
+        findNumber: findNumber
+      })
+      res.send('Patch Sucess'); 
+    } catch (error: any) {
+      res.status(500).send(error.message);
+    }
+  
+};
+
 const destroy = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
     const contextID = req.params.contextID;
@@ -74,19 +98,10 @@ const destroy = async (req: Express.Request, res: Express.Response) => {
 
 };
 
-// // TO DO:
-// // edit user function
-// // // update / edit user
-// // app.patch('/user', (req, res) => {
-
-// // })
-
-
-
 export default {
   getAll,
   getAllPerUser,
   create,
+  update,
   destroy,
-  //edit
 }
