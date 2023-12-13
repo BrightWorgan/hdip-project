@@ -2,11 +2,6 @@ import * as React from "react";
 import { useState } from "react";
 import { TextInput, Button } from "react-native-paper";
 import util from "./util";
-import DatePicker from "./datePicker";
-import ProjectPicker from "./projectPicker";
-import ContextPicker from "./contextPicker";
-import YesNoPicker from "./yesNoPicker";
-import MaterialPicker from "./materialPicker";
 
 const FindInfo = (props: any) => {
   if (!props.find) {
@@ -40,49 +35,60 @@ const FindInfo = (props: any) => {
 
   return (
     <div>
-      <ProjectPicker onChange={setProject} value={project} disabled={true} />
-      {project !== undefined ? (
-        <ContextPicker
-          onChange={setContext}
-          value={context}
-          project={project}
-        />
-      ) : null}
       <TextInput
-        label="Find Number "
-        value={findNumber}
+        label="Context Number "
+        value={context}
         editable={false}
         onChangeText={(text) => setText(text)}
+        style={{ backgroundColor: "#e6e5e3" }}
       />
       <TextInput
         label="Fill Number"
         value={fillNumber}
+        editable={false}
         onChangeText={(text) => setFillNumber(text)}
+        style={{ backgroundColor: "#e6e5e3" }}
       />
       <TextInput
         label="Description"
         value={description}
         onChangeText={(text) => setDescription(text)}
+        style={{ backgroundColor: "white" }}
       />
-      <MaterialPicker
-        label={"Material"}
+      <TextInput
+        label="Material "
         value={material}
-        onChange={(text: any) => setMaterial(text)}
+        editable={false}
+        onChangeText={(text) => setText(text)}
+        style={{ backgroundColor: "#e6e5e3" }}
       />
-      <YesNoPicker
+      <TextInput
+        label="Date Found"
+        value={date.toDateString()}
+        onChangeText={(text) => setFillNumber(text)}
+        style={{ backgroundColor: "#e6e5e3" }}
+      />
+      <TextInput
         label="Bagged"
         value={bagged}
-        onChange={(text: any) => setBagged(text)}
+        onChangeText={(text) => setDescription(text)}
+        style={{ backgroundColor: "#e6e5e3" }}
       />
-      <DatePicker date={date} setDate={setDate} label="Date Found" />
       <Button
         icon="camera"
         mode="outlined"
+        buttonColor="#73a2d1"
+        textColor="white"
         onPress={() => console.log("Photo Added")}
       >
         Add Photo
       </Button>
-      <Button onPress={() => onSubmit()}>Save</Button>
+      <Button
+        /*buttonColor="#73a2d1"*/ textColor="#23232b"
+        onPress={() => onSubmit()}
+      >
+        Save
+      </Button>
     </div>
   );
 };
