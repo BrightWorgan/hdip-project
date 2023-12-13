@@ -20,6 +20,7 @@ const getAll = async (req: Express.Request, res: Express.Response) => {
 const getAllPerUser = async (req: Express.Request, res: Express.Response) => {
   // @ts-ignore
   const userID = req.user.userID;
+  const limit = parseInt(req.params.limit ?? '5');
   const allFindsPerUser = await db("Find")
   .select()
   .join('Users', 'Find.userID', '=', 'Users.userID') // joining User table to Find table
@@ -27,7 +28,7 @@ const getAllPerUser = async (req: Express.Request, res: Express.Response) => {
       'Find.userID': userID
   })
   .orderBy("date", "desc")
-  .limit(5);
+  .limit(limit);
 
   // console.log(allFindsPerUser);
   res.send(allFindsPerUser)

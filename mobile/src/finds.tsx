@@ -22,7 +22,7 @@ const FindView = (props: any) => {
   };
 
   useEffect(() => {
-    util.get("/find-me").then((result) => {
+    util.get("/find-me?limit=20").then((result) => {
       setFinds(result?.data);
     });
   }, [selectedFind]);
