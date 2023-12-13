@@ -1,6 +1,3 @@
-// FINDS
-// get, post, remove?, update
-
 import { type Express } from "express"
 import findController from '../controllers/finds.controller'
 

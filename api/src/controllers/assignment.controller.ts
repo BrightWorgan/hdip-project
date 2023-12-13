@@ -16,7 +16,7 @@ const getAll = async (req: Express.Request, res: Express.Response) => {
 const set = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.body.projectID;
     const userID = req.body.userID;
-//try catch
+    //try catch
     console.log("Getting here");
 
     const isSelected = await db("Assignment")
