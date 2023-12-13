@@ -65,6 +65,33 @@ const create = async (req: Express.Request, res: Express.Response) => {
 
 };
 
+// edit / update user function
+const update = async (req: Express.Request, res: Express.Response) => {
+  const findNumber = req.params.findNumber;
+  try {
+      await db("Users")
+      .update({
+        surname: req.body.surname, 
+        address: req.body.address, 
+        town: req.body.townCity, 
+        county: req.body.county, 
+        eircode: req.body.eircode, 
+        education: req.body.education, 
+        training: req.body.training, 
+        driving: req.body.drive, 
+        position: req.body.position, 
+        site: req.body.site,
+        }
+      )
+      .whereIn("userID", req.body ?? [])
+
+      res.send('Patch Sucess'); 
+    } catch (error: any) {
+      res.status(500).send(error.message);
+    }
+  
+};
+
 const destroy = async (req: Express.Request, res: Express.Response) => {
     try {
       
@@ -80,18 +107,10 @@ const destroy = async (req: Express.Request, res: Express.Response) => {
 
 };
 
-// TO DO:
-// edit user function
-// // update / edit user
-// app.patch('/user', (req, res) => {
-
-// })
-
-
 
 export default {
   getAll,
   create,
-  destroy,
-  //edit
+  update,
+  destroy
 }

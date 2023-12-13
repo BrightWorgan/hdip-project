@@ -11,8 +11,6 @@ const getAll = async (req: Express.Request, res: Express.Response) => {
         'Context.projectID': projectID
     })
     .orderBy("Find.findNumber", "asc");
-
-    // console.log(allFinds);
     res.send(allFinds)
     
 };
@@ -29,8 +27,6 @@ const getAllPerUser = async (req: Express.Request, res: Express.Response) => {
   })
   .orderBy("date", "desc")
   .limit(limit);
-
-  // console.log(allFindsPerUser);
   res.send(allFindsPerUser)
   
 };
@@ -87,7 +83,6 @@ const destroy = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
     const contextID = req.params.contextID;
     const findNumber = req.params.findNumber;
-    // TO DO:
     await db('Find')
         .where({
             projectID: projectID,

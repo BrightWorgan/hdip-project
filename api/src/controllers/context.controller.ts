@@ -37,6 +37,12 @@ const create = async (req: Express.Request, res: Express.Response) => {
     
 };
 
+// // TO DO:
+// // edit user function
+// // // update / edit user
+// // app.patch('/user', (req, res) => {
+// // })
+
 const destroy = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
     await db('Context')
@@ -48,15 +54,6 @@ const destroy = async (req: Express.Request, res: Express.Response) => {
     res.send("Okay")
 
 };
-
-// // TO DO:
-// // edit user function
-// // // update / edit user
-// // app.patch('/user', (req, res) => {
-
-// // })
-
-
 
 export default {
   getAll,
