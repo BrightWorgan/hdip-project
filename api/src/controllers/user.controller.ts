@@ -67,7 +67,6 @@ const create = async (req: Express.Request, res: Express.Response) => {
 
 // edit / update user function
 const update = async (req: Express.Request, res: Express.Response) => {
-  const findNumber = req.params.findNumber;
   try {
       await db("Users")
       .update({
