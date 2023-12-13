@@ -69,12 +69,21 @@ const ProfileCard = (props: any) => {
               <CardSubtitle className="mb-2 text-muted" tag="h6">
                 Position: {" " + user?.position}
               </CardSubtitle>
+              <CardText>Education: {user?.education}</CardText>
+              <CardText>Experience: {user?.experience}</CardText>
               <CardText>
-                {user?.education}
-                consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                Aenean massa. Cum sociis natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus. Donec qu
+                Adddress:{" "}
+                {user?.address +
+                  "" +
+                  user?.townCity +
+                  "" +
+                  user?.county +
+                  "" +
+                  user?.eircode}
               </CardText>
+              <CardText>Training: {user?.training}</CardText>
+              <CardText>Drive: {user?.drive}</CardText>
+              <CardText>Company Position: {user?.position}</CardText>
               <Button
                 className="ss-info-btn"
                 target="_blank"
