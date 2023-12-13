@@ -27,7 +27,7 @@ const create = async (req: Express.Request, res: Express.Response) => {
     await db("Projects")
     .insert({
       name: req.body.name, 
-      siteID: req.body.siteID, 
+      // siteID: req.body.siteID, 
       projectLocation: req.body.projectLocation, 
       director: req.body.director, 
       startDate: new Date (req.body.startDate), 
