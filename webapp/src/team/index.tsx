@@ -7,6 +7,7 @@ import util from "../util";
 import toast from "react-hot-toast";
 import { Container } from "reactstrap";
 import ShowDirector from "../common/showDirector";
+import EditForm from "./editForm";
 
 const Team = () => {
   // state variables
@@ -53,11 +54,11 @@ const Team = () => {
   //
   const editUsers = () => {
     console.log("Trying to edit users");
-    // let idArray = [];
-    // for (let i = 0; i < selectedUsers.length; i += 1) {
-    //   idArray.push(selectedUsers[i].userID);
-    // }
-    // util.remove("/user", idArray);
+    let idArray = [];
+    for (let i = 0; i < selectedUsers.length; i += 1) {
+      idArray.push(selectedUsers[i].userID);
+    }
+    util.patch("/user", idArray);
     toast("Team Member Sucessfully Updated");
   };
 
@@ -97,12 +98,14 @@ const Team = () => {
         />
       </ShowDirector>
       <ModalBackdrop
-        header="Add a new Team Member"
+        header="Add / Edit a new Team Member"
         toggle={onToggle}
         isOpen={isOpen}
         onAdd={addUser}
+        onEdit={editUsers}
       >
         <AddForm onSubmit={addUser} toggle={onToggle} />
+        {/* <EditForm onSubmit={editUsers} toggle={onToggle} /> */}
       </ModalBackdrop>
     </Container>
   );

@@ -2,6 +2,7 @@ import { Container, Button } from "react-floating-action-button";
 
 type FABProps = {
   onAdd: () => void;
+  onEdit: () => void;
   name: string;
   onRemove?: () => void;
 };
@@ -20,7 +21,8 @@ const FAB = (props: FABProps) => {
         tooltip={`Edit ${props.name}`}
         icon="fas fa-edit"
         className="ss-fab-button"
-        onClick={() => alert("Comming Soon")}
+        // onClick={() => alert("Comming Soon")}
+        onClick={() => props.onEdit()}
       />
       <Button
         href="#"

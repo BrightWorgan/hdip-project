@@ -4,6 +4,7 @@ type TeamModalProps = {
   isOpen: boolean;
   toggle: () => void;
   onAdd?: (user: any) => void;
+  onEdit?: (user: any) => void;
   header: string;
   children: React.ReactElement;
 };

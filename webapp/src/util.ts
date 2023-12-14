@@ -48,6 +48,20 @@ const put = async (endpoint: string, payload?: any | undefined) => {
     
 };
 
+const patch = async (endpoint: string, payload?: any | undefined) => {
+    try {
+        const result = await axios.patch(import.meta.env.VITE_API_URL + endpoint, payload, {
+            headers: {
+                Authorization: token
+            }
+        });
+        return result;
+    } catch (error:any) {
+        toast.error(error.message);
+    }
+    
+};
+
 
 const post = async (endpoint: string, payload: any) => {
     try{
@@ -97,6 +111,7 @@ export default {
     login,
     get,
     put,
+    patch,
     post,
     remove,
     getUser,
