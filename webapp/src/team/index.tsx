@@ -50,6 +50,17 @@ const Team = () => {
     }
   };
 
+  //
+  const editUsers = () => {
+    console.log("Trying to edit users");
+    // let idArray = [];
+    // for (let i = 0; i < selectedUsers.length; i += 1) {
+    //   idArray.push(selectedUsers[i].userID);
+    // }
+    // util.remove("/user", idArray);
+    toast("Team Member Sucessfully Updated");
+  };
+
   const removeUsers = () => {
     console.log("Trying to remove users");
     let idArray = [];
@@ -78,7 +89,12 @@ const Team = () => {
         onNext={users.length < 20 ? null : next}
       />
       <ShowDirector>
-        <FAB name="Team" onAdd={onToggle} onRemove={removeUsers} />
+        <FAB
+          name="Team"
+          onAdd={onToggle}
+          onEdit={editUsers}
+          onRemove={removeUsers}
+        />
       </ShowDirector>
       <ModalBackdrop
         header="Add a new Team Member"
