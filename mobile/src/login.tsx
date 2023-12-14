@@ -31,18 +31,18 @@ const Login = (props: any) => {
         value={username}
         onChangeText={setUsername}
         label="Email"
-        style={{ margin: "2%", width: "50%" }}
+        style={{ margin: "2%", width: "50%", backgroundColor: "#d6d2b9" }}
       />
       <TextInput
         value={password}
         onChangeText={setPassword}
         label="Password"
         secureTextEntry
-        style={{ margin: "2%", width: "50%" }}
+        style={{ margin: "2%", width: "50%", backgroundColor: "#d6d2b9" }}
       />
       <Button
         mode="contained"
-        style={{ width: "50%", margin: "2%" }}
+        style={{ width: "50%", margin: "2%", backgroundColor: "#717d52" }}
         onPress={() => login()}
       >
         Login

@@ -21,35 +21,48 @@ const AllReportCards = (props: any) => {
     props.onViewChange(Views.finds);
   };
 
+  const cards = [
+    {
+      title: "Context Register",
+      subtitle: "Cut and Fill Numbers",
+      description: "Some description",
+      onClick: contextClick,
+      buttonTitle: "View Context Register",
+      imgURL: "src/assets/contextLayersCavanSite.jpg",
+    },
+  ];
+
   return (
     <div>
       <div>
         <Container>
           <Row>
-            <Col xs="4">
-              <Card>
-                <CardBody>
-                  <CardTitle tag="h5">Context Register :</CardTitle>
-                  <CardSubtitle className="mb-2 text-muted" tag="h6">
-                    Cut and Fill Numbers
-                  </CardSubtitle>
-                  <CardImg
-                    alt="Card image cap"
-                    src="src/assets/contextLayersCavanSite.jpg"
-                    style={{
-                      height: "208px",
-                    }}
-                  />
-                  <CardText>
-                    Li Europan lingues es membres del sam familie. Lor separat
-                    existentie es un myth. Por scientie, musi
-                  </CardText>
-                  <Button className="ss-info-btn" onClick={contextClick}>
-                    View Context Register
-                  </Button>
-                </CardBody>
-              </Card>
-            </Col>
+            {cards.map((card) => (
+              <Col xs="4" style={{ padding: "10px" }}>
+                <Card>
+                  <CardBody>
+                    <CardTitle tag="h5">{card.title}</CardTitle>
+                    <CardSubtitle className="mb-2 text-muted" tag="h6">
+                      {card.subtitle}
+                    </CardSubtitle>
+                    <CardImg
+                      alt="Card image cap"
+                      src={card.imgURL}
+                      style={{
+                        height: "208px",
+                      }}
+                    />
+                    <CardText>{card.description}</CardText>
+                    <Button
+                      className="ss-info-btn"
+                      onClick={() => card.onClick()}
+                    >
+                      {card.buttonTitle}
+                    </Button>
+                  </CardBody>
+                </Card>
+              </Col>
+            ))}
 
             <Col xs="4">
               <Card>
@@ -102,11 +115,6 @@ const AllReportCards = (props: any) => {
                 </CardBody>
               </Card>
             </Col>
-            <Row
-              style={{
-                height: "5px",
-              }}
-            ></Row>
             {/* Second row of cards */}
             <Col xs="4">
               <Card>

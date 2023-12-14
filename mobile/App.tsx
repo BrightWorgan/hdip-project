@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import Login from "./src/login";
 import { View } from "react-native";
-import Toast from "react-native-toast-message";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import FindView from "./src/finds";
+import Header from "./src/header";
 
 const Main = () => (
   <SafeAreaProvider>
     <View style={{ flex: 1 }}>
       <App />
-      <Toast />
     </View>
   </SafeAreaProvider>
 );
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   if (isLoggedIn) {
-    return <h1>Logged in!</h1>;
+    return (
+      <div>
+        <Header />
+        <FindView />
+      </div>
+    );
   }
   return <Login onLogin={() => setIsLoggedIn(true)} />;
 };

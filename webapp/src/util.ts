@@ -18,10 +18,11 @@ const login = async (email: string, password: string): Promise<string|boolean|un
     
 }
 
-const get = async (endpoint: string) => {
+const get = async (endpoint: string, payload?: any | undefined) => {
     console.log('Token is:', token);
     try {
         const result = await axios.get(import.meta.env.VITE_API_URL + endpoint, {
+            data: payload,
             headers: {
                 Authorization: token
             }
@@ -33,10 +34,38 @@ const get = async (endpoint: string) => {
     
 };
 
+const put = async (endpoint: string, payload?: any | undefined) => {
+    try {
+        const result = await axios.put(import.meta.env.VITE_API_URL + endpoint, payload, {
+            headers: {
+                Authorization: token
+            }
+        });
+        return result;
+    } catch (error:any) {
+        toast.error(error.message);
+    }
+    
+};
+
+const patch = async (endpoint: string, payload?: any | undefined) => {
+    try {
+        const result = await axios.patch(import.meta.env.VITE_API_URL + endpoint, payload, {
+            headers: {
+                Authorization: token
+            }
+        });
+        return result;
+    } catch (error:any) {
+        toast.error(error.message);
+    }
+    
+};
+
+
 const post = async (endpoint: string, payload: any) => {
     try{
         await axios.post(import.meta.env.VITE_API_URL + endpoint, payload, {
-        
             headers: {
                 Authorization: token
             }
@@ -71,11 +100,20 @@ const getUser = () => {
     return user;
 }
 
+//
+const isDirector = () => {
+    const user = getUser() as any;
+    return(
+        user?.position === "Director" )
+}
 
 export default {
     login,
     get,
+    put,
+    patch,
     post,
     remove,
-    getUser
+    getUser,
+    isDirector
 }

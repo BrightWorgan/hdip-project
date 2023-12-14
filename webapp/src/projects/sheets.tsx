@@ -1,7 +1,7 @@
 import ReportHeader from "../common/reportHeader";
 import AllReportCards from "./project/allCards";
 import ContextRegister from "./context/contextRegisterPage";
-import { Button, Container } from "reactstrap";
+import { Container } from "reactstrap";
 import { useState } from "react";
 import Views from "./views.enum";
 import FindRegister from "./find/findRegisterPage";
@@ -34,21 +34,24 @@ const Sheets = (props: any) => {
     <div>
       <br />
       <div>
-        <Container>
-          {view !== Views.default ? (
-            <div>
-              <Button
-                className="ss-back-btn"
-                onClick={() => setView(Views.default)}
-              >
-                &#60; Back
-              </Button>
-              <br />
-            </div>
-          ) : null}
-          <br />
+        <Container fluid>
+          <div>
+            <p>
+              <a href="#" onClick={() => props.onBack()}>
+                Projects
+              </a>{" "}
+              {view !== Views.default ? (
+                <>
+                  &#62;
+                  <a href="#" onClick={() => setView(Views.default)}>
+                    &#32; Sheets
+                  </a>
+                </>
+              ) : null}
+            </p>
+            <br />
+          </div>
           <ReportHeader project={props.project} />
-          <br />
           <CurrentView onViewChange={setView} project={props.project} />
         </Container>
       </div>

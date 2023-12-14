@@ -99,10 +99,10 @@ const FindsForm = (props: any) => {
           <Row>
             <Col md={6}>
               <FormGroup>
-                <Label for="startDate">Start Date</Label>
+                <Label for="date">Start Date</Label>
                 <Input
-                  id="startDate"
-                  name="startDate"
+                  id="date"
+                  name="date"
                   type="date"
                   placeholder="20/10/2023"
                 />

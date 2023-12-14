@@ -9,9 +9,33 @@ import {
   Col,
   Button,
   Container,
+  ButtonGroup,
 } from "reactstrap";
+import ModalBackdrop from "../../common/modalBackdrop";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import AssignmentDisplay from "./assignDisplay";
+import util from "../../util";
+import ShowDirector from "../../common/showDirector";
 
 const Cardbox = (props: any) => {
+  // state variables
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState(null);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  const onToggle = (project?: any) => {
+    setCurrentProject(project);
+    toggle();
+  };
+
+  const assignUsers = async (users: any) => {
+    // TO DO
+    toggle();
+    toast("Team Member(s) Assigned");
+  };
+
   const onCardClick = (project: any) => {
     if (props.editMode) {
       props.onChecked(project);
@@ -20,7 +44,7 @@ const Cardbox = (props: any) => {
   return (
     <Container>
       <Row>
-        {props.cardData.map((project: any) => (
+        {props?.cardData?.map((project: any) => (
           <Col xs="4">
             <Card
               onClick={() => onCardClick(project)}
@@ -56,8 +80,6 @@ const Cardbox = (props: any) => {
                   Licence #: {project.licenceNumber}
                 </CardSubtitle>
                 <CardText>
-                  {/* Site ID:{project.siteID}
-                <br /> */}
                   Location: {project.projectLocation}
                   <br />
                   Director: {project.director}
@@ -68,18 +90,40 @@ const Cardbox = (props: any) => {
                   <br />
                   Type: {project.contract}
                 </CardText>
-                <Button
-                  className="ss-info-btn"
-                  onClick={() => props.onSelect(project)}
-                >
-                  Project Details
-                </Button>
+                <ButtonGroup>
+                  <Button
+                    className="ss-info-btn"
+                    onClick={() => props.onSelect(project)}
+                  >
+                    Project Details
+                  </Button>
+                  <ShowDirector>
+                    <Button
+                      className="ss-info-btn"
+                      onClick={() => onToggle(project)}
+                    >
+                      Add Team Members
+                    </Button>
+                  </ShowDirector>
+                </ButtonGroup>
+
                 <br />
               </CardBody>
               <br />
             </Card>
           </Col>
         ))}
+        <ModalBackdrop
+          header="Assign a Team Member to Project"
+          toggle={onToggle}
+          isOpen={isOpen}
+        >
+          <AssignmentDisplay
+            onSubmit={assignUsers}
+            project={currentProject}
+            toggle={onToggle}
+          />
+        </ModalBackdrop>
       </Row>
     </Container>
   );

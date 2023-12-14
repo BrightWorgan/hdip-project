@@ -6,6 +6,8 @@ import AddForm from "./addForm";
 import util from "../util";
 import toast from "react-hot-toast";
 import { Container } from "reactstrap";
+import ShowDirector from "../common/showDirector";
+import EditForm from "./editForm";
 
 const Team = () => {
   // state variables
@@ -49,6 +51,17 @@ const Team = () => {
     }
   };
 
+  //
+  const editUsers = () => {
+    console.log("Trying to edit users");
+    let idArray = [];
+    for (let i = 0; i < selectedUsers.length; i += 1) {
+      idArray.push(selectedUsers[i].userID);
+    }
+    util.patch("/user", idArray);
+    toast("Team Member Sucessfully Updated");
+  };
+
   const removeUsers = () => {
     console.log("Trying to remove users");
     let idArray = [];
@@ -76,14 +89,23 @@ const Team = () => {
         onPrev={offset === 0 ? null : prev}
         onNext={users.length < 20 ? null : next}
       />
-      <FAB name="Team" onAdd={onToggle} onRemove={removeUsers} />
+      <ShowDirector>
+        <FAB
+          name="Team"
+          onAdd={onToggle}
+          onEdit={editUsers}
+          onRemove={removeUsers}
+        />
+      </ShowDirector>
       <ModalBackdrop
-        header="Add a new Team Member"
+        header="Add / Edit a new Team Member"
         toggle={onToggle}
         isOpen={isOpen}
         onAdd={addUser}
+        onEdit={editUsers}
       >
         <AddForm onSubmit={addUser} toggle={onToggle} />
+        {/* <EditForm onSubmit={editUsers} toggle={onToggle} /> */}
       </ModalBackdrop>
     </Container>
   );

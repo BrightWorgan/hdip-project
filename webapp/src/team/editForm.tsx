@@ -4,7 +4,7 @@ import { Form, Col, Row, FormGroup, Label, Input } from "reactstrap";
 import YesNoOption from "../common/dropdowns/yesNoOption";
 import FormButton from "../common/formSubmitButtons";
 
-const AddForm = (props: any) => {
+const EditForm = (props: any) => {
   // use state variable
   const [error, setError] = useState("");
 
@@ -13,19 +13,19 @@ const AddForm = (props: any) => {
     const user = {
       name: e?.target?.name?.value,
       surname: e?.target?.surname?.value,
-      number: e?.target?.number?.value,
-      email: e?.target?.email?.value,
+      //   number: e?.target?.number?.value,
+      //   email: e?.target?.email?.value,
       address: e?.target?.address?.value,
       townCity: e?.target?.townCity?.value,
       county: e?.target?.county?.value,
       eircode: e?.target?.eircode?.value,
-      experience: e?.target?.experience?.value,
+      //   experience: e?.target?.experience?.value,
       education: e?.target?.education?.value,
       training: e?.target?.training?.value,
       drive: e?.target?.drive?.value,
-      position: e?.target?.position.value,
-      site: e?.target?.site?.value,
-      password: e?.target.password.value,
+      //   position: e?.target?.position.value,
+      //   site: e?.target?.site?.value,
+      //   password: e?.target.password.value,
     };
 
     // validation
@@ -56,13 +56,13 @@ const AddForm = (props: any) => {
       </Row>
       <Row>
         <Col md={6}>
-          <FormGroup>
+          {/* <FormGroup>
             <Label for="number">Contact Number</Label>
             <Input id="number" name="number" placeholder="+353 80 000 00 00" />
-          </FormGroup>
+          </FormGroup> */}
         </Col>
         <Col md={6}>
-          <FormGroup>
+          {/* <FormGroup>
             <Label for="email">Email Addresss</Label>
             <Input
               id="email"
@@ -70,7 +70,7 @@ const AddForm = (props: any) => {
               placeholder="Email Addresss"
               type="email"
             />
-          </FormGroup>
+          </FormGroup> */}
         </Col>
       </Row>
       <Row>
@@ -134,7 +134,7 @@ const AddForm = (props: any) => {
           </FormGroup>
         </Col>
         <Col md={4}>
-          <FormGroup>
+          {/* <FormGroup>
             <Label for="experience">Experience</Label>
             <Input
               id="experience"
@@ -149,7 +149,7 @@ const AddForm = (props: any) => {
               <option>Student</option>
               <option>Other</option>
             </Input>
-          </FormGroup>
+          </FormGroup> */}
         </Col>
         <Col md={4}>
           <FormGroup>
@@ -197,12 +197,12 @@ const AddForm = (props: any) => {
       </Row>
       <Row>
         <Col md={12}>
-          <Input
+          {/* <Input
             id="password"
             name="password"
             placeholder="Temporary Password."
-          ></Input>
-          <p className="ss-errror-message"> {error} </p>
+          ></Input> */}
+          {/* <p className="ss-errror-message"> {error} </p> */}
         </Col>
       </Row>
       <Row>
@@ -214,4 +214,4 @@ const AddForm = (props: any) => {
   );
 };
 
-export default AddForm;
+export default EditForm;

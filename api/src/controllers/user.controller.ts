@@ -6,13 +6,34 @@ import Express from "express";
 const getAll = async (req: Express.Request, res: Express.Response) => {
   const limit = parseInt(req.query.limit as string, 10);
   const offset = parseInt(req.query.offset as string, 10);
+  const position = req.query.position as string;
+  const search = req.query.search as string;
 
   console.log('Limit is:', limit);
   console.log('Offset is:', offset);
-  const allUsers = await db("Users")
+
+  const query =  db("Users")
     .select()
     .limit(limit)
     .offset(offset);
+    // 
+    if (position !== undefined){
+        query.whereNot({ 
+          position : position
+        })
+    }
+
+    // wildcard search
+    if(search){
+      // and (where like %% or like %%)
+        query.andWhere((sub) => {
+          sub
+            .whereILike("forename", `%${search}%`)
+            .orWhereILike("surname", `%${search}%`)
+        });
+    }
+
+  const allUsers = await query;
   res.send(allUsers)
 };
 
@@ -31,7 +52,7 @@ const create = async (req: Express.Request, res: Express.Response) => {
       eircode: req.body.eircode, 
       education: req.body.education, 
       experience: req.body.experience, 
-      certs: req.body.certs, 
+      training: req.body.training, 
       driving: req.body.drive, 
       position: req.body.position, 
       site: req.body.site,
@@ -42,6 +63,32 @@ const create = async (req: Express.Request, res: Express.Response) => {
     res.status(500).send(error.message);
   }
 
+};
+
+// edit / update user function
+const update = async (req: Express.Request, res: Express.Response) => {
+  try {
+      await db("Users")
+      .update({
+        surname: req.body.surname, 
+        address: req.body.address, 
+        town: req.body.townCity, 
+        county: req.body.county, 
+        eircode: req.body.eircode, 
+        education: req.body.education, 
+        training: req.body.training, 
+        driving: req.body.drive, 
+        position: req.body.position, 
+        site: req.body.site,
+        }
+      )
+      .whereIn("userID", req.body ?? [])
+
+      res.send('Patch Sucess'); 
+    } catch (error: any) {
+      res.status(500).send(error.message);
+    }
+  
 };
 
 const destroy = async (req: Express.Request, res: Express.Response) => {
@@ -59,18 +106,10 @@ const destroy = async (req: Express.Request, res: Express.Response) => {
 
 };
 
-// TO DO:
-// edit user function
-// // update / edit user
-// app.patch('/user', (req, res) => {
-
-// })
-
-
 
 export default {
   getAll,
   create,
-  destroy,
-  //edit
+  update,
+  destroy
 }

@@ -4,17 +4,33 @@ import Express from "express";
 const getAll = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
     const allFinds = await db("Find")
-    .select()
+    .select("Find.*", "Users.*", "Context.contextNumber")
     .join('Users', 'Find.userID', '=', 'Users.userID') // joining User table to Find table
     .join('Context', 'Find.contextNumber', '=', 'Context.contextNumber')
     .where({
         'Context.projectID': projectID
-    });
-
-    console.log(allFinds);
+    })
+    .orderBy("Find.findNumber", "asc");
     res.send(allFinds)
     
 };
+
+const getAllPerUser = async (req: Express.Request, res: Express.Response) => {
+  // @ts-ignore
+  const userID = req.user.userID;
+  const limit = parseInt(req.params.limit ?? '5');
+  const allFindsPerUser = await db("Find")
+  .select()
+  .join('Users', 'Find.userID', '=', 'Users.userID') // joining User table to Find table
+  .where({
+      'Find.userID': userID
+  })
+  .orderBy("date", "desc")
+  .limit(limit);
+  res.send(allFindsPerUser)
+  
+};
+
 
 const create = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
@@ -39,11 +55,34 @@ const create = async (req: Express.Request, res: Express.Response) => {
     
 };
 
+const update = async (req: Express.Request, res: Express.Response) => {
+  const findNumber = req.params.findNumber;
+  try {
+      await db("Find")
+      .update({
+          contextNumber: req.body.contextNumber, 
+          fillNumber: req.body.fillNumber, 
+          description: req.body.description,
+          material: req.body.material,
+          photograph: req.body.photograph,
+          bagged: req.body.bagged,
+          date: new Date(req.body.date), 
+        }
+      )
+      .where({
+        findNumber: findNumber
+      })
+      res.send('Patch Sucess'); 
+    } catch (error: any) {
+      res.status(500).send(error.message);
+    }
+  
+};
+
 const destroy = async (req: Express.Request, res: Express.Response) => {
     const projectID = req.params.projectID;
     const contextID = req.params.contextID;
     const findNumber = req.params.findNumber;
-    // TO DO:
     await db('Find')
         .where({
             projectID: projectID,
@@ -55,18 +94,10 @@ const destroy = async (req: Express.Request, res: Express.Response) => {
 
 };
 
-// // TO DO:
-// // edit user function
-// // // update / edit user
-// // app.patch('/user', (req, res) => {
-
-// // })
-
-
-
 export default {
   getAll,
+  getAllPerUser,
   create,
+  update,
   destroy,
-  //edit
 }
