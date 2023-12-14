@@ -48,7 +48,12 @@ const FindView = (props: any) => {
             contentContainerStyle={containerStyle}
           >
             <FindInfo find={selectedFind} close={clearSelected} />
-            <Button onPress={() => clearSelected()}>Close</Button>
+            <Button
+              /*buttonColor="#73a2d1"*/ textColor="#23232b"
+              onPress={() => clearSelected()}
+            >
+              Close
+            </Button>
           </Modal>
         </Portal>
       </PaperProvider>
