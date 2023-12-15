@@ -292,8 +292,8 @@ import { test, expect } from '@playwright/test';
         await page.getByText('Training: Safe Pass').hover();
         await page.getByText('Drive:').hover();
         await page.getByText('Company Position: Director').hover();
-        await page.getByRole('link', { name: 'LinkedIn' }).hover();
-        await page.getByRole('link', { name: 'Twitter' }).hover();
+        await expect(page.getByRole('link', { name: 'LinkedIn' })).toBeVisible()
+        await expect(page.getByRole('link', { name: 'Twitter' })).toBeVisible()
         
         // finds table
         const tableHeader =  await page.getByRole('heading', { name: 'Finds Register:' });

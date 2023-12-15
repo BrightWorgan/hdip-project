@@ -18,7 +18,9 @@ const ContextDropdown = (props: any) => {
       type="select"
     >
       {contexts.map((context) => (
-        <option>{context.contextNumber}</option>
+        <option value={context.contextNumber}>
+          {context.contextNumber + " | " + context.type}
+        </option>
       ))}
     </Input>
   );

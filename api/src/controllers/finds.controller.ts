@@ -33,11 +33,9 @@ const getAllPerUser = async (req: Express.Request, res: Express.Response) => {
 
 
 const create = async (req: Express.Request, res: Express.Response) => {
-    const projectID = req.params.projectID;
     try {
         await db("Find")
         .insert({
-            projectID: projectID,
             contextNumber: req.body.contextNumber, 
             fillNumber: req.body.fillNumber, 
             description: req.body.description,

@@ -56,6 +56,7 @@ const HomeImages = (props: any) => {
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={item.src}
+        style={{ height: "100%" }}
       >
         <img src={item.src} alt={item.altText} />
         <CarouselCaption
@@ -66,31 +67,9 @@ const HomeImages = (props: any) => {
     );
   });
 
-  return (
-    <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-      {...props}
-    >
-      <CarouselIndicators
-        items={items}
-        activeIndex={activeIndex}
-        onClickHandler={goToIndex}
-      />
-      {slides}
-      <CarouselControl
-        direction="prev"
-        directionText="Previous"
-        onClickHandler={previous}
-      />
-      <CarouselControl
-        direction="next"
-        directionText="Next"
-        onClickHandler={next}
-      />
-    </Carousel>
-  );
+  const item = items[0];
+
+  return <img src={item.src} alt={item.altText} style={{ minWidth: "100%" }} />;
 };
 
 export default HomeImages;

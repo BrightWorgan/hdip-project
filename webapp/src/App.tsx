@@ -6,6 +6,28 @@ import Body from "./body";
 import LoginForm from "./settings/loginForm";
 import util from "./util";
 import { Toaster } from "react-hot-toast";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+} from "chart.js";
+
+ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip
+);
+
 const App = () => {
   const [isLoggedIn, setLogin] = useState<any>(false);
   const onLogin = async (user: any) => {

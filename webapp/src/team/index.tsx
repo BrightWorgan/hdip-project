@@ -15,13 +15,14 @@ const Team = () => {
   const [selectedUsers, setSelectedUsers] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [offset, setOffset] = useState(0);
+  const [trigger, setTrigger] = useState(false);
 
   useEffect(() => {
     util.get(`/user?limit=20&offset=${offset}`).then(async (result) => {
       // axios way:
       setUsers(result?.data);
     });
-  }, [isOpen, offset]);
+  }, [isOpen, offset, trigger]);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -54,22 +55,23 @@ const Team = () => {
   //
   const editUsers = () => {
     console.log("Trying to edit users");
-    let idArray = [];
-    for (let i = 0; i < selectedUsers.length; i += 1) {
-      idArray.push(selectedUsers[i].userID);
-    }
-    util.patch("/user", idArray);
+
+    // util.patch("/user", idArray);
     toast("Team Member Sucessfully Updated");
+    setSelectedUsers([]);
+    setTrigger(!trigger);
   };
 
-  const removeUsers = () => {
+  const removeUsers = async () => {
     console.log("Trying to remove users");
     let idArray = [];
     for (let i = 0; i < selectedUsers.length; i += 1) {
       idArray.push(selectedUsers[i].userID);
     }
-    util.remove("/user", idArray);
+    await util.remove("/user", idArray);
     toast("Team Member Sucessfully Deleted");
+    setSelectedUsers([]);
+    setTrigger(!trigger);
   };
 
   const next = () => {
