@@ -231,7 +231,7 @@ import { test, expect } from '@playwright/test';
       await page.getByRole('link', { name: 'Team' }).click();
     });
 
-    await test.step('Team Page Table  Confirm Column names anf FAB UI', async () => {
+    await test.step('Team Page Table Confirm Column names and FAB UI', async () => {
       
       // Team Table column names
       await page.getByRole('cell', { name: 'First Name' }).hover();
@@ -270,12 +270,15 @@ import { test, expect } from '@playwright/test';
       await page.getByRole('button', { name: 'Login' }).click();
     });
 
-    await test.step('load page', async () => {
+    await test.step('navigate to User Profile Page structure', async () => {
       // navigate to user profile page
       await page.getByRole('link', { name: 'User Profile' }).hover();
       await page.getByRole('link', { name: 'User Profile' }).click();
 
-      // user details
+    });
+
+    await test.step('confirm User Profile Page structure', async () => {
+      // user details card
       await page.getByRole('heading', { name: 'Test Test' }).hover();
       await page.getByRole('heading', { name: 'Name: Test T.' }).hover();
       await page.getByRole('heading', { name: 'Position: Director' }).hover();
@@ -313,43 +316,29 @@ import { test, expect } from '@playwright/test';
      await expect(material).toBeVisible();
      await material.hover();
 
-     const contextNum =  await page.getByRole('cell', { name: 'Context Number' });
-     await expect(contextNum).toBeVisible();
-     await contextNum.hover();
+     const photo =  await page.getByRole('cell', { name: 'Photograph' });
+     await expect(photo).toBeVisible();
+     await photo.hover();
 
-     const photograph =  await page.getByRole('cell', { name: 'Description' });
-     await expect(photograph).toBeVisible();
-     await photographdes.hover();
+     const bag =  await page.getByRole('cell', { name: 'Bagged' });
+     await expect(bag).toBeVisible();
+     await bag.hover();
  
-    
-      await page.getByRole('cell', { name: 'Photograph' }).hover();
-      await page.getByRole('cell', { name: 'Bagged' }).hover();
-      await page.getByRole('cell', { name: 'Date' }).hover();
-      await page.getByRole('cell', { name: 'Found by' }).hover();
+     
+     const date =  await page.getByRole('cell', { name: 'Date' });
+     await expect(date).toBeVisible();
+     await date.hover();
 
+     const person =  await page.getByRole('cell', { name: 'Found by' });
+     await expect(person).toBeVisible();
+     await person.hover();
+ 
     });
-    
     
   })
 
 });
-   
-  //   await page.getByRole('button', { name: 'Menu ' }).click();
-  //   await page.getByRole('button', { name: 'Add Project ' }).click();
-  //   await page.getByRole('heading', { name: 'Add a new Project' }).click();
-  //   await page.getByText('Project Name').click();
-  //   await page.getByPlaceholder('Project Name').click();
-  //   await page.getByText('Location', { exact: true }).click();
-  //   await page.getByText('Start Date').click();
-  //   await page.getByPlaceholder('/10/2023').fill('2023-12-14');
-  //   await page.getByText('Primary Director Name').click();
-  //   await page.getByText('Contract TypePrivatePublicField SchoolResearch').click();
-  //   await page.getByLabel('Contract Type').selectOption('Public');
-  //   await page.getByLabel('Contract Type').selectOption('Field School');
-  //   await page.getByLabel('Contract Type').selectOption('Research');
-  //   await page.getByText('licence #:', { exact: true }).click();
-  //   await page.getByText('Description', { exact: true }).click();
-  //   await page.getByRole('button', { name: 'Cancel' }).click();
+
     
 
 
