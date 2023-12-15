@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState } from "react";
 import Navbar from "./common/Navbar";
-import Home from "./home";
 import Team from "./team";
 import Project from "./projects";
 import UserProfile from "./userProfile";
