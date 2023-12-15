@@ -40,6 +40,8 @@ Minimum Viable Product consisting of several key sections;
 
     Unit tests 
 
+    Intergration Testing
+
     End-to-end testing plan and report 
 
     Use case demo with accurate sample/demo data and users 
@@ -140,8 +142,13 @@ Build tools used:
         Express: 
         https://expressjs.com/en/starter/hello-world.html 
 
+
  
- 
+# Testing Plan Documnet:
+
+
+
+![image](https://github.com/BrightWorgan/hdip-project/assets/73297134/8c131b43-c406-4ab6-998d-05552a1e4be5)
 
  
  
