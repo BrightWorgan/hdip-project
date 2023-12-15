@@ -23,7 +23,6 @@ export async function up(knex: Knex): Promise<void> {
     await knex.schema.createTable("Projects", (projectsTable) => {
       projectsTable.increments("projectID").unique().notNullable();
       projectsTable.string("name").notNullable();;
-      // projectsTable.string("siteID").unique().notNullable();
       projectsTable.string("projectLocation").notNullable();;
       projectsTable.string("director").notNullable();;
       projectsTable.dateTime("startDate").notNullable();
