@@ -13,8 +13,7 @@ describe("Project", () => {
         const contract = "Public";
         const licenceNumber = faker.string.uuid();
 
-        const req = getMockReq({
-            
+        const req = getMockReq({  
             body:{
                 name, 
                 projectLocation,
@@ -22,7 +21,8 @@ describe("Project", () => {
                 startDate, 
                 description, 
                 contract, 
-                licenceNumber}
+                licenceNumber
+            }
         });
 
         const res = getMockRes();
@@ -38,7 +38,5 @@ describe("Project", () => {
         expect(result.description).toBe(description);
         expect(result.contract).toBe(contract);
         expect(result.licenceNumber).toBe(licenceNumber);
-        
-
     })
 })
