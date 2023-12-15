@@ -7,7 +7,7 @@ import util from "../util";
 import toast from "react-hot-toast";
 import { Container } from "reactstrap";
 import ShowDirector from "../common/showDirector";
-import EditForm from "./editForm";
+// import EditForm from "./editForm";
 
 const Team = () => {
   // state variables

@@ -32,6 +32,7 @@ const create = async (req: Express.Request, res: Express.Response) => {
         )
         res.send('Post Sucess'); 
       } catch (error: any) {
+        console.log(error);
         res.status(500).send(error.message);
       }
     
