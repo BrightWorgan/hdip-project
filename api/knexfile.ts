@@ -1,8 +1,15 @@
 import type { Knex } from "knex";
 import "dotenv/config";
 
-// DB stuff
+// test database
+let dbName = process.env.DB_NAME;
 
+ if (process.env.IS_TEST === "true"){
+    dbName = process.env.DB_TEST_Name
+ };
+
+
+// DB stuff
 const config: { [key: string]: Knex.Config } = {
   dev: {
     client: "mysql2",
@@ -11,7 +18,7 @@ const config: { [key: string]: Knex.Config } = {
       port : parseInt(process.env.DB_PORT ?? "0", 10),
       user : process.env.DB_USER,
       password : process.env.DB_PASSWORD,
-      database : 'SheetScribe'
+      database : dbName
     },
     
     migrations: {
