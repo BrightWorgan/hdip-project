@@ -2,9 +2,10 @@ import { test, expect } from '@playwright/test';
 
   test.describe('Login and basic UI structure', () => {
     test('Invalid login test', async ({ page }) => {
-        await test.step('load page', async () => {
+      await test.step('load page', async () => {
           await page.goto('baseURL' );
-        });        
+      });    
+
       await test.step('login with incorrect email', async () => {
         const emailInput = await page.getByPlaceholder('Email Addresss');
         await expect(emailInput).toBeEmpty();
@@ -18,7 +19,6 @@ import { test, expect } from '@playwright/test';
         await passwordInput.hover();
         await passwordInput.click();
         await passwordInput.type('FAKEPASSWORD');
-
       });
 
       await test.step('click the login button', async () => {
@@ -27,12 +27,11 @@ import { test, expect } from '@playwright/test';
         await loginBtn.click();
       });
 
-        await test.step('confim toast message', async () => {
+      await test.step('confim toast message', async () => {
           const loginToast = await page.getByText('Invalid Login')
           await expect(loginToast).toBeVisible()
           await expect(loginToast).toHaveText('Invalid Login')
-          
-        });
+      });
 
     });
 
@@ -45,7 +44,7 @@ import { test, expect } from '@playwright/test';
         const emailInput = await page.getByPlaceholder('Email Addresss');
         await expect(emailInput).toBeEmpty();
         await emailInput.click();
-        await emailInput.type('edwardtest@test.com');
+        await emailInput.type('test@test.com');
       });
 
       await test.step('type in the correct password', async () => {
@@ -53,8 +52,7 @@ import { test, expect } from '@playwright/test';
         await expect(passwordInput).toBeEmpty();
         await passwordInput.hover();
         await passwordInput.click();
-        await passwordInput.type('Yc(bLS*od+iX');
-
+        await passwordInput.type('Test');
       });
 
       await test.step('click the login button', async () => {
@@ -78,9 +76,9 @@ import { test, expect } from '@playwright/test';
 
       await test.step('login with correct email and password', async () => {
         await page.getByPlaceholder('Email Addresss').click();
-        await page.getByPlaceholder('Email Addresss').type('edwardtest@test.com');
+        await page.getByPlaceholder('Email Addresss').type('test@test.com');
         await page.getByPlaceholder('Password...').click();
-        await page.getByPlaceholder('Password...').type('Yc(bLS*od+iX');
+        await page.getByPlaceholder('Password...').type('Test');
         await page.getByRole('button', { name: 'Login' }).click();
       });
 
@@ -140,29 +138,21 @@ import { test, expect } from '@playwright/test';
 
       await test.step('login with correct email and password', async () => {
         await page.getByPlaceholder('Email Addresss').click();
-        await page.getByPlaceholder('Email Addresss').type('edwardtest@test.com');
+        await page.getByPlaceholder('Email Addresss').type('test@test.com');
         await page.getByPlaceholder('Password...').click();
-        await page.getByPlaceholder('Password...').type('Yc(bLS*od+iX');
+        await page.getByPlaceholder('Password...').type('Test');
         await page.getByRole('button', { name: 'Login' }).click();
       });
 
-      await test.step('Check Carosol has visable buttons', async () => {
-        const prevBtn = await page.getByRole('button', { name: 'Previous' })
-        await expect(prevBtn).toBeVisible()
-        await prevBtn.hover();
-      
-
-        const nextBtn = await page.getByRole('button', { name: 'Previous' })
-        await expect(nextBtn).toBeVisible()
-        await nextBtn.hover();
-        
-        await nextBtn.click();
-        await prevBtn.click();
+      await test.step('Check Home page statictics charts are visiable', async () =>{
+        await expect(page.getByRole('link', { name: 'Home' })).toBeVisible();
+        await expect(page.getByRole('img').nth(1)).toBeVisible();
+        await expect(page.getByRole('img').nth(2)).toBeVisible();
+        await expect(page.getByRole('img').nth(3)).toBeVisible();
       });
-      
     });
-
-    test('Project Page structure', async ({ page }) => {
+      
+  test('Project Page structure', async ({ page }) => {
       await test.step('load page', async () => {
         await page.goto('baseURL' );
       });
@@ -209,9 +199,8 @@ import { test, expect } from '@playwright/test';
         await page.getByRole('button', { name: 'Cancel' }).hover();
         await page.getByRole('button', { name: 'Submit' }).hover();
         await page.getByRole('button', { name: 'Cancel' }).click();
-      })
-
-        
+      });
+   
     });
 
     test('Team Page structure', async ({ page }) => {
@@ -339,10 +328,7 @@ import { test, expect } from '@playwright/test';
   
       });
       
-    })
+    });
 
 });
-
-    
-
-
+ 

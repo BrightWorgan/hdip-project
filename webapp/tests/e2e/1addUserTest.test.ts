@@ -170,6 +170,14 @@ import { test, expect } from '@playwright/test';
         await page.getByRole('button', { name: 'Login' }).click();
       });
 
+      await test.step('Navigate to Project Page', async () => {
+        await page.getByRole('link', { name: 'Project' }).click();
+      });
+
+      await test.step('Confirm there are no projects visiable', () =>{
+
+      });
+
       await test.step('Navigate to Team Page', async () => {
         await page.getByRole('link', { name: 'Team' }).hover();
         await page.getByRole('link', { name: 'Team' }).click();
