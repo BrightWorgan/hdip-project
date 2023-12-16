@@ -61,7 +61,7 @@ import { test, expect } from '@playwright/test';
       await page.getByText('eircode must be at least 2').hover();
       });
 
-      await test.step('Incorrect data', async () => {
+      await test.step('Missing data / error message display one input at a time', async () => {
         // testing validation / error message display one input at a time
         await page.getByRole('button', { name: 'Submit' }).click();
         await page.getByText('eircode must be at least 2').hover();
@@ -99,8 +99,16 @@ import { test, expect } from '@playwright/test';
         await page.getByRole('button', { name: 'Cancel' }).click();
       });
 
-      await test.step('Incorrect data', async () => {
-        // 
+      await test.step('Correct data / add a new user', async () => {
+        // open FAB
+        const fabMenu = await page.getByRole('button', { name: 'Menu ' });
+        await fabMenu.hover();
+        await fabMenu.click();
+        // select add option
+        await page.getByRole('button', { name: 'Add Team ' }).hover();
+        await page.getByRole('button', { name: 'Add Team ' }).click();
+
+        // fill in form
         await page.getByPlaceholder('Forename').click();
         await page.getByPlaceholder('Forename').type('Playwright');
         await page.getByPlaceholder('Surname').click();
@@ -130,6 +138,10 @@ import { test, expect } from '@playwright/test';
         await page.getByPlaceholder('Temporary Password.').click();
         await page.getByPlaceholder('Temporary Password.').fill('Playwright');
         await page.getByRole('button', { name: 'Submit' }).click();
+        
+      });
+
+      await test.step('Confirm new user has been added and all data is displaying', async () => {
         await page.getByRole('row', { name: 'Playwright Endtoend' }).getByRole('checkbox').check();
         await page.getByRole('row', { name: 'Playwright Endtoend' }).getByRole('checkbox').uncheck();
         await page.getByRole('cell', { name: 'Playwright' }).nth(1).click();
@@ -141,19 +153,63 @@ import { test, expect } from '@playwright/test';
         await page.getByRole('cell', { name: 'PHD / Level' }).nth(4).click();
         await page.getByRole('cell', { name: 'First Aid' }).nth(1).click();
         await page.getByRole('cell', { name: 'Test', exact: true }).nth(3).click();
-        await page.getByRole('button', { name: 'Submit' }).hover();
-        await page.getByRole('button', { name: 'Submit' }).click();
-      });
-
-      await test.step('Confirm new user has been added to the table', async () => {
-        await page.getByRole('row', { name: 'Tester Test 1234567890' }).getByRole('checkbox').hover();
-        await page.getByRole('row', { name: 'Tester Test 1234567890' }).getByRole('checkbox').check();
-        await page.getByRole('row', { name: 'Tester Test 1234567890' }).getByRole('checkbox').uncheck();
       });
 
     });
 
-    test('Login as that new user', async ({ page }) => {
+    test('Login & add a new user', async ({ page }) => {
+      await test.step('load page', async () => {
+        await page.goto('baseURL' );
+      });
+  
+      await test.step('login with correct email and password', async () => {
+        await page.getByPlaceholder('Email Addresss').click();
+        await page.getByPlaceholder('Email Addresss').type('test@playwright.ie');
+        await page.getByPlaceholder('Password...').click();
+        await page.getByPlaceholder('Password...').type('Playwright');
+        await page.getByRole('button', { name: 'Login' }).click();
+      });
+
+      await test.step('Navigate to Team Page', async () => {
+        await page.getByRole('link', { name: 'Team' }).hover();
+        await page.getByRole('link', { name: 'Team' }).click();
+      });
+
+      await test.step('Confirm new user has been added to the table', async () => {
+        await page.getByRole('row', { name: 'Playwright Endtoend' }).getByRole('checkbox').hover();
+        await page.getByRole('row', { name: 'Tester Test 1234567890' }).getByRole('checkbox').check();
+        await page.getByRole('row', { name: 'Tester Test 1234567890' }).getByRole('checkbox').uncheck();
+      });
+
+      await test.step('navigate to User Profile Page structure', async () => {
+        // navigate to user profile page
+        await page.getByRole('link', { name: 'User Profile' }).hover();
+        await page.getByRole('link', { name: 'User Profile' }).click();
+
+      });
+
+      await test.step('confirm User Profile Page information', async () => {
+        
+        // user profile picture
+        await page.getByRole('img', { name: 'user profile image' }).click();
+
+        // user details card
+        await page.getByRole('heading', { name: 'Playwright Endtoend' }).hover();
+        await page.getByRole('heading', { name: 'Name: Playwright E.' }).hover();
+        await page.getByRole('heading', { name: 'Position: Director' }).hover();
+        await page.getByText('Education: PHD / Level').hover();
+        await page.getByText('Experience: Director').hover();
+        await page.getByText('Adddress:').hover();
+        await page.getByText('Training: Safe Pass').hover();
+        await page.getByText('Drive:').hover();
+        await page.getByText('Company Position: Director').hover();
+        await expect(page.getByRole('link', { name: 'LinkedIn' })).toBeVisible()
+        await expect(page.getByRole('link', { name: 'Twitter' })).toBeVisible()
+      });
+
+  });
+
+    test.skip('L', async ({ page }) => {
       await test.step('load page', async () => {
         await page.goto('baseURL' );
       });

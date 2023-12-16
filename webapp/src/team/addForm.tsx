@@ -201,6 +201,7 @@ const AddForm = (props: any) => {
             id="password"
             name="password"
             placeholder="Temporary Password."
+            type="password"
           ></Input>
           <p className="ss-errror-message"> {error} </p>
         </Col>

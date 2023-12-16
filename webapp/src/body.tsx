@@ -7,6 +7,7 @@ import Project from "./projects";
 import UserProfile from "./userProfile";
 import LoginDemo from "./settings";
 import ComingSoon from "./common/comingSoon";
+import Dashboard from "./home/dashboard";
 
 export enum Tabs {
   Home = 0,
@@ -27,7 +28,7 @@ const Body = () => {
   return (
     <div className="ss-body">
       <Navbar tab={tab} onClick={setTab} />
-      {tab === Tabs.Home ? <Home /> : null}
+      {tab === Tabs.Home ? <Dashboard /> : null}
 
       {tab === Tabs.Project ? <Project /> : null}
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/app.ts",
-    "test": "jest",
+    "test": "cross-env IS_TEST=true jest",
     "migrate": "npx knex migrate:latest --env dev",
     "rollback": "npx knex migrate:rollback --env dev",
     "testmigrate": "cross-env IS_TEST=true npx knex migrate:latest --env dev"
