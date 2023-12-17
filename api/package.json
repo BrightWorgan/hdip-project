@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon src/app.ts",
     "test": "cross-env IS_TEST=true jest",
+    "coverage": "cross-env IS_TEST=true jest --coverage",
     "migrate": "npx knex migrate:latest --env dev",
     "rollback": "npx knex migrate:rollback --env dev",
     "testmigrate": "cross-env IS_TEST=true npx knex migrate:latest --env dev"
