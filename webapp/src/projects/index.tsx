@@ -7,7 +7,6 @@ import Sheets from "./sheets";
 import util from "../util";
 import toast from "react-hot-toast";
 import ShowDirector from "../common/showDirector";
-import { Button, Container } from "reactstrap";
 
 const Project = () => {
   // state variables
