@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Footer from "./common/Footer";
 import HeaderArea from "./common/headerArea";
@@ -30,6 +30,12 @@ ChartJS.register(
 
 const App = () => {
   const [isLoggedIn, setLogin] = useState<any>(false);
+
+  useEffect(() => {
+    const success = util.fetchToken();
+    setLogin(success);
+  }, []);
+
   const onLogin = async (user: any) => {
     const res = await util.login(user.email, user.password);
     // post/login user email and password
@@ -38,6 +44,11 @@ const App = () => {
     if (res !== false) {
       setLogin(res);
     }
+  };
+
+  const onLogout = () => {
+    setLogin(false);
+    util.clearToken();
   };
 
   if (!isLoggedIn) {
@@ -56,7 +67,7 @@ const App = () => {
     <>
       <Toaster />
       <HeaderArea />
-      <Body />
+      <Body onLogout={onLogout} />
       <Footer />
     </>
   );

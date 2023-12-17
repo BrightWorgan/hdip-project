@@ -33,9 +33,9 @@ const Navbar = (props: NavbarProps) => {
           User Profile
         </NavLink>
       </NavItem>
-      <NavItem onClick={() => props.onClick(Tabs.Settings)}>
-        <NavLink href="#" active={props.tab === Tabs.Settings}>
-          Settings
+      <NavItem onClick={() => props.onClick(Tabs.Logout)}>
+        <NavLink href="#" active={props.tab === Tabs.Logout}>
+          Logout
         </NavLink>
       </NavItem>
     </Nav>
