@@ -20,13 +20,24 @@ export enum Tabs {
   Finds_Table = 8,
   Samples_Table = 9,
   ComingSoon = 10,
+  Logout = 11,
 }
 
-const Body = () => {
+const Body = (props: any) => {
   const [tab, setTab] = useState(Tabs.Home);
+
+  const onChange = (clickedTab: Tabs) => {
+    if (clickedTab !== Tabs.Logout) {
+      setTab(clickedTab);
+    } else {
+      // window.location.reload();
+      props.onLogout();
+    }
+  };
+
   return (
     <div className="ss-body">
-      <Navbar tab={tab} onClick={setTab} />
+      <Navbar tab={tab} onClick={onChange} />
       {tab === Tabs.Home ? <Dashboard /> : null}
 
       {tab === Tabs.Project ? <Project /> : null}
