@@ -1,9 +1,50 @@
-import { Container, Table, Input } from "reactstrap";
+import { useState, useEffect } from "react";
+import {
+  Container,
+  Table,
+  Input,
+  Button,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalFooter,
+} from "reactstrap";
+import util from "../../util";
 
 const FindsTable = (props: any) => {
+  const [selectedFind, setSelectedFind] = useState<any>(null);
+  const [photos, setPhotos] = useState<any[]>([]);
+  const isOpen = selectedFind !== null;
+  const closeModal = () => {
+    setSelectedFind(null);
+  };
+  const openModal = (find: any) => {
+    setSelectedFind(find);
+  };
+
+  useEffect(() => {
+    if (selectedFind === null) {
+      return;
+    }
+    util.get(`/find/photo/${selectedFind.findNumber}`).then(async (result) => {
+      // axios way:
+      setPhotos(result?.data);
+    });
+  }, [isOpen]);
+
   return (
     <Container>
       <h3>Finds Register: </h3>
+
+      <Modal isOpen={isOpen} toggle={closeModal}>
+        <ModalHeader toggle={closeModal}>{"header"}</ModalHeader>
+        <ModalBody>
+          {photos.map((photo) => {
+            return <img alt="" src={photo.uri} width="100%" />;
+          })}
+        </ModalBody>
+        <ModalFooter></ModalFooter>
+      </Modal>
       <Table>
         <thead>
           <tr>
@@ -17,6 +58,7 @@ const FindsTable = (props: any) => {
             <th>Bagged</th>
             <th>Date</th>
             <th>Found by</th>
+            <th>Images</th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +82,9 @@ const FindsTable = (props: any) => {
                 <td>{new Date(find.date).toDateString()}</td>
                 <td>
                   {find.forename + " " + find.surname.substring(0, 1) + "."}
+                </td>
+                <td>
+                  <Button onClick={() => openModal(find)}>Images</Button>
                 </td>
               </tr>
             );

@@ -6,7 +6,7 @@ import FindView from "./src/finds";
 import Header from "./src/header";
 
 const Main = () => (
-  <SafeAreaProvider>
+  <SafeAreaProvider style={{ flex: 1 }}>
     <View style={{ flex: 1 }}>
       <App />
     </View>
@@ -14,13 +14,17 @@ const Main = () => (
 );
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [selectedFind, setSelectedFind] = useState(null);
   if (isLoggedIn) {
     return (
-      <div>
-        <Header />
-        <FindView />
-      </div>
+      <View style={{ flex: 1 }}>
+        <Header onBack={() => setSelectedFind(null)} />
+        <FindView
+          selectedFind={selectedFind}
+          setSelectedFind={setSelectedFind}
+        />
+      </View>
     );
   }
   return <Login onLogin={() => setIsLoggedIn(true)} />;
