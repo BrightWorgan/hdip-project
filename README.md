@@ -1,7 +1,7 @@
 # hdip-project  /  "Sheet Scribe
 
 
-# Live Link <http://....>
+# Live Link : http://sheet-scribe.eu/
 
 
 # Aim: 
