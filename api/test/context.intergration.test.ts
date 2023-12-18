@@ -1,4 +1,3 @@
-import projectController from "../src/controllers/project.controller";
 import contextController from "../src/controllers/context.controller";
 import { getMockRes, getMockReq } from "@jest-mock/express";
 import { faker } from "@faker-js/faker";
@@ -11,7 +10,7 @@ export const createRandomContextThroughAPI = async () => {
   const project = await createRandomProjectThroughAPI();
 
   const projectID = project.projectID;
-  const type = 'Cut';
+  const type = "Cut";
   const description = faker.word.words();
   const soilType = faker.person.fullName();
   const samples = "Yes";
@@ -34,7 +33,7 @@ export const createRandomContextThroughAPI = async () => {
 const createContextThroughAPI = async (data: any) => {
   const ctxReq = getMockReq({
     params: {
-        projectID: data.projectID,
+      projectID: data.projectID,
     },
     body: data,
   });
@@ -55,7 +54,7 @@ describe("Project", () => {
     const project = await createRandomProjectThroughAPI();
 
     const projectID = project.projectID;
-    const type = 'Cut';
+    const type = "Cut";
     const description = faker.word.words();
     const soilType = faker.person.fullName();
     const samples = "Yes";
