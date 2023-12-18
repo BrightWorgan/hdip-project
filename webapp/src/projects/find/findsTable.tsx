@@ -26,7 +26,7 @@ const FindsTable = (props: any) => {
     if (selectedFind === null) {
       return;
     }
-    util.get(`/find/photo/${selectedFind.findNumber}`).then(async (result) => {
+    util.get(`/find/photo/${selectedFind.findNumber}`).then((result) => {
       // axios way:
       setPhotos(result?.data);
     });
@@ -37,10 +37,17 @@ const FindsTable = (props: any) => {
       <h3>Finds Register: </h3>
 
       <Modal isOpen={isOpen} toggle={closeModal}>
-        <ModalHeader toggle={closeModal}>{"header"}</ModalHeader>
+        <ModalHeader toggle={closeModal}>{"Find Image(s):"}</ModalHeader>
         <ModalBody>
           {photos.map((photo) => {
-            return <img alt="" src={photo.uri} width="100%" />;
+            return (
+              <img
+                key={photo.photoID}
+                alt=""
+                src={`data:image/png;base64,${photo.uri}`}
+                width="30%"
+              />
+            );
           })}
         </ModalBody>
         <ModalFooter></ModalFooter>
@@ -84,7 +91,12 @@ const FindsTable = (props: any) => {
                   {find.forename + " " + find.surname.substring(0, 1) + "."}
                 </td>
                 <td>
-                  <Button onClick={() => openModal(find)}>Images</Button>
+                  <Button
+                    className="ss-info-btn"
+                    onClick={() => openModal(find)}
+                  >
+                    Images
+                  </Button>
                 </td>
               </tr>
             );

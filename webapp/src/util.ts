@@ -134,7 +134,7 @@ const clearToken = () => {
   window.localStorage.removeItem("SS_TOKEN");
 };
 
-//
+// check user position
 const isDirector = () => {
   const user = getUser() as any;
   return user?.position === "Director";

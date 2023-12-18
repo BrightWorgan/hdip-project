@@ -29,7 +29,7 @@ const FindView = (props: any) => {
   };
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       {isModalVisible
         ? null
         : finds?.map((find) => {

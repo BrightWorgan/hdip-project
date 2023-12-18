@@ -7,7 +7,6 @@ import util from "../util";
 import toast from "react-hot-toast";
 import { Container } from "reactstrap";
 import ShowDirector from "../common/showDirector";
-// import EditForm from "./editForm";
 
 const Team = () => {
   // state variables
@@ -52,7 +51,6 @@ const Team = () => {
     }
   };
 
-  //
   const editUsers = () => {
     console.log("Trying to edit users");
 
@@ -104,10 +102,9 @@ const Team = () => {
         toggle={onToggle}
         isOpen={isOpen}
         onAdd={addUser}
-        onEdit={editUsers}
+        // onEdit={editUsers}
       >
         <AddForm onSubmit={addUser} toggle={onToggle} />
-        {/* <EditForm onSubmit={editUsers} toggle={onToggle} /> */}
       </ModalBackdrop>
     </Container>
   );

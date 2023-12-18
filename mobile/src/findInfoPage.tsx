@@ -54,7 +54,9 @@ const FindInfo = (props: any) => {
       base64: true,
     });
 
-    const uri = result?.assets?.[0].uri;
+    console.log(result);
+
+    const uri = result?.assets?.[0].base64;
     if (!uri) {
       return;
     }
@@ -70,14 +72,14 @@ const FindInfo = (props: any) => {
     <View style={{ flex: 1 }}>
       <TextInput
         label="Context Number "
-        value={context}
+        value={context.toString()}
         editable={false}
         onChangeText={(text) => setText(text)}
         style={{ backgroundColor: "#e6e5e3" }}
       />
       <TextInput
         label="Fill Number"
-        value={fillNumber}
+        value={fillNumber.toString()}
         editable={false}
         onChangeText={(text) => setFillNumber(text)}
         style={{ backgroundColor: "#e6e5e3" }}
@@ -124,7 +126,7 @@ const FindInfo = (props: any) => {
       </Button>
       {photos.map((photo) => (
         <Image
-          source={{ uri: photo?.uri }}
+          source={{ uri: `data:image/png;base64,${photo?.uri}` }}
           style={{ width: "100%", height: 100 }}
         />
       ))}

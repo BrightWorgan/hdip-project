@@ -53,7 +53,6 @@ const FindRegister = (props: any) => {
   };
 
   // Context EDIT --> TO DO
-  //
 
   // Context Delete
   const removeFind = () => {
@@ -73,6 +72,7 @@ const FindRegister = (props: any) => {
       <FAB
         name="Find"
         onAdd={onToggle}
+        onEdit={onToggle}
         /*onRemove={() => onRemove()}*/ onRemove={removeFind}
       />
       <ModalBackdrop
