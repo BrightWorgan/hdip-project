@@ -25,7 +25,7 @@ const AddForm = (props: any) => {
       drive: e?.target?.drive?.value,
       position: e?.target?.position.value,
       site: e?.target?.site?.value,
-      password: e?.target.password.value,
+      password: e?.target?.password.value,
     };
 
     // validation
@@ -163,8 +163,8 @@ const AddForm = (props: any) => {
               <option>Safe Pass</option>
               <option>Manual Handling</option>
               <option>First Aid</option>
-              <option>All</option>
-              <option>None</option>
+              {/* <option>All</option>
+              <option>None</option> */}
             </Input>
           </FormGroup>
         </Col>

@@ -4,7 +4,6 @@ const UserProfile = () => {
   return (
     <div>
       <br />
-      {/* <h4>User Profile:</h4> */}
       <ProfileCard />
       <br />
     </div>

@@ -73,7 +73,7 @@ const FindRegister = (props: any) => {
         name="Find"
         onAdd={onToggle}
         onEdit={onToggle}
-        /*onRemove={() => onRemove()}*/ onRemove={removeFind}
+        onRemove={removeFind}
       />
       <ModalBackdrop
         header="Add Find to Regisiter"
