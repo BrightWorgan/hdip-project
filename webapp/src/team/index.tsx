@@ -51,9 +51,9 @@ const Team = () => {
     }
   };
 
+  //TO DO:
   const editUsers = () => {
     console.log("Trying to edit users");
-
     // util.patch("/user", idArray);
     toast("Team Member Sucessfully Updated");
     setSelectedUsers([]);

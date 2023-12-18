@@ -75,7 +75,12 @@ const ContextRegister = (props: any) => {
     <div>
       <h4>Context Register:</h4>
       <ContextTable contexts={allContext} onChecked={onChecked} />
-      <FAB name="Context" onAdd={onToggle} onRemove={() => onRemove()} />
+      <FAB
+        name="Context"
+        onAdd={onToggle}
+        onEdit={onToggle}
+        onRemove={() => onRemove()}
+      />
       <ModalBackdrop
         header="Add to the Context Regisiter"
         toggle={onToggle}

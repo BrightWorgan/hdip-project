@@ -8,12 +8,6 @@ const ComingSoon = () => {
       <h2>This page is coming soon ...</h2>
       <div>
         <Container>
-          <h3>____ Register: </h3>
-          <h6>Project Name: </h6>
-          <h6>Project ID: </h6>
-          <h6>Site Name: </h6>
-          <h6>Licence Number: </h6>
-          <h6>Area: </h6>
           <Table>
             <thead>
               <tr>
