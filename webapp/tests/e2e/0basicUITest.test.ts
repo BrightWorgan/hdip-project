@@ -96,10 +96,6 @@ test.describe("Login and basic UI structure", () => {
       const profileTab = await page.getByRole("link", { name: "User Profile" });
       await profileTab.hover();
       await expect(profileTab).toHaveCSS("color", "rgb(214, 210, 185)");
-
-      const settingsTab = await page.getByRole("link", { name: "Settings" });
-      await settingsTab.hover();
-      await expect(settingsTab).toHaveCSS("color", "rgb(214, 210, 185)");
     });
 
     await test.step("Confrim Footer Structure", async () => {

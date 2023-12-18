@@ -1,8 +1,10 @@
 import axios from "axios";
 import Toast from "react-native-toast-message";
-import { API_URL } from "@env";
+// import { API_URL } from "@env";
 import { jwtDecode } from "jwt-decode";
 let token: string | undefined;
+
+const API_URL = "http://10.0.2.2:3000";
 
 const TOKEN_KEY = "SS_TOKEN_KEY";
 
