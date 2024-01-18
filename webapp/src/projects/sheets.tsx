@@ -5,7 +5,8 @@ import { Container } from "reactstrap";
 import { useState } from "react";
 import Views from "./views.enum";
 import FindRegister from "./find/findRegisterPage";
-import ComingSoon from "../common/comingSoon";
+// import ComingSoon from "../common/comingSoon";
+import SamplePage from "./sample/samplePage";
 
 const Sheets = (props: any) => {
   // use state variable
@@ -27,7 +28,8 @@ const Sheets = (props: any) => {
   }
 
   if (view === Views.samples) {
-    CurrentView = ComingSoon;
+    // CurrentView = ComingSoon;
+    CurrentView = SamplePage;
   }
 
   return (
