@@ -21,6 +21,10 @@ const AllReportCards = (props: any) => {
     props.onViewChange(Views.finds);
   };
 
+  const samplesClick = () => {
+    props.onViewChange(Views.samples);
+  };
+
   const cards = [
     {
       title: "Context Register",
@@ -111,7 +115,10 @@ const AllReportCards = (props: any) => {
                     Li Europan lingues es membres del sam familie. Lor separat
                     existentie es un myth. Por scientie, musi
                   </CardText>
-                  <Button color="disabled">Coming Soon ....</Button>
+                  {/* <Button color="disabled">Coming Soon ....</Button> */}
+                  <Button className="ss-info-btn" onClick={samplesClick}>
+                    View Samples
+                  </Button>
                 </CardBody>
               </Card>
             </Col>
