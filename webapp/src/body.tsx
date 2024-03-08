@@ -4,7 +4,7 @@ import Navbar from "./common/Navbar";
 import Team from "./team";
 import Project from "./projects";
 import UserProfile from "./userProfile";
-import LoginDemo from "./settings";
+// import LoginDemo from "./settings";
 import ComingSoon from "./common/comingSoon";
 import Dashboard from "./home/dashboard";
 
@@ -30,7 +30,7 @@ const Body = (props: any) => {
     if (clickedTab !== Tabs.Logout) {
       setTab(clickedTab);
     } else {
-      // window.location.reload();
+      window.location.reload();
       props.onLogout();
     }
   };
@@ -46,7 +46,7 @@ const Body = (props: any) => {
 
       {tab === Tabs.User_Profile ? <UserProfile /> : null}
 
-      {tab === Tabs.Settings ? <LoginDemo /> : null}
+      {/* {tab === Tabs.Settings ? <LoginDemo /> : null} */}
 
       {tab === Tabs.ComingSoon ? <ComingSoon /> : null}
     </div>

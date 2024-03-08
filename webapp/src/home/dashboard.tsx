@@ -10,7 +10,7 @@ const Dashboard = () => {
   });
   useEffect(() => {
     util.get("/stats").then((res) => {
-      setStats(res?.data);
+      // setStats(res?.data || []);
     });
   }, []);
   const projectLabels = stats.projectStats.map((stat) => stat.contract);

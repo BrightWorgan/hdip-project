@@ -87,7 +87,7 @@ const Team = () => {
         users={users}
         onChecked={onChecked}
         onPrev={offset === 0 ? null : prev}
-        onNext={users.length < 20 ? null : next}
+        onNext={users?.length < 20 ? null : next}
       />
       <ShowDirector>
         <FAB
@@ -102,7 +102,7 @@ const Team = () => {
         toggle={onToggle}
         isOpen={isOpen}
         onAdd={addUser}
-        // onEdit={editUsers}
+      // onEdit={editUsers}
       >
         <AddForm onSubmit={addUser} toggle={onToggle} />
       </ModalBackdrop>

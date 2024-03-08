@@ -32,6 +32,7 @@ const AddForm = (props: any) => {
     try {
       const validatedUser = await teamSchema.validate(user);
       setError("");
+      console.log(validatedUser)
       props.onSubmit(validatedUser);
     } catch (error: any) {
       setError(error.message);

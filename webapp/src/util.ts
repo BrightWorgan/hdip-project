@@ -72,12 +72,14 @@ const patch = async (endpoint: string, payload?: any | undefined) => {
 
 const post = async (endpoint: string, payload: any) => {
   try {
+    console.log(import.meta.env.VITE_API_URL + endpoint);
     await axios.post(import.meta.env.VITE_API_URL + endpoint, payload, {
       headers: {
         Authorization: token,
       },
     });
   } catch (error: any) {
+    console.log(error);
     toast.error(error.message);
   }
 };

@@ -39,6 +39,7 @@ const LoginForm = (props: any) => {
             <CardTitle className="ss-login-card-title">Login</CardTitle>
             Email
             <Input
+              testid="emailInput"
               id="email"
               name="email"
               placeholder="Email Addresss"
@@ -46,6 +47,7 @@ const LoginForm = (props: any) => {
             ></Input>
             Password
             <Input
+              testid="passwordInput"
               id="password"
               name="password"
               placeholder="Password..."
